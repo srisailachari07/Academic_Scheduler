@@ -1192,7 +1192,7 @@ function getSubject(sem, code) { return getAllSubjects(sem).find(s=>s.code===cod
 /* ═══════════════════════════════════════
    PERSISTENCE
    ═══════════════════════════════════════ */
-const API = window.location.port === '3000' ? '' : 'http://localhost:3000';
+const API = window.location.port === '3000' ? '' : 'https://academic-scheduler-2wxz.onrender.com';
 let _backendOnline = false;
 async function checkBackend() {
   try {
@@ -2950,4 +2950,4 @@ App.saveInstructors = async function() {
 };
 </script>
 </body>
-</html>
+</html>

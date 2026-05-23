@@ -235,7 +235,7 @@ function getSubject(sem, code) { return getAllSubjects(sem).find(s=>s.code===cod
 
    ═══════════════════════════════════════ */
 
-const API = typeof window !== 'undefined' && window.location.port === '3000' ? '' : 'http://localhost:3000';
+const API = typeof window !== 'undefined' && window.location.port === '3000' ? '' : 'https://academic-scheduler-2wxz.onrender.com';
 
 let _backendOnline = false;
 
