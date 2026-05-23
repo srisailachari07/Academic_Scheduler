@@ -1,0 +1,4740 @@
+{
+  "currentSemId": "Y2-S2-2024",
+  "currentDay": "Tue",
+  "semesters": [
+    {
+      "id": "Y2-S2-2024",
+      "sem": 2,
+      "year": 2,
+      "label": "Year 2 · Sem 2 · 2024",
+      "cohort": "2024",
+      "shuffle": false,
+      "schedule": {
+        "_shuffleMode": true,
+        "Mon": {
+          "Section-1": {
+            "P1": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "ENG_2P",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "BTNX234",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "MATH_2P",
+              "instructor": "DILEEP KUMAR",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P7": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          },
+          "Section-2": {
+            "P3": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "ENG_2P",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX234",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P7": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
+              "code": "MATH_2P",
+              "instructor": "DILEEP KUMAR",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          },
+          "Section-3": {
+            "P5": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "ENG_2P",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
+              "code": "BTNX234",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "MATH_2P",
+              "instructor": "DILEEP KUMAR",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          }
+        },
+        "Tue": {
+          "Section-1": {
+            "P3": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          },
+          "Section-2": {
+            "P5": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P7": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          },
+          "Section-3": {
+            "P8": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P7": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          }
+        },
+        "Wed": {
+          "Section-1": {
+            "P1": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "BTNX234",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P7": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "MATH_2P",
+              "instructor": "DILEEP KUMAR",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          },
+          "Section-2": {
+            "P4": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "BTNX234",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "MATH_2P",
+              "instructor": "DILEEP KUMAR",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          },
+          "Section-3": {
+            "P6": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
+              "code": "BTNX234",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "MATH_2P",
+              "instructor": "DILEEP KUMAR",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          }
+        },
+        "Thu": {
+          "Section-1": {
+            "P3": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P7": {
+              "code": "ENG_2P",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            }
+          },
+          "Section-2": {
+            "P4": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "ENG_2P",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          },
+          "Section-3": {
+            "P5": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "ENG_2P",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            }
+          }
+        },
+        "Fri": {
+          "Section-1": {
+            "P2": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          },
+          "Section-2": {
+            "P5": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          },
+          "Section-3": {
+            "P8": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P7": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            }
+          }
+        }
+      },
+      "sections": [
+        "Section-1",
+        "Section-2",
+        "Section-3"
+      ],
+      "subjects": [
+        {
+          "code": "BTNX221",
+          "name": "Data Structures Using C++",
+          "type": "lecture",
+          "color": "#b91c1c",
+          "textColor": "#ffffff",
+          "instructor": "SATYA APARNA",
+          "labPerWeek": 0,
+          "lecPerWeek": 4
+        },
+        {
+          "code": "BTNX222",
+          "name": "Data Structures Using C++ Laboratory",
+          "type": "lab",
+          "color": "#fbbf24",
+          "textColor": "#ffffff",
+          "instructor": "SATYA APARNA",
+          "labPerWeek": 4,
+          "lecPerWeek": 0
+        },
+        {
+          "code": "BTNX231",
+          "name": "Frontend Full Stack Development",
+          "type": "lecture",
+          "color": "#ffadad",
+          "textColor": "#1a1a1a",
+          "instructor": "PALLAVI B",
+          "labPerWeek": 0,
+          "lecPerWeek": 3
+        },
+        {
+          "code": "BTNX232",
+          "name": "Frontend Full Stack Development Laboratory",
+          "type": "lab",
+          "color": "#ffc6ff",
+          "textColor": "#ffffff",
+          "instructor": "PALLAVI B",
+          "labPerWeek": 3,
+          "lecPerWeek": 0
+        },
+        {
+          "code": "BTNX233",
+          "name": "Database Systems",
+          "type": "lecture",
+          "color": "#48cae4",
+          "textColor": "#1a1a1a",
+          "instructor": "PALLAVI B",
+          "labPerWeek": 0,
+          "lecPerWeek": 2
+        },
+        {
+          "code": "BTNX234",
+          "name": "Database Systems Laboratory",
+          "type": "lab",
+          "color": "#2dd4bf",
+          "textColor": "#ffffff",
+          "instructor": "PALLAVI B",
+          "labPerWeek": 2,
+          "lecPerWeek": 0
+        },
+        {
+          "code": "BTNX223",
+          "name": "Building LLM Applications",
+          "type": "lecture",
+          "color": "#818cf8",
+          "textColor": "#ffffff",
+          "instructor": "SUSHMITHA AMARNATH",
+          "labPerWeek": 0,
+          "lecPerWeek": 3
+        },
+        {
+          "code": "BTNX212",
+          "name": "Mathematics 2",
+          "type": "lecture",
+          "color": "#d946ef",
+          "textColor": "#ffffff",
+          "instructor": "DILEEP KUMAR",
+          "labPerWeek": 0,
+          "lecPerWeek": 3
+        },
+        {
+          "code": "MATH_2P",
+          "name": "Mathematics 2",
+          "type": "practice",
+          "color": "#4338ca",
+          "textColor": "#ffffff",
+          "instructor": "DILEEP KUMAR",
+          "labPerWeek": 2,
+          "lecPerWeek": 0
+        },
+        {
+          "code": "BTNX211",
+          "name": "English Advanced",
+          "type": "lecture",
+          "color": "#f97316",
+          "textColor": "#ffffff",
+          "instructor": "FEBI MARIAM JOHN",
+          "labPerWeek": 0,
+          "lecPerWeek": 2
+        },
+        {
+          "code": "ENG_2P",
+          "name": "English Advanced",
+          "type": "practice",
+          "color": "#0369a1",
+          "textColor": "#ffffff",
+          "instructor": "FEBI MARIAM JOHN",
+          "labPerWeek": 2,
+          "lecPerWeek": 0
+        }
+      ],
+      "_unplaced": 0,
+      "fixedSlots": [
+        {
+          "code": "YOGA201",
+          "name": "Application of yoga in mind body management YOGA201",
+          "color": "#f8a5c2",
+          "isFixed": true,
+          "textColor": "#1a1a1a",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "code": "COIN201",
+          "name": "COIN201",
+          "color": "#748ffc",
+          "isFixed": true,
+          "textColor": "#ffffff",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "code": "MODQUIZ",
+          "name": "Module Quiz",
+          "color": "#74c0fc",
+          "isFixed": true,
+          "textColor": "#1a1a1a",
+          "instructor": ""
+        },
+        {
+          "code": "SPORTS",
+          "name": "Sports",
+          "color": "#69db7c",
+          "isFixed": true,
+          "textColor": "#1a1a1a",
+          "instructor": ""
+        },
+        {
+          "code": "LIBRARY",
+          "name": "Library",
+          "color": "#ff922b",
+          "isFixed": true,
+          "textColor": "#ffffff",
+          "instructor": ""
+        },
+        {
+          "code": "MENTOR",
+          "name": "Mentoring",
+          "color": "#ffd43b",
+          "topic": "SC 1:1\nUniversity allotted slot for interactions",
+          "isFixed": true,
+          "textColor": "#1a1a1a",
+          "instructor": ""
+        },
+        {
+          "code": "INTASSESS",
+          "name": "Internal Assessments",
+          "color": "#b197fc",
+          "isFixed": true,
+          "textColor": "#ffffff",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "code": "MIDTERM",
+          "name": "Mid Term Exams",
+          "color": "#ff8787",
+          "isFixed": true,
+          "textColor": "#ffffff",
+          "instructor": "UNIVERSITY FACULTY"
+        }
+      ],
+      "_imbalanced": [],
+      "_unplacedRounds": [],
+      "fixedPlacements": [],
+      "_capacityWarnings": []
+    }
+  ],
+  "_editCtx": {
+    "day": "Fri",
+    "section": "Section-3",
+    "periodId": "P1"
+  },
+  "universities": [
+    {
+      "id": "U1",
+      "name": "Stitch Enterprise Academic University",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U2",
+      "name": "Apex Technology Institute",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U3",
+      "name": "Stitch University of Science",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U4",
+      "name": "Summit Research University",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      },
+      "semesters": []
+    },
+    {
+      "id": "U5",
+      "name": "Beacon Hill College",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U6",
+      "name": "Vanguard Engineering Academy",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U7",
+      "name": "Meridian State University",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U8",
+      "name": "Pacific Crest University",
+      "periods": [
+        {
+          "id": "P1",
+          "end": "09:50",
+          "num": 1,
+          "type": "teaching",
+          "label": "09:00–09:50",
+          "start": "09:00"
+        },
+        {
+          "id": "P2",
+          "end": "10:40",
+          "num": 2,
+          "type": "teaching",
+          "label": "09:50–10:40",
+          "start": "09:50"
+        },
+        {
+          "id": "SB1",
+          "end": "10:50",
+          "name": "Short Break",
+          "type": "break",
+          "label": "10:40–10:50",
+          "start": "10:40"
+        },
+        {
+          "id": "P3",
+          "end": "11:40",
+          "num": 3,
+          "type": "teaching",
+          "label": "10:50–11:40",
+          "start": "10:50"
+        },
+        {
+          "id": "P4",
+          "end": "12:30",
+          "num": 4,
+          "type": "teaching",
+          "label": "11:40–12:30",
+          "start": "11:40"
+        },
+        {
+          "id": "LB",
+          "end": "13:10",
+          "name": "Lunch",
+          "type": "lunch",
+          "label": "12:30–13:10",
+          "start": "12:30"
+        },
+        {
+          "id": "P5",
+          "end": "14:00",
+          "num": 5,
+          "type": "teaching",
+          "label": "13:10–14:00",
+          "start": "13:10"
+        },
+        {
+          "id": "P6",
+          "end": "14:50",
+          "num": 6,
+          "type": "teaching",
+          "label": "14:00–14:50",
+          "start": "14:00"
+        },
+        {
+          "id": "SB2",
+          "end": "15:00",
+          "name": "Short Break",
+          "type": "break",
+          "label": "14:50–15:00",
+          "start": "14:50"
+        },
+        {
+          "id": "P7",
+          "end": "15:50",
+          "num": 7,
+          "type": "teaching",
+          "label": "15:00–15:50",
+          "start": "15:00"
+        },
+        {
+          "id": "P8",
+          "end": "16:40",
+          "num": 8,
+          "type": "teaching",
+          "label": "15:50–16:40",
+          "start": "15:50"
+        }
+      ],
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      },
+      "semesters": [
+        {
+          "id": "Y2-S2-2024",
+          "sem": 2,
+          "year": 2,
+          "label": "Year 2 · Sem 2 · 2024",
+          "cohort": "2024",
+          "schedule": {},
+          "sections": [
+            "Section-1",
+            "Section-2",
+            "Section-3"
+          ],
+          "subjects": [
+            {
+              "code": "BTNX221",
+              "name": "Data Structures Using C++",
+              "type": "lecture",
+              "color": "#b91c1c",
+              "textColor": "#ffffff",
+              "instructor": "SATYA APARNA",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "BTNX222",
+              "name": "Data Structures Using C++ Laboratory",
+              "type": "lab",
+              "color": "#fbbf24",
+              "textColor": "#ffffff",
+              "instructor": "SATYA APARNA",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX231",
+              "name": "Frontend Full Stack Development",
+              "type": "lecture",
+              "color": "#ffadad",
+              "textColor": "#1a1a1a",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "BTNX232",
+              "name": "Frontend Full Stack Development Laboratory",
+              "type": "lab",
+              "color": "#ffc6ff",
+              "textColor": "#ffffff",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX233",
+              "name": "Database Systems",
+              "type": "lecture",
+              "color": "#48cae4",
+              "textColor": "#1a1a1a",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 0,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX234",
+              "name": "Database Systems Laboratory",
+              "type": "lab",
+              "color": "#2dd4bf",
+              "textColor": "#ffffff",
+              "instructor": "SUSHMITHA AMARNATH",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX223",
+              "name": "Building LLM Applications",
+              "type": "lecture",
+              "color": "#818cf8",
+              "textColor": "#ffffff",
+              "instructor": "SUSHMITHA AMARNATH",
+              "labPerWeek": 0,
+              "lecPerWeek": 1
+            },
+            {
+              "code": "BTNX212",
+              "name": "Mathematics 2",
+              "type": "lecture",
+              "color": "#d946ef",
+              "textColor": "#ffffff",
+              "instructor": "DILEEP KUMAR",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "MATH_2P",
+              "name": "Mathematics 2",
+              "type": "practice",
+              "color": "#4338ca",
+              "textColor": "#ffffff",
+              "instructor": "DILEEP KUMAR",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX211",
+              "name": "English Advanced",
+              "type": "lecture",
+              "color": "#f97316",
+              "textColor": "#ffffff",
+              "instructor": "FEBI MARIAM JOHN",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "ENG_2P",
+              "name": "English Advanced",
+              "type": "practice",
+              "color": "#0369a1",
+              "textColor": "#ffffff",
+              "instructor": "FEBI MARIAM JOHN",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            }
+          ],
+          "fixedSlots": [
+            {
+              "code": "YOGA201",
+              "name": "Application of yoga in mind body management YOGA201",
+              "color": "#f8a5c2",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "COIN201",
+              "name": "COIN201",
+              "color": "#748ffc",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "MODQUIZ",
+              "name": "Module Quiz",
+              "color": "#74c0fc",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "SPORTS",
+              "name": "Sports",
+              "color": "#69db7c",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "LIBRARY",
+              "name": "Library",
+              "color": "#ff922b",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": ""
+            },
+            {
+              "code": "MENTOR",
+              "name": "Mentoring",
+              "color": "#ffd43b",
+              "topic": "SC 1:1\nUniversity allotted slot for interactions",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "INTASSESS",
+              "name": "Internal Assessments",
+              "color": "#b197fc",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "MIDTERM",
+              "name": "Mid Term Exams",
+              "color": "#ff8787",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            }
+          ],
+          "fixedPlacements": [
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "YOGA201",
+              "section": "Section-1",
+              "periodId": "P3",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Mon",
+              "code": "YOGA201",
+              "section": "Section-2",
+              "periodId": "P5",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Tue",
+              "code": "YOGA201",
+              "section": "Section-3",
+              "periodId": "P3",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Thu",
+              "code": "COIN201",
+              "section": "Section-1",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Mon",
+              "code": "COIN201",
+              "section": "Section-2",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Tue",
+              "code": "COIN201",
+              "section": "Section-3",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Wed",
+              "code": "SPORTS",
+              "section": "Section-1",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "SPORTS",
+              "section": "Section-2",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "SPORTS",
+              "section": "Section-3",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "LIBRARY",
+              "section": "Section-1",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "LIBRARY",
+              "section": "Section-2",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "LIBRARY",
+              "section": "Section-3",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MENTOR",
+              "section": "Section-1",
+              "periodId": "P5",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MENTOR",
+              "section": "Section-2",
+              "periodId": "P5",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MENTOR",
+              "section": "Section-3",
+              "periodId": "P5",
+              "instructor": ""
+            }
+          ]
+        }
+      ],
+      "instructors": {},
+      "currentSemId": "Y2-S2-2024"
+    },
+    {
+      "id": "U11",
+      "name": "Cascade Culinary Institute",
+      "periods": [
+        {
+          "id": "P1",
+          "end": "09:50",
+          "num": 1,
+          "type": "teaching",
+          "label": "09:00–09:50",
+          "start": "09:00"
+        },
+        {
+          "id": "P2",
+          "end": "10:40",
+          "num": 2,
+          "type": "teaching",
+          "label": "09:50–10:40",
+          "start": "09:50"
+        },
+        {
+          "id": "SB1",
+          "end": "10:50",
+          "name": "Short Break",
+          "type": "break",
+          "label": "10:40–10:50",
+          "start": "10:40"
+        },
+        {
+          "id": "P3",
+          "end": "11:40",
+          "num": 3,
+          "type": "teaching",
+          "label": "10:50–11:40",
+          "start": "10:50"
+        },
+        {
+          "id": "P4",
+          "end": "12:30",
+          "num": 4,
+          "type": "teaching",
+          "label": "11:40–12:30",
+          "start": "11:40"
+        },
+        {
+          "id": "LB",
+          "end": "13:10",
+          "name": "Lunch",
+          "type": "lunch",
+          "label": "12:30–13:10",
+          "start": "12:30"
+        },
+        {
+          "id": "P5",
+          "end": "14:00",
+          "num": 5,
+          "type": "teaching",
+          "label": "13:10–14:00",
+          "start": "13:10"
+        },
+        {
+          "id": "P6",
+          "end": "14:50",
+          "num": 6,
+          "type": "teaching",
+          "label": "14:00–14:50",
+          "start": "14:00"
+        },
+        {
+          "id": "SB2",
+          "end": "15:00",
+          "name": "Short Break",
+          "type": "break",
+          "label": "14:50–15:00",
+          "start": "14:50"
+        },
+        {
+          "id": "P7",
+          "end": "15:50",
+          "num": 7,
+          "type": "teaching",
+          "label": "15:00–15:50",
+          "start": "15:00"
+        }
+      ],
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      },
+      "semesters": [
+        {
+          "id": "Y2-S2-2024",
+          "sem": 2,
+          "year": 2,
+          "label": "Year 2 · Sem 2 · 2024",
+          "cohort": "2024",
+          "schedule": {},
+          "sections": [
+            "Section-1",
+            "Section-2",
+            "Section-3"
+          ],
+          "subjects": [
+            {
+              "code": "BTNX221",
+              "name": "Data Structures Using C++",
+              "type": "lecture",
+              "color": "#b91c1c",
+              "textColor": "#ffffff",
+              "instructor": "SATYA APARNA",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "BTNX222",
+              "name": "Data Structures Using C++ Laboratory",
+              "type": "lab",
+              "color": "#fbbf24",
+              "textColor": "#ffffff",
+              "instructor": "SATYA APARNA",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX231",
+              "name": "Frontend Full Stack Development",
+              "type": "lecture",
+              "color": "#ffadad",
+              "textColor": "#1a1a1a",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "BTNX232",
+              "name": "Frontend Full Stack Development Laboratory",
+              "type": "lab",
+              "color": "#ffc6ff",
+              "textColor": "#ffffff",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX233",
+              "name": "Database Systems",
+              "type": "lecture",
+              "color": "#48cae4",
+              "textColor": "#1a1a1a",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 0,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX234",
+              "name": "Database Systems Laboratory",
+              "type": "lab",
+              "color": "#2dd4bf",
+              "textColor": "#ffffff",
+              "instructor": "SUSHMITHA AMARNATH",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX223",
+              "name": "Building LLM Applications",
+              "type": "lecture",
+              "color": "#818cf8",
+              "textColor": "#ffffff",
+              "instructor": "SUSHMITHA AMARNATH",
+              "labPerWeek": 0,
+              "lecPerWeek": 1
+            },
+            {
+              "code": "BTNX212",
+              "name": "Mathematics 2",
+              "type": "lecture",
+              "color": "#d946ef",
+              "textColor": "#ffffff",
+              "instructor": "DILEEP KUMAR",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "MATH_2P",
+              "name": "Mathematics 2",
+              "type": "practice",
+              "color": "#4338ca",
+              "textColor": "#ffffff",
+              "instructor": "DILEEP KUMAR",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX211",
+              "name": "English Advanced",
+              "type": "lecture",
+              "color": "#f97316",
+              "textColor": "#ffffff",
+              "instructor": "FEBI MARIAM JOHN",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "ENG_2P",
+              "name": "English Advanced",
+              "type": "practice",
+              "color": "#0369a1",
+              "textColor": "#ffffff",
+              "instructor": "FEBI MARIAM JOHN",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            }
+          ],
+          "fixedSlots": [
+            {
+              "code": "YOGA201",
+              "name": "Application of yoga in mind body management YOGA201",
+              "color": "#f8a5c2",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "COIN201",
+              "name": "COIN201",
+              "color": "#748ffc",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "MODQUIZ",
+              "name": "Module Quiz",
+              "color": "#74c0fc",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "SPORTS",
+              "name": "Sports",
+              "color": "#69db7c",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "LIBRARY",
+              "name": "Library",
+              "color": "#ff922b",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": ""
+            },
+            {
+              "code": "MENTOR",
+              "name": "Mentoring",
+              "color": "#ffd43b",
+              "topic": "SC 1:1\nUniversity allotted slot for interactions",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "INTASSESS",
+              "name": "Internal Assessments",
+              "color": "#b197fc",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "MIDTERM",
+              "name": "Mid Term Exams",
+              "color": "#ff8787",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            }
+          ],
+          "fixedPlacements": [
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "YOGA201",
+              "section": "Section-1",
+              "periodId": "P3",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Mon",
+              "code": "YOGA201",
+              "section": "Section-2",
+              "periodId": "P5",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Tue",
+              "code": "YOGA201",
+              "section": "Section-3",
+              "periodId": "P3",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Thu",
+              "code": "COIN201",
+              "section": "Section-1",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Mon",
+              "code": "COIN201",
+              "section": "Section-2",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Tue",
+              "code": "COIN201",
+              "section": "Section-3",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Wed",
+              "code": "SPORTS",
+              "section": "Section-1",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "SPORTS",
+              "section": "Section-2",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "SPORTS",
+              "section": "Section-3",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "LIBRARY",
+              "section": "Section-1",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "LIBRARY",
+              "section": "Section-2",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "LIBRARY",
+              "section": "Section-3",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MENTOR",
+              "section": "Section-1",
+              "periodId": "P5",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MENTOR",
+              "section": "Section-2",
+              "periodId": "P5",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MENTOR",
+              "section": "Section-3",
+              "periodId": "P5",
+              "instructor": ""
+            }
+          ]
+        }
+      ],
+      "instructors": {},
+      "currentSemId": "Y2-S2-2024"
+    },
+    {
+      "id": "U12",
+      "name": "Apex Medical College",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U13",
+      "name": "Pinnacle Flight Academy",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U14",
+      "name": "Liberty Law School",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U15",
+      "name": "Zenith Arts & Science College",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U16",
+      "name": "Nova Maritime University",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U17",
+      "name": "Horizon Engineering College",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U18",
+      "name": "Vanguard Business Academy",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U19",
+      "name": "Equinox Theological Seminary",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U20",
+      "name": "Elysian Music Conservatory",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U21",
+      "name": "Fortis Military Institute",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U22",
+      "name": "Pacific Crest University",
+      "periods": [
+        {
+          "id": "P2",
+          "end": "10:40",
+          "num": 2,
+          "type": "teaching",
+          "label": "09:50–10:40",
+          "start": "09:50"
+        },
+        {
+          "id": "SB1",
+          "end": "10:50",
+          "name": "Short Break",
+          "type": "break",
+          "label": "10:40–10:50",
+          "start": "10:40"
+        },
+        {
+          "id": "P3",
+          "end": "11:40",
+          "num": 3,
+          "type": "teaching",
+          "label": "10:50–11:40",
+          "start": "10:50"
+        },
+        {
+          "id": "P4",
+          "end": "12:30",
+          "num": 4,
+          "type": "teaching",
+          "label": "11:40–12:30",
+          "start": "11:40"
+        },
+        {
+          "id": "LB",
+          "end": "13:10",
+          "name": "Lunch",
+          "type": "lunch",
+          "label": "12:30–13:10",
+          "start": "12:30"
+        },
+        {
+          "id": "P5",
+          "end": "14:00",
+          "num": 5,
+          "type": "teaching",
+          "label": "13:10–14:00",
+          "start": "13:10"
+        },
+        {
+          "id": "P6",
+          "end": "14:50",
+          "num": 6,
+          "type": "teaching",
+          "label": "14:00–14:50",
+          "start": "14:00"
+        },
+        {
+          "id": "SB2",
+          "end": "15:00",
+          "name": "Short Break",
+          "type": "break",
+          "label": "14:50–15:00",
+          "start": "14:50"
+        },
+        {
+          "id": "P7",
+          "end": "15:50",
+          "num": 7,
+          "type": "teaching",
+          "label": "15:00–15:50",
+          "start": "15:00"
+        },
+        {
+          "id": "P8",
+          "end": "16:40",
+          "num": 8,
+          "type": "teaching",
+          "label": "15:50–16:40",
+          "start": "15:50"
+        }
+      ],
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "name": "",
+          "start": ""
+        },
+        "P2": {
+          "end": "10:40",
+          "name": "",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "name": "",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "name": "",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "name": "",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "name": "",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "name": "",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "name": "",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      },
+      "semesters": [
+        {
+          "id": "Y2-S2-2024",
+          "sem": 2,
+          "year": 2,
+          "label": "Year 2 · Sem 2 · 2024",
+          "cohort": "2024",
+          "schedule": {},
+          "sections": [
+            "Section-1",
+            "Section-2",
+            "Section-3"
+          ],
+          "subjects": [
+            {
+              "code": "BTNX221",
+              "name": "Data Structures Using C++",
+              "type": "lecture",
+              "color": "#b91c1c",
+              "textColor": "#ffffff",
+              "instructor": "SATYA APARNA",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "BTNX222",
+              "name": "Data Structures Using C++ Laboratory",
+              "type": "lab",
+              "color": "#fbbf24",
+              "textColor": "#ffffff",
+              "instructor": "SATYA APARNA",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX231",
+              "name": "Frontend Full Stack Development",
+              "type": "lecture",
+              "color": "#ffadad",
+              "textColor": "#1a1a1a",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "BTNX232",
+              "name": "Frontend Full Stack Development Laboratory",
+              "type": "lab",
+              "color": "#ffc6ff",
+              "textColor": "#ffffff",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX233",
+              "name": "Database Systems",
+              "type": "lecture",
+              "color": "#48cae4",
+              "textColor": "#1a1a1a",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 0,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX234",
+              "name": "Database Systems Laboratory",
+              "type": "lab",
+              "color": "#2dd4bf",
+              "textColor": "#ffffff",
+              "instructor": "SUSHMITHA AMARNATH",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX223",
+              "name": "Building LLM Applications",
+              "type": "lecture",
+              "color": "#818cf8",
+              "textColor": "#ffffff",
+              "instructor": "SUSHMITHA AMARNATH",
+              "labPerWeek": 0,
+              "lecPerWeek": 1
+            },
+            {
+              "code": "BTNX212",
+              "name": "Mathematics 2",
+              "type": "lecture",
+              "color": "#d946ef",
+              "textColor": "#ffffff",
+              "instructor": "DILEEP KUMAR",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "MATH_2P",
+              "name": "Mathematics 2",
+              "type": "practice",
+              "color": "#4338ca",
+              "textColor": "#ffffff",
+              "instructor": "DILEEP KUMAR",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX211",
+              "name": "English Advanced",
+              "type": "lecture",
+              "color": "#f97316",
+              "textColor": "#ffffff",
+              "instructor": "FEBI MARIAM JOHN",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "ENG_2P",
+              "name": "English Advanced",
+              "type": "practice",
+              "color": "#0369a1",
+              "textColor": "#ffffff",
+              "instructor": "FEBI MARIAM JOHN",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            }
+          ],
+          "fixedSlots": [
+            {
+              "code": "YOGA201",
+              "name": "Application of yoga in mind body management YOGA201",
+              "color": "#f8a5c2",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "COIN201",
+              "name": "COIN201",
+              "color": "#748ffc",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "MODQUIZ",
+              "name": "Module Quiz",
+              "color": "#74c0fc",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "SPORTS",
+              "name": "Sports",
+              "color": "#69db7c",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "LIBRARY",
+              "name": "Library",
+              "color": "#ff922b",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": ""
+            },
+            {
+              "code": "MENTOR",
+              "name": "Mentoring",
+              "color": "#ffd43b",
+              "topic": "SC 1:1\nUniversity allotted slot for interactions",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "INTASSESS",
+              "name": "Internal Assessments",
+              "color": "#b197fc",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "MIDTERM",
+              "name": "Mid Term Exams",
+              "color": "#ff8787",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            }
+          ],
+          "fixedPlacements": [
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "YOGA201",
+              "section": "Section-1",
+              "periodId": "P3",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Mon",
+              "code": "YOGA201",
+              "section": "Section-2",
+              "periodId": "P5",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Tue",
+              "code": "YOGA201",
+              "section": "Section-3",
+              "periodId": "P3",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Thu",
+              "code": "COIN201",
+              "section": "Section-1",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Mon",
+              "code": "COIN201",
+              "section": "Section-2",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Tue",
+              "code": "COIN201",
+              "section": "Section-3",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Wed",
+              "code": "SPORTS",
+              "section": "Section-1",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "SPORTS",
+              "section": "Section-2",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "SPORTS",
+              "section": "Section-3",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "LIBRARY",
+              "section": "Section-1",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "LIBRARY",
+              "section": "Section-2",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "LIBRARY",
+              "section": "Section-3",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MENTOR",
+              "section": "Section-1",
+              "periodId": "P5",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MENTOR",
+              "section": "Section-2",
+              "periodId": "P5",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MENTOR",
+              "section": "Section-3",
+              "periodId": "P5",
+              "instructor": ""
+            }
+          ]
+        }
+      ],
+      "instructors": {},
+      "currentSemId": "Y2-S2-2024"
+    },
+    {
+      "id": "U23",
+      "name": "Aegis Security College",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U24",
+      "name": "Omni Virtual University",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U25",
+      "name": "Stellar Aerospace Academy",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U26",
+      "name": "Unity Environmental College",
+      "timings": {
+        "LB": {
+          "end": "13:10",
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        "P1": {
+          "end": "09:50",
+          "start": "09:00"
+        },
+        "P2": {
+          "end": "10:40",
+          "start": "09:50"
+        },
+        "P3": {
+          "end": "11:40",
+          "start": "10:50"
+        },
+        "P4": {
+          "end": "12:30",
+          "start": "11:40"
+        },
+        "P5": {
+          "end": "14:00",
+          "start": "13:10"
+        },
+        "P6": {
+          "end": "14:50",
+          "start": "14:00"
+        },
+        "P7": {
+          "end": "15:50",
+          "start": "15:00"
+        },
+        "P8": {
+          "end": "16:40",
+          "start": "15:50"
+        },
+        "SB1": {
+          "end": "10:50",
+          "name": "Short Break",
+          "start": "10:40"
+        },
+        "SB2": {
+          "end": "15:00",
+          "name": "Short Break",
+          "start": "14:50"
+        }
+      }
+    },
+    {
+      "id": "U1779534290026",
+      "name": "sdvcsdc",
+      "periods": [
+        {
+          "id": "P1",
+          "end": "09:50",
+          "num": 1,
+          "type": "teaching",
+          "label": "09:00–09:50",
+          "start": "09:00"
+        },
+        {
+          "id": "P2",
+          "end": "10:40",
+          "num": 2,
+          "type": "teaching",
+          "label": "09:50–10:40",
+          "start": "09:50"
+        },
+        {
+          "id": "SB1",
+          "end": "10:50",
+          "name": "Short Break",
+          "type": "break",
+          "label": "10:40–10:50",
+          "start": "10:40"
+        },
+        {
+          "id": "P3",
+          "end": "11:40",
+          "num": 3,
+          "type": "teaching",
+          "label": "10:50–11:40",
+          "start": "10:50"
+        },
+        {
+          "id": "P4",
+          "end": "12:30",
+          "num": 4,
+          "type": "teaching",
+          "label": "11:40–12:30",
+          "start": "11:40"
+        },
+        {
+          "id": "LB",
+          "end": "13:10",
+          "name": "Lunch",
+          "type": "lunch",
+          "label": "12:30–13:10",
+          "start": "12:30"
+        },
+        {
+          "id": "P5",
+          "end": "14:00",
+          "num": 5,
+          "type": "teaching",
+          "label": "13:10–14:00",
+          "start": "13:10"
+        },
+        {
+          "id": "P6",
+          "end": "14:50",
+          "num": 6,
+          "type": "teaching",
+          "label": "14:00–14:50",
+          "start": "14:00"
+        },
+        {
+          "id": "SB2",
+          "end": "15:00",
+          "name": "Short Break",
+          "type": "break",
+          "label": "14:50–15:00",
+          "start": "14:50"
+        },
+        {
+          "id": "P7",
+          "end": "15:50",
+          "num": 7,
+          "type": "teaching",
+          "label": "15:00–15:50",
+          "start": "15:00"
+        },
+        {
+          "id": "P8",
+          "end": "16:40",
+          "num": 8,
+          "type": "teaching",
+          "label": "15:50–16:40",
+          "start": "15:50"
+        }
+      ],
+      "semesters": [
+        {
+          "id": "Y2-S2-2024",
+          "sem": 2,
+          "year": 2,
+          "label": "Year 2 · Sem 2 · 2024",
+          "cohort": "2024",
+          "shuffle": false,
+          "schedule": {
+            "Fri": {
+              "Section-1": {
+                "P1": {
+                  "code": "BTNX211",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "FEBI MARIAM JOHN"
+                },
+                "P3": {
+                  "code": "BTNX234",
+                  "type": "lab",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SUSHMITHA AMARNATH"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                },
+                "P8": {
+                  "code": "LIBRARY",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              },
+              "Section-2": {
+                "P2": {
+                  "code": "BTNX211",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "FEBI MARIAM JOHN"
+                },
+                "P4": {
+                  "code": "BTNX234",
+                  "type": "lab",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SUSHMITHA AMARNATH"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              },
+              "Section-3": {
+                "P4": {
+                  "code": "BTNX211",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "FEBI MARIAM JOHN"
+                },
+                "P5": {
+                  "code": "MENTOR",
+                  "type": "lecture",
+                  "topic": "SC 1:1\nUniversity allotted slot for interactions",
+                  "isFixed": true,
+                  "instructor": ""
+                },
+                "P6": {
+                  "code": "BTNX234",
+                  "type": "lab",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SUSHMITHA AMARNATH"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                },
+                "P8": {
+                  "code": "SPORTS",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              }
+            },
+            "Mon": {
+              "Section-1": {
+                "P1": {
+                  "code": "BTNX212",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "DILEEP KUMAR"
+                },
+                "P2": {
+                  "code": "BTNX221",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SATYA APARNA"
+                },
+                "P3": {
+                  "code": "YOGA201",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": "UNIVERSITY FACULTY"
+                },
+                "P4": {
+                  "code": "BTNX232",
+                  "type": "lab",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "PALLAVI B"
+                },
+                "P5": {
+                  "code": "MENTOR",
+                  "type": "lecture",
+                  "topic": "SC 1:1\nUniversity allotted slot for interactions",
+                  "isFixed": true,
+                  "instructor": ""
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              },
+              "Section-2": {
+                "P1": {
+                  "code": "BTNX221",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SATYA APARNA"
+                },
+                "P2": {
+                  "code": "COIN201",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": "UNIVERSITY FACULTY"
+                },
+                "P3": {
+                  "code": "BTNX212",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "DILEEP KUMAR"
+                },
+                "P5": {
+                  "code": "YOGA201",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": "UNIVERSITY FACULTY"
+                },
+                "P6": {
+                  "code": "BTNX232",
+                  "type": "lab",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "PALLAVI B"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              },
+              "Section-3": {
+                "P4": {
+                  "code": "BTNX212",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "DILEEP KUMAR"
+                },
+                "P5": {
+                  "code": "BTNX221",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SATYA APARNA"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                },
+                "P8": {
+                  "code": "BTNX232",
+                  "type": "lab",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "PALLAVI B"
+                }
+              }
+            },
+            "Thu": {
+              "Section-1": {
+                "P1": {
+                  "code": "BTNX223",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SUSHMITHA AMARNATH"
+                },
+                "P2": {
+                  "code": "COIN201",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": "UNIVERSITY FACULTY"
+                },
+                "P3": {
+                  "code": "ENG_2P",
+                  "type": "practice",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "FEBI MARIAM JOHN"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              },
+              "Section-2": {
+                "P2": {
+                  "code": "BTNX223",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SUSHMITHA AMARNATH"
+                },
+                "P4": {
+                  "code": "ENG_2P",
+                  "type": "practice",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "FEBI MARIAM JOHN"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                },
+                "P8": {
+                  "code": "SPORTS",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              },
+              "Section-3": {
+                "P5": {
+                  "code": "ENG_2P",
+                  "type": "practice",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "FEBI MARIAM JOHN"
+                },
+                "P6": {
+                  "code": "BTNX223",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SUSHMITHA AMARNATH"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                },
+                "P8": {
+                  "code": "LIBRARY",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              }
+            },
+            "Tue": {
+              "Section-1": {
+                "P1": {
+                  "code": "BTNX212",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "DILEEP KUMAR"
+                },
+                "P3": {
+                  "code": "BTNX231",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "PALLAVI B"
+                },
+                "P4": {
+                  "code": "BTNX222",
+                  "type": "lab",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SATYA APARNA"
+                },
+                "P5": {
+                  "code": "BTNX211",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "FEBI MARIAM JOHN"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              },
+              "Section-2": {
+                "P1": {
+                  "code": "BTNX231",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "PALLAVI B"
+                },
+                "P2": {
+                  "code": "BTNX212",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "DILEEP KUMAR"
+                },
+                "P5": {
+                  "code": "BTNX222",
+                  "type": "lab",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SATYA APARNA"
+                },
+                "P6": {
+                  "code": "BTNX211",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "FEBI MARIAM JOHN"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                },
+                "P8": {
+                  "code": "LIBRARY",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              },
+              "Section-3": {
+                "P1": {
+                  "code": "BTNX211",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "FEBI MARIAM JOHN"
+                },
+                "P2": {
+                  "code": "COIN201",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": "UNIVERSITY FACULTY"
+                },
+                "P3": {
+                  "code": "YOGA201",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": "UNIVERSITY FACULTY"
+                },
+                "P4": {
+                  "code": "BTNX212",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "DILEEP KUMAR"
+                },
+                "P5": {
+                  "code": "BTNX231",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "PALLAVI B"
+                },
+                "P6": {
+                  "code": "BTNX222",
+                  "type": "lab",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SATYA APARNA"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              }
+            },
+            "Wed": {
+              "Section-1": {
+                "P1": {
+                  "code": "BTNX221",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SATYA APARNA"
+                },
+                "P2": {
+                  "code": "BTNX231",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "PALLAVI B"
+                },
+                "P5": {
+                  "code": "MATH_2P",
+                  "type": "practice",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "DILEEP KUMAR"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                },
+                "P8": {
+                  "code": "SPORTS",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              },
+              "Section-2": {
+                "P1": {
+                  "code": "BTNX231",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "PALLAVI B"
+                },
+                "P2": {
+                  "code": "BTNX221",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SATYA APARNA"
+                },
+                "P5": {
+                  "code": "MENTOR",
+                  "type": "lecture",
+                  "topic": "SC 1:1\nUniversity allotted slot for interactions",
+                  "isFixed": true,
+                  "instructor": ""
+                },
+                "P6": {
+                  "code": "MATH_2P",
+                  "type": "practice",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "DILEEP KUMAR"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                }
+              },
+              "Section-3": {
+                "P5": {
+                  "code": "BTNX221",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "SATYA APARNA"
+                },
+                "P6": {
+                  "code": "BTNX231",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "PALLAVI B"
+                },
+                "P7": {
+                  "code": "MODQUIZ",
+                  "type": "lecture",
+                  "topic": "",
+                  "isFixed": true,
+                  "instructor": ""
+                },
+                "P8": {
+                  "code": "MATH_2P",
+                  "type": "practice",
+                  "topic": "",
+                  "isFixed": false,
+                  "instructor": "DILEEP KUMAR"
+                }
+              }
+            },
+            "_shuffleMode": true
+          },
+          "sections": [
+            "Section-1",
+            "Section-2",
+            "Section-3"
+          ],
+          "subjects": [
+            {
+              "code": "BTNX221",
+              "name": "Data Structures Using C++",
+              "type": "lecture",
+              "color": "#b91c1c",
+              "textColor": "#ffffff",
+              "instructor": "SATYA APARNA",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "BTNX222",
+              "name": "Data Structures Using C++ Laboratory",
+              "type": "lab",
+              "color": "#fbbf24",
+              "textColor": "#ffffff",
+              "instructor": "SATYA APARNA",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX231",
+              "name": "Frontend Full Stack Development",
+              "type": "lecture",
+              "color": "#ffadad",
+              "textColor": "#1a1a1a",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "BTNX232",
+              "name": "Frontend Full Stack Development Laboratory",
+              "type": "lab",
+              "color": "#ffc6ff",
+              "textColor": "#ffffff",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX233",
+              "name": "Database Systems",
+              "type": "lecture",
+              "color": "#48cae4",
+              "textColor": "#1a1a1a",
+              "instructor": "PALLAVI B",
+              "labPerWeek": 0,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX234",
+              "name": "Database Systems Laboratory",
+              "type": "lab",
+              "color": "#2dd4bf",
+              "textColor": "#ffffff",
+              "instructor": "SUSHMITHA AMARNATH",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX223",
+              "name": "Building LLM Applications",
+              "type": "lecture",
+              "color": "#818cf8",
+              "textColor": "#ffffff",
+              "instructor": "SUSHMITHA AMARNATH",
+              "labPerWeek": 0,
+              "lecPerWeek": 1
+            },
+            {
+              "code": "BTNX212",
+              "name": "Mathematics 2",
+              "type": "lecture",
+              "color": "#d946ef",
+              "textColor": "#ffffff",
+              "instructor": "DILEEP KUMAR",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "MATH_2P",
+              "name": "Mathematics 2",
+              "type": "practice",
+              "color": "#4338ca",
+              "textColor": "#ffffff",
+              "instructor": "DILEEP KUMAR",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            },
+            {
+              "code": "BTNX211",
+              "name": "English Advanced",
+              "type": "lecture",
+              "color": "#f97316",
+              "textColor": "#ffffff",
+              "instructor": "FEBI MARIAM JOHN",
+              "labPerWeek": 0,
+              "lecPerWeek": 2
+            },
+            {
+              "code": "ENG_2P",
+              "name": "English Advanced",
+              "type": "practice",
+              "color": "#0369a1",
+              "textColor": "#ffffff",
+              "instructor": "FEBI MARIAM JOHN",
+              "labPerWeek": 1,
+              "lecPerWeek": 0
+            }
+          ],
+          "_unplaced": 0,
+          "fixedSlots": [
+            {
+              "code": "YOGA201",
+              "name": "Application of yoga in mind body management YOGA201",
+              "color": "#f8a5c2",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "COIN201",
+              "name": "COIN201",
+              "color": "#748ffc",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "MODQUIZ",
+              "name": "Module Quiz",
+              "color": "#74c0fc",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "SPORTS",
+              "name": "Sports",
+              "color": "#69db7c",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "LIBRARY",
+              "name": "Library",
+              "color": "#ff922b",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": ""
+            },
+            {
+              "code": "MENTOR",
+              "name": "Mentoring",
+              "color": "#ffd43b",
+              "topic": "SC 1:1\nUniversity allotted slot for interactions",
+              "isFixed": true,
+              "textColor": "#1a1a1a",
+              "instructor": ""
+            },
+            {
+              "code": "INTASSESS",
+              "name": "Internal Assessments",
+              "color": "#b197fc",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "code": "MIDTERM",
+              "name": "Mid Term Exams",
+              "color": "#ff8787",
+              "isFixed": true,
+              "textColor": "#ffffff",
+              "instructor": "UNIVERSITY FACULTY"
+            }
+          ],
+          "_imbalanced": [],
+          "_unplacedRounds": [],
+          "fixedPlacements": [
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-1",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-2",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MODQUIZ",
+              "section": "Section-3",
+              "periodId": "P7",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "YOGA201",
+              "section": "Section-1",
+              "periodId": "P3",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Mon",
+              "code": "YOGA201",
+              "section": "Section-2",
+              "periodId": "P5",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Tue",
+              "code": "YOGA201",
+              "section": "Section-3",
+              "periodId": "P3",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Thu",
+              "code": "COIN201",
+              "section": "Section-1",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Mon",
+              "code": "COIN201",
+              "section": "Section-2",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Tue",
+              "code": "COIN201",
+              "section": "Section-3",
+              "periodId": "P2",
+              "instructor": "UNIVERSITY FACULTY"
+            },
+            {
+              "day": "Wed",
+              "code": "SPORTS",
+              "section": "Section-1",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "SPORTS",
+              "section": "Section-2",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "SPORTS",
+              "section": "Section-3",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "LIBRARY",
+              "section": "Section-1",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Tue",
+              "code": "LIBRARY",
+              "section": "Section-2",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Thu",
+              "code": "LIBRARY",
+              "section": "Section-3",
+              "periodId": "P8",
+              "instructor": ""
+            },
+            {
+              "day": "Mon",
+              "code": "MENTOR",
+              "section": "Section-1",
+              "periodId": "P5",
+              "instructor": ""
+            },
+            {
+              "day": "Wed",
+              "code": "MENTOR",
+              "section": "Section-2",
+              "periodId": "P5",
+              "instructor": ""
+            },
+            {
+              "day": "Fri",
+              "code": "MENTOR",
+              "section": "Section-3",
+              "periodId": "P5",
+              "instructor": ""
+            }
+          ],
+          "_capacityWarnings": []
+        }
+      ],
+      "instructors": {
+        "PALLAVI B": {
+          "name": "PALLAVI B",
+          "email": "kota.nikhila@nxtwave.co.in",
+          "password": "dpolblac",
+          "username": "Pallavi",
+          "whatsapp": "8184963725"
+        },
+        "DILEEP KUMAR": {
+          "name": "DILEEP KUMAR",
+          "email": "gdk119797@gmail.com",
+          "password": "wsmilpqk",
+          "username": "Dileep",
+          "whatsapp": "8184963725"
+        },
+        "SATYA APARNA": {
+          "name": "SATYA APARNA",
+          "email": "satya-aparna@svyasa.edu.in",
+          "password": "p43relvh",
+          "username": "Satya Aparna",
+          "whatsapp": "8184963725"
+        },
+        "SRISAILACHARI": {
+          "name": "SRISAILACHARI",
+          "email": "srisailachari07@gmail.com",
+          "password": "2yjrepu8",
+          "username": "",
+          "whatsapp": "8184963725"
+        },
+        "FEBI MARIAM JOHN": {
+          "name": "FEBI MARIAM JOHN",
+          "email": "febi.mariamjohn@nxtwave.co.in",
+          "password": "29azk7up",
+          "username": "Febi",
+          "whatsapp": "8184963725"
+        },
+        "SUSHMITHA AMARNATH": {
+          "name": "SUSHMITHA AMARNATH",
+          "email": "sushmitha.amarnath@nxtwave.co.in",
+          "password": "d6eua9gx",
+          "username": "Sushmitha",
+          "whatsapp": "8184963725"
+        }
+      },
+      "currentSemId": "Y2-S2-2024"
+    }
+  ],
+  "_newSlotDraft": null,
+  "currentUniversityId": "U4"
+}

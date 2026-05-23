@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Subject Configuration | UniSched Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        /* Custom scrollbar for data-heavy panels */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#0b1c30",
+                        "outline-variant": "#c5c5d3",
+                        "tertiary": "#0d0097",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "on-surface-variant": "#444651",
+                        "primary": "#00236f",
+                        "primary-container": "#1e3a8a",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#2724b8",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "outline": "#757682",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "inverse-surface": "#2d3133",
+                        "on-background": "#191c1e",
+                        "secondary-container": "#d0e1fb",
+                        "secondary-fixed": "#d3e4fe",
+                        "inverse-primary": "#b6c4ff",
+                        "surface": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-variant": "#e0e3e5",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-container": "#a1a4ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "secondary": "#505f76",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#264191",
+                        "primary-fixed": "#dce1ff",
+                        "on-secondary-container": "#54647a",
+                        "tertiary-fixed": "#e1e0ff",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#90a8ff",
+                        "on-primary-fixed": "#00164e",
+                        "surface-container": "#eceef0",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#4059aa",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "on-tertiary-fixed": "#07006c",
+                        "background": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "sidebar-collapsed": "72px",
+                        "base": "4px",
+                        "sidebar-width": "260px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "tabular-nums": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "tabular-nums": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden flex h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 bottom-0 w-sidebar-width flex flex-col py-4 px-3 gap-2 bg-surface-container-low border-r border-outline-variant z-50">
+<div class="px-3 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="text-body-lg font-headline-md text-primary">Academics Portal</h1>
+<p class="text-label-sm text-on-surface-variant">Fall Semester 2024</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-label-sm">Timetable</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm">Instructors</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-3 px-3 py-2.5 bg-primary-container text-on-primary-container rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">book</span>
+<span class="text-label-sm">Subjects</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-sm">Settings</span>
+</a>
+</nav>
+<button class="mt-4 mx-3 bg-primary text-on-primary py-3 rounded-lg flex items-center justify-center gap-2 font-bold hover:opacity-90 active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+            AI Generate
+        </button>
+<div class="mt-auto border-t border-outline-variant pt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-label-sm">Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-label-sm">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 ml-sidebar-width flex flex-col h-full bg-surface">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 flex justify-between items-center w-full px-container-margin h-16 bg-surface-container-lowest border-b border-outline-variant">
+<div class="flex items-center gap-4 flex-1">
+<h2 class="text-headline-md font-bold text-primary">UniSched Admin</h2>
+<div class="relative w-full max-w-md hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:outline-none text-body-md" placeholder="Search subjects, rooms, or constraints..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-2 pl-4 border-l border-outline-variant">
+<img alt="Registrar Profile" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-HYalw0JYnvIMgHPKCvX9BEIJOP2r4EXDdXVgpZcXsdVxQg_wTyTNH3WbobIyEyal5RXbI3dqrev4uebwMj5YYD4k1UBJ4cfCDm3CXtz3OcJtBWPejwBgiVgMHAXAo6iDDfrzQJ_ZkHo6GRNZEdzQQW_BsVxOYX1N5Pu0h1p5RDwiSzlW0eYlXwuDDj47ZhrC7S3Ev3PoeywKKWtAusLW5TInjBTTB7zcajVWk97GUyNWn8VLUcJQMhia6nVolLFu5v4xN0V5AI"/>
+<div class="text-right hidden sm:block">
+<p class="text-label-sm text-on-background">Dr. Emily Chen</p>
+<p class="text-[10px] text-on-surface-variant font-medium">Lead Registrar</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto p-gutter custom-scrollbar">
+<div class="max-w-[1400px] mx-auto grid grid-cols-12 gap-6">
+<!-- Left Section: Tabs & List -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-6">
+<!-- Tabbed Navigation Shell -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="flex border-b border-outline-variant">
+<button class="px-6 py-4 text-label-sm font-bold border-b-2 border-primary text-primary bg-surface-container-low">Subjects</button>
+<button class="px-6 py-4 text-label-sm font-semibold text-on-surface-variant hover:bg-surface-container-low transition-colors">Rooms &amp; Facilities</button>
+<button class="px-6 py-4 text-label-sm font-semibold text-on-surface-variant hover:bg-surface-container-low transition-colors">Global Constraints</button>
+</div>
+<!-- Subject List Management -->
+<div class="p-0">
+<div class="bg-surface-container-low px-6 py-2 grid grid-cols-12 gap-4 border-b border-outline-variant">
+<span class="col-span-1 text-label-sm text-outline">Code</span>
+<span class="col-span-5 text-label-sm text-outline">Subject Name</span>
+<span class="col-span-2 text-label-sm text-outline text-center">Lecture (h)</span>
+<span class="col-span-2 text-label-sm text-outline text-center">Practice (h)</span>
+<span class="col-span-2 text-label-sm text-outline text-right">Actions</span>
+</div>
+<div class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<div class="px-6 py-3 grid grid-cols-12 gap-4 items-center hover:bg-surface-container-low transition-colors">
+<span class="col-span-1 font-tabular-nums text-on-background">CS101</span>
+<span class="col-span-5 font-bold text-on-background">Introduction to Computer Science</span>
+<span class="col-span-2 text-center">
+<input class="w-16 text-center border-outline-variant rounded bg-surface-container-lowest text-body-md" type="number" value="3"/>
+</span>
+<span class="col-span-2 text-center">
+<input class="w-16 text-center border-outline-variant rounded bg-surface-container-lowest text-body-md" type="number" value="2"/>
+</span>
+<div class="col-span-2 flex justify-end gap-2">
+<button class="p-1 text-primary hover:bg-primary-container/10 rounded"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1 text-error hover:bg-error-container/10 rounded"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="px-6 py-3 grid grid-cols-12 gap-4 items-center hover:bg-surface-container-low transition-colors">
+<span class="col-span-1 font-tabular-nums text-on-background">MTH202</span>
+<span class="col-span-5 font-bold text-on-background">Advanced Linear Algebra</span>
+<span class="col-span-2 text-center">
+<input class="w-16 text-center border-outline-variant rounded bg-surface-container-lowest text-body-md" type="number" value="4"/>
+</span>
+<span class="col-span-2 text-center">
+<input class="w-16 text-center border-outline-variant rounded bg-surface-container-lowest text-body-md" type="number" value="0"/>
+</span>
+<div class="col-span-2 flex justify-end gap-2">
+<button class="p-1 text-primary hover:bg-primary-container/10 rounded"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1 text-error hover:bg-error-container/10 rounded"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+<!-- Row 3 (Conflict Style) -->
+<div class="px-6 py-3 grid grid-cols-12 gap-4 items-center bg-error-container/20 border-l-4 border-error">
+<span class="col-span-1 font-tabular-nums text-on-background">PHY301</span>
+<span class="col-span-5 font-bold text-on-background flex items-center gap-2">
+                                        Quantum Mechanics
+                                        <span class="material-symbols-outlined text-error text-[16px]">warning</span>
+</span>
+<span class="col-span-2 text-center">
+<input class="w-16 text-center border-error rounded bg-surface-container-lowest text-body-md" type="number" value="3"/>
+</span>
+<span class="col-span-2 text-center">
+<input class="w-16 text-center border-error rounded bg-surface-container-lowest text-body-md" type="number" value="3"/>
+</span>
+<div class="col-span-2 flex justify-end gap-2">
+<button class="p-1 text-primary hover:bg-primary-container/10 rounded"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1 text-error hover:bg-error-container/10 rounded"><span class="material-symbols-outlined">delete</span></button>
+</div>
+<div class="col-span-12 -mt-1 pb-1">
+<p class="text-[10px] text-error font-semibold">Total hours exceed weekly credit limit for Semester 5.</p>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="px-6 py-3 grid grid-cols-12 gap-4 items-center hover:bg-surface-container-low transition-colors">
+<span class="col-span-1 font-tabular-nums text-on-background">ENG105</span>
+<span class="col-span-5 font-bold text-on-background">Technical Writing</span>
+<span class="col-span-2 text-center">
+<input class="w-16 text-center border-outline-variant rounded bg-surface-container-lowest text-body-md" type="number" value="2"/>
+</span>
+<span class="col-span-2 text-center">
+<input class="w-16 text-center border-outline-variant rounded bg-surface-container-lowest text-body-md" type="number" value="1"/>
+</span>
+<div class="col-span-2 flex justify-end gap-2">
+<button class="p-1 text-primary hover:bg-primary-container/10 rounded"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1 text-error hover:bg-error-container/10 rounded"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low flex justify-center">
+<button class="flex items-center gap-2 text-primary font-bold text-label-sm hover:underline">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+                                    Add New Subject
+                                </button>
+</div>
+</div>
+</div>
+<!-- AI Generation Control Section -->
+<div class="bg-primary-container text-on-primary-container rounded-xl p-8 shadow-md relative overflow-hidden group">
+<div class="absolute -right-12 -top-12 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[180px]">hub</span>
+</div>
+<div class="relative z-10">
+<h3 class="text-headline-md font-bold mb-2">AI Optimizer</h3>
+<p class="text-body-md opacity-90 max-w-lg mb-6">Process all configured subjects, constraints, and instructor availability to generate a conflict-free semester schedule.</p>
+<div class="flex items-center gap-6">
+<button class="px-8 py-3 bg-white text-primary font-bold rounded-lg shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2" id="runOptimizer">
+<span class="material-symbols-outlined">play_arrow</span>
+                                    Run AI Optimizer
+                                </button>
+<div class="flex-1 hidden" id="progressContainer">
+<div class="flex justify-between text-label-sm mb-2">
+<span>Analyzing Constraints...</span>
+<span id="progressText">0%</span>
+</div>
+<div class="w-full h-2 bg-on-primary-container/20 rounded-full overflow-hidden">
+<div class="h-full bg-white transition-all duration-300" id="progressBar" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Section: Constraints Panel -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<!-- Constraint Form -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">rule</span>
+<h3 class="text-headline-md font-bold text-on-background">Constraint Panel</h3>
+</div>
+<div class="space-y-6">
+<!-- Fixed Breaks -->
+<div>
+<label class="text-label-sm text-on-surface-variant uppercase tracking-wider block mb-2">Fixed Campus Breaks</label>
+<div class="grid grid-cols-2 gap-3">
+<div class="flex items-center gap-2 px-3 py-2 bg-surface-container-low rounded border border-outline-variant">
+<input checked="" class="rounded text-primary border-outline" type="checkbox"/>
+<span class="text-body-md">12:00 - 13:00</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-2 bg-surface-container-low rounded border border-outline-variant">
+<input class="rounded text-primary border-outline" type="checkbox"/>
+<span class="text-body-md">17:00 - 18:00</span>
+</div>
+</div>
+</div>
+<!-- Instructor Limits -->
+<div>
+<label class="text-label-sm text-on-surface-variant uppercase tracking-wider block mb-2">Instructor Workload</label>
+<div class="flex items-center justify-between gap-4">
+<span class="text-body-md text-on-background">Max hours per day</span>
+<select class="bg-surface-container-lowest border border-outline-variant rounded px-2 py-1 text-body-md">
+<option>4 hours</option>
+<option selected="">6 hours</option>
+<option>8 hours</option>
+</select>
+</div>
+</div>
+<!-- Room Capacity -->
+<div>
+<label class="text-label-sm text-on-surface-variant uppercase tracking-wider block mb-2">Room Capacity Buffer</label>
+<input class="w-full accent-primary" type="range"/>
+<div class="flex justify-between text-[10px] text-outline mt-1">
+<span>Tight (100%)</span>
+<span>Standard (85%)</span>
+<span>Loose (70%)</span>
+</div>
+</div>
+<hr class="border-outline-variant"/>
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-outline">verified</span>
+<span>Lectures priority in mornings</span>
+<input checked="" class="ml-auto rounded text-primary" type="checkbox"/>
+</div>
+<div class="flex items-center gap-3 text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-outline">group</span>
+<span>Avoid back-to-back labs</span>
+<input class="ml-auto rounded text-primary" type="checkbox"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Preview & Export -->
+<div class="bg-surface-container-highest/30 border border-dashed border-outline-variant rounded-xl p-6">
+<h4 class="text-label-sm font-bold text-on-background mb-4">PREVIEW &amp; EXPORT</h4>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded-lg hover:bg-white hover:border-primary transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-2">visibility</span>
+<span class="text-label-sm">Live Preview</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-surface-container-lowest border border-outline-variant rounded-lg hover:bg-white hover:border-primary transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-2">description</span>
+<span class="text-label-sm">Excel Export</span>
+</button>
+</div>
+<div class="mt-6 flex items-center justify-between bg-white/50 p-3 rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-label-sm font-semibold">Active Model: v4.2</span>
+</div>
+<span class="text-[10px] text-outline">Updated 2m ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        document.getElementById('runOptimizer').addEventListener('click', function() {
+            const btn = this;
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Optimizing...';
+            progressContainer.classList.remove('hidden');
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Optimized!';
+                        btn.classList.replace('bg-white', 'bg-green-500');
+                        btn.classList.replace('text-primary', 'text-white');
+                    }, 500);
+                }
+                progressBar.style.width = progress + '%';
+                progressText.innerText = Math.floor(progress) + '%';
+            }, 400);
+        });
+    </script>
+</body></html>

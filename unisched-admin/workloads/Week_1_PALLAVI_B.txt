@@ -1,0 +1,12 @@
+WORKLOAD FOR PALLAVI B
+Week 1 (2026-05-23 to 2026-05-27)
+
+2026-05-23 | Mon | 11:40 AM - 12:30 PM | Frontend Full Stack Development (Section-1) | Lecture
+2026-05-23 | Mon | 09:00 AM - 09:50 AM | Frontend Full Stack Development (Section-2) | Lecture
+2026-05-23 | Mon | 03:50 PM - 04:40 PM | Frontend Full Stack Development (Section-3) | Lecture
+2026-05-24 | Tue | 09:50 AM - 10:40 AM | Frontend Full Stack Development Laboratory (Section-1) | Lab
+2026-05-24 | Tue | 01:10 PM - 02:00 PM | Frontend Full Stack Development Laboratory (Section-2) | Lab
+2026-05-24 | Tue | 03:50 PM - 04:40 PM | Frontend Full Stack Development Laboratory (Section-3) | Lab
+2026-05-25 | Wed | 09:50 AM - 10:40 AM | Frontend Full Stack Development (Section-1) | Lecture
+2026-05-25 | Wed | 09:00 AM - 09:50 AM | Frontend Full Stack Development (Section-2) | Lecture
+2026-05-25 | Wed | 01:10 PM - 02:00 PM | Frontend Full Stack Development (Section-3) | Lecture

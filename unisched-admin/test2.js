@@ -1,0 +1,1 @@
+const fs=require('fs'); const {JSDOM} = require('jsdom'); const dom = new JSDOM(fs.readFileSync('index.html','utf8'), {runScripts: 'dangerously'}); dom.window.onload = () => { console.log('Loaded'); };

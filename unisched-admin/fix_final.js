@@ -1,0 +1,1 @@
+const fs=require('fs'); let c=fs.readFileSync('index.html','utf8'); c=c.replace(/const INITIAL_DEFAULT_PERIODS = \\[[\\s\\S]*?function updateGlobalContextForActiveUniversity\\(\\)\\s*\\{[\\s\\S]*?\\n\\}/, ''); fs.writeFileSync('index.html', c);

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Instructor Management | UniSched Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#0b1c30",
+                    "outline-variant": "#c5c5d3",
+                    "tertiary": "#0d0097",
+                    "tertiary-fixed-dim": "#c0c1ff",
+                    "on-surface-variant": "#444651",
+                    "primary": "#00236f",
+                    "primary-container": "#1e3a8a",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#2724b8",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline": "#757682",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "inverse-surface": "#2d3133",
+                    "on-background": "#191c1e",
+                    "secondary-container": "#d0e1fb",
+                    "secondary-fixed": "#d3e4fe",
+                    "inverse-primary": "#b6c4ff",
+                    "surface": "#f7f9fb",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-variant": "#e0e3e5",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-container": "#a1a4ff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "secondary": "#505f76",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-bright": "#f7f9fb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#264191",
+                    "primary-fixed": "#dce1ff",
+                    "on-secondary-container": "#54647a",
+                    "tertiary-fixed": "#e1e0ff",
+                    "on-surface": "#191c1e",
+                    "on-primary-container": "#90a8ff",
+                    "on-primary-fixed": "#00164e",
+                    "surface-container": "#eceef0",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#4059aa",
+                    "on-tertiary-fixed-variant": "#2f2ebe",
+                    "on-tertiary-fixed": "#07006c",
+                    "background": "#f7f9fb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "sidebar-collapsed": "72px",
+                    "base": "4px",
+                    "sidebar-width": "260px",
+                    "container-margin": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "tabular-nums": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "tabular-nums": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        .sidebar-active { background-color: #1e3a8a; color: white; border-radius: 0.5rem; font-weight: 700; }
+        .table-row-selected { background-color: #f2f4f6; border-left: 4px solid #00236f; }
+        .calendar-grid { display: grid; grid-template-columns: 80px repeat(5, 1fr); }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar Shell -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-container-margin h-16 bg-surface-container-lowest border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="text-headline-md font-headline-md font-bold text-primary">UniSched Admin</span>
+<div class="ml-8 relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline-variant rounded-lg text-body-md focus:ring-2 focus:ring-primary focus:ring-offset-2 outline-none w-80" placeholder="Search instructors, departments..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<div class="text-right hidden sm:block">
+<p class="text-label-sm text-on-surface font-bold">Admin Portal</p>
+<p class="text-[10px] text-outline uppercase tracking-wider">Registrar Office</p>
+</div>
+<img alt="Registrar Profile" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a middle-aged female university administrator with a confident expression. She is wearing a sharp navy blue blazer over a crisp white blouse. The background is a brightly lit, modern office environment with blurred bookshelves and glass partitions, maintaining a high-key corporate minimalist aesthetic consistent with academic institution branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv2mfKLbce9Eh4NXWd2TCdBNP_Cw6XXxRRWj-wxIu9CEG4z78JK1nf11XxA6BoTphLkGF4mggj97YPNFDYKOl6YJV8sKsLC9Ubnbo4BMlQu6w-1BhvCYhRumMmlK7s-1EczaoR5nMFScL46mudBXjNF6t4f54XphCkbkMcZ8ziiot3zOMH7hXOCweXJEKd6qYvoko14IWJgJpfx5aHMSFEVUVsgMIM4xqy1WA78S8Nl6XJelKUZROx6ICm0RKEeDMmFIRTCwg8mwc"/>
+</div>
+</div>
+</header>
+<div class="flex h-[calc(100vh-64px)] overflow-hidden">
+<!-- SideNavBar Shell -->
+<aside class="w-sidebar-width flex flex-col py-4 px-3 gap-2 bg-surface-container-low border-r border-outline-variant">
+<div class="mb-6 px-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white">account_balance</span>
+</div>
+<div>
+<p class="text-body-lg font-headline-md text-primary font-bold">Academics Portal</p>
+<p class="text-[11px] text-on-surface-variant font-medium">Fall Semester 2024</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-sm font-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-label-sm font-label-sm">Timetable</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-primary-container text-on-primary-container rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Instructors</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="book">book</span>
+<span class="text-label-sm font-label-sm">Subjects</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-sm font-label-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant space-y-1">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold text-label-sm hover:opacity-90 transition-opacity mb-4">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                    AI Generate
+                </button>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-label-sm font-label-sm">Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-label-sm font-label-sm">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-hidden flex">
+<!-- Instructor List (Master) -->
+<section class="w-1/3 min-w-[400px] border-r border-outline-variant bg-surface flex flex-col">
+<div class="p-6 border-b border-outline-variant">
+<div class="flex justify-between items-center mb-4">
+<h1 class="text-headline-md font-headline-md text-on-surface">Instructor Directory</h1>
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[11px] font-bold rounded">124 Total</span>
+</div>
+<div class="flex gap-2">
+<select class="flex-1 bg-white border border-outline-variant rounded-lg text-body-md py-1.5 focus:ring-primary px-3">
+<option>All Departments</option>
+<option>Computer Science</option>
+<option>Mathematics</option>
+<option>Physics</option>
+</select>
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<!-- Instructor Cards -->
+<div class="divide-y divide-outline-variant">
+<!-- Active Item -->
+<div class="p-4 flex items-center gap-4 cursor-pointer hover:bg-surface-container-low transition-colors table-row-selected bg-white">
+<img class="w-12 h-12 rounded object-cover border border-outline-variant" data-alt="A detailed portrait of a focused male professor with glasses and salt-and-pepper hair, dressed in a professional charcoal sweater. The background is a softly lit university classroom with a whiteboard containing complex mathematical equations, emphasizing academic expertise and a disciplined institutional environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5FraqK94SWEHfBoQ8sn42th7BhRazNL3Cf9zYyymytNPsck-pgt4XoGU1nd1adLt_0FxPEVvEDnlNlm7IBf_398C9Ky8Wd9z0lK8F7qJxN8lvzhi1Yve01j6os6qRux7zIb_ouI_x3BsjoTkwn5bIW2D3jt1arJRcYe-iO7EGfn7Ly15UgjcWrKYucJVoSZ0694QNwpAuMrMs9RKuNKqxlHOpOKdzTRG-Sq0IT4Vk5Yd5UiFYBPBPNvrt1uPnbp98kmrbWjEcStc"/>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="text-body-md font-bold text-on-surface">Dr. Sarah Jenkins</h3>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-green-100 text-green-800 font-bold uppercase">Active</span>
+</div>
+<p class="text-label-sm text-outline">Computer Science</p>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 14/20 hrs
+                                    </span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">book</span> 3 Subjects
+                                    </span>
+</div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="p-4 flex items-center gap-4 cursor-pointer hover:bg-surface-container-low transition-colors bg-surface">
+<img class="w-12 h-12 rounded object-cover border border-outline-variant grayscale" data-alt="A portrait of a male university instructor in his late 30s, wearing a modern blue suit. He has a friendly yet professional demeanor. The setting is a minimalist academic hallway with clean lines and soft, natural light, reflecting an institutional atmosphere of transparency and systematic organization." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLkyuX-sVV3uzgtmlkrnWPtyhxL3Z0gzP9EopdvvEv2g56v2ygyXO8E5BfghwSutETMT4qbIRtLdK43OpHjipoJZUQ2GP9jqYRy9MWZ7Z0iG2axIJpC9wYDazcY85cY2TP1CgfLVMmCDfVqPe0wjk1L3LLvei5ehHgOR2wbZXRy4N4pEXJGNNAFLgvkPRpGjJ8F1quWIglrSSayTLLqCYUztgQ7gUDo98JuYjBx9MYDEOIbRtGgpKhDPLhJ5pee5QcXXNMQ1TeiLc"/>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="text-body-md font-bold text-on-surface">Prof. Marcus Thorne</h3>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold uppercase">At Capacity</span>
+</div>
+<p class="text-label-sm text-outline">Mathematics</p>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 20/20 hrs
+                                    </span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">book</span> 4 Subjects
+                                    </span>
+</div>
+</div>
+</div>
+<!-- Row 3 (Conflict Alert Example) -->
+<div class="p-4 flex items-center gap-4 cursor-pointer hover:bg-surface-container-low transition-colors bg-surface">
+<img class="w-12 h-12 rounded object-cover border border-outline-variant" data-alt="A professional portrait of a female lecturer with an authoritative and academic presence. She wears a tailored grey blazer. The background is a blurred academic library with rows of organized books, symbolizing institutional rigor and the pursuit of knowledge in a modern corporate academic setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwSVVSyDlHR_EfMg2HGsHaP6dvtfz_3DZM2erhfMzd4QnELv8eLuBOCaZXHu-iIIZ3Pwx9c724oNEQ8DdDvPrQx8Sby511e-p2TzmFgNS8aN6dR9HU933jmZjJcDS90btbcAAOrNn21ocwF1w4tnwWtBOn9GsDoNruGotG2PCBGvv0qjapjMLlS-ZNalAxAMMlcr0-pN9YLsYCo0ATkU2dBbuTP-G1iuaF2WKkQ6hE2yIRi9rHc6Aj3Ep1yuZzzh2YxwU6LKe2mjU"/>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="text-body-md font-bold text-on-surface">Dr. Elena Rodriguez</h3>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-bold uppercase">Conflict</span>
+</div>
+<p class="text-label-sm text-outline">Physics</p>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 12/20 hrs
+                                    </span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">book</span> 2 Subjects
+                                    </span>
+</div>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="p-4 flex items-center gap-4 cursor-pointer hover:bg-surface-container-low transition-colors bg-surface">
+<div class="w-12 h-12 rounded bg-secondary-container flex items-center justify-center text-primary font-bold">LW</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="text-body-md font-bold text-on-surface">Linda Wu</h3>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-surface-container-highest text-outline font-bold uppercase">On Leave</span>
+</div>
+<p class="text-label-sm text-outline">Information Systems</p>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 0/20 hrs
+                                    </span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">book</span> 0 Subjects
+                                    </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Instructor Details (Detail) -->
+<section class="flex-1 bg-background overflow-y-auto custom-scrollbar">
+<div class="p-8">
+<!-- Header Info -->
+<div class="flex justify-between items-start mb-8">
+<div class="flex gap-6 items-center">
+<img class="w-24 h-24 rounded-xl object-cover border-2 border-white shadow-sm" data-alt="A focused high-resolution portrait of a senior female professor in a modern academic setting. She is wearing a dark professional cardigan. The lighting is soft and even, highlighting her scholarly features against a clean, white-walled office background that conveys institutional transparency and professional clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhZyb4UWCiO3mmXxLoFKBtPg32fMaRi3TsflnGaB1pfs9_y4edov8HRwC_tg6nbmekTVSZOXwHVF116EHhEjIJHeu1NmBatAciSXacb7wPbh-lJYR6UQhK5CndnXXVeU4xo3uNYG07pXbFDI_POBQvo5rnGRCKDGxVaKVoQ8QigwMBqVLwIPHgPq5Jjzl8mB0coeBv326W7JDwaQ3zCgvJL7KqYIqmWJvDcsl8q3-JE_Mfg3kVT7SDNEPG7_kz0tuOVqa4cppNzP4"/>
+<div>
+<h2 class="text-display-lg font-display-lg text-primary">Dr. Sarah Jenkins</h2>
+<p class="text-body-lg text-on-surface-variant">Senior Lecturer • Department of Computer Science</p>
+<div class="flex gap-2 mt-3">
+<span class="px-3 py-1 rounded-full bg-primary-container text-white text-label-sm">Algorithms</span>
+<span class="px-3 py-1 rounded-full bg-primary-container text-white text-label-sm">Data Structures</span>
+<span class="px-3 py-1 rounded-full bg-primary-container text-white text-label-sm">Discrete Math</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-primary text-white rounded font-bold text-label-sm hover:opacity-90 flex items-center gap-2" onclick="toggleModal('assignModal')">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                                Assign Subject
+                            </button>
+<button class="p-2 border border-outline-variant rounded hover:bg-surface-container-high">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<!-- Conflict Alert -->
+<div class="mb-8 p-4 bg-error-container text-on-error-container border-l-4 border-error rounded flex items-center gap-4">
+<span class="material-symbols-outlined text-error">warning</span>
+<div class="flex-1">
+<p class="text-label-sm font-bold">Scheduling Conflict Detected</p>
+<p class="text-body-md">Potential overlap on Wednesday between 'Intro to CS' and 'Research Seminar' in Room 402.</p>
+</div>
+<button class="text-label-sm underline font-bold">Resolve Now</button>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Weekly Schedule Card -->
+<div class="col-span-8 bg-white border border-outline-variant rounded-xl p-6 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-headline-md font-headline-md">Weekly Schedule</h3>
+<div class="flex gap-2">
+<button class="p-1 hover:bg-surface-container-low rounded"><span class="material-symbols-outlined text-[20px]">chevron_left</span></button>
+<span class="text-label-sm font-bold">Oct 21 - Oct 25</span>
+<button class="p-1 hover:bg-surface-container-low rounded"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+</div>
+</div>
+<!-- Calendar View -->
+<div class="calendar-grid border-t border-l border-outline-variant">
+<!-- Headers -->
+<div class="h-10 border-b border-r border-outline-variant bg-surface-container-low"></div>
+<div class="h-10 border-b border-r border-outline-variant bg-surface-container-low flex items-center justify-center text-label-sm font-bold">MON</div>
+<div class="h-10 border-b border-r border-outline-variant bg-surface-container-low flex items-center justify-center text-label-sm font-bold">TUE</div>
+<div class="h-10 border-b border-r border-outline-variant bg-surface-container-low flex items-center justify-center text-label-sm font-bold">WED</div>
+<div class="h-10 border-b border-r border-outline-variant bg-surface-container-low flex items-center justify-center text-label-sm font-bold">THU</div>
+<div class="h-10 border-b border-r border-outline-variant bg-surface-container-low flex items-center justify-center text-label-sm font-bold">FRI</div>
+<!-- Rows -->
+<div class="h-16 border-b border-r border-outline-variant bg-surface-container-low flex items-center justify-center text-[11px] font-bold">09:00</div>
+<div class="h-16 border-b border-r border-outline-variant p-1">
+<div class="h-full bg-primary-container/10 border-l-4 border-primary p-1.5 rounded-sm">
+<p class="text-[10px] font-bold text-primary truncate">CS101: Intro</p>
+<p class="text-[9px] text-outline">Rm 102</p>
+</div>
+</div>
+<div class="h-16 border-b border-r border-outline-variant"></div>
+<div class="h-16 border-b border-r border-outline-variant p-1">
+<div class="h-full bg-primary-container/10 border-l-4 border-primary p-1.5 rounded-sm">
+<p class="text-[10px] font-bold text-primary truncate">CS101: Intro</p>
+</div>
+</div>
+<div class="h-16 border-b border-r border-outline-variant"></div>
+<div class="h-16 border-b border-r border-outline-variant"></div>
+<div class="h-16 border-b border-r border-outline-variant bg-surface-container-low flex items-center justify-center text-[11px] font-bold">11:00</div>
+<div class="h-16 border-b border-r border-outline-variant"></div>
+<div class="h-16 border-b border-r border-outline-variant p-1">
+<div class="h-full bg-tertiary-container/10 border-l-4 border-tertiary p-1.5 rounded-sm">
+<p class="text-[10px] font-bold text-tertiary truncate">CS402: Lab</p>
+</div>
+</div>
+<div class="h-16 border-b border-r border-outline-variant"></div>
+<div class="h-16 border-b border-r border-outline-variant"></div>
+<div class="h-16 border-b border-r border-outline-variant p-1">
+<div class="h-full bg-tertiary-container/10 border-l-4 border-tertiary p-1.5 rounded-sm">
+<p class="text-[10px] font-bold text-tertiary truncate">CS402: Lab</p>
+</div>
+</div>
+<div class="h-16 border-b border-r border-outline-variant bg-surface-container-low flex items-center justify-center text-[11px] font-bold">13:00</div>
+<div class="h-16 border-b border-r border-outline-variant"></div>
+<div class="h-16 border-b border-r border-outline-variant"></div>
+<div class="h-16 border-b border-r border-outline-variant bg-error-container/20 p-1 relative">
+<div class="absolute inset-0 border-2 border-error border-dashed m-0.5 pointer-events-none"></div>
+<p class="text-[9px] text-error font-bold text-center mt-4">CONFLICT</p>
+</div>
+<div class="h-16 border-b border-r border-outline-variant"></div>
+<div class="h-16 border-b border-r border-outline-variant"></div>
+</div>
+</div>
+<!-- Stats & Specializations -->
+<div class="col-span-4 space-y-6">
+<!-- Utilization Card -->
+<div class="bg-white border border-outline-variant rounded-xl p-6 shadow-sm">
+<h3 class="text-label-sm font-bold text-outline uppercase mb-4 tracking-wider">Utilization</h3>
+<div class="flex items-end gap-2 mb-2">
+<span class="text-display-lg font-bold text-primary">70%</span>
+<span class="text-body-md text-on-surface-variant pb-1.5">14 of 20 hours</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 70%"></div>
+</div>
+<p class="mt-3 text-[11px] text-on-surface-variant italic">Next available block: Thursday, 10:00 AM</p>
+</div>
+<!-- Assigned Subjects -->
+<div class="bg-white border border-outline-variant rounded-xl p-6 shadow-sm">
+<h3 class="text-label-sm font-bold text-outline uppercase mb-4 tracking-wider">Assigned Subjects</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant">
+<div>
+<p class="text-body-md font-bold">Advanced Algorithms</p>
+<p class="text-[11px] text-outline">CS302 • 4 Credit Hrs</p>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">more_vert</span>
+</div>
+<div class="flex justify-between items-center pb-3 border-b border-outline-variant">
+<div>
+<p class="text-body-md font-bold">Data Structures</p>
+<p class="text-[11px] text-outline">CS105 • 3 Credit Hrs</p>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">more_vert</span>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="text-body-md font-bold">Machine Learning I</p>
+<p class="text-[11px] text-outline">CS501 • 3 Credit Hrs</p>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">more_vert</span>
+</div>
+</div>
+</div>
+<!-- Academic Record -->
+<div class="bg-primary-container p-6 rounded-xl text-white">
+<h3 class="text-label-sm font-bold uppercase mb-4 tracking-wider opacity-80">Quick Notes</h3>
+<p class="text-body-md leading-relaxed">Prefer evening classes on Tuesdays. Available for thesis mentoring for up to 2 students this semester.</p>
+<button class="mt-4 text-[11px] font-bold flex items-center gap-1 border-b border-white/30">
+                                    VIEW FULL DOSSIER <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Assign Subject Modal (Overlay) -->
+<div class="hidden fixed inset-0 z-[100] bg-on-secondary-fixed/50 backdrop-blur-sm flex items-center justify-center p-4" id="assignModal">
+<div class="bg-white w-full max-w-lg rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h2 class="text-headline-md font-headline-md text-primary">Assign New Subject</h2>
+<button class="p-1 hover:bg-surface-container-low rounded-full" onclick="toggleModal('assignModal')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-6 space-y-6">
+<div>
+<label class="block text-label-sm font-bold text-outline uppercase mb-2">Instructor</label>
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg border border-outline-variant">
+<img alt="" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkckhFefS_uvSqvbRgrlyDw7Tf2jc6hAjBlDF34OZqO2KBrmoG-JmgG-Xo4_WIldD4Sxx36C4l5uiuDSshEul5q4Ca7rbIRM3dhHK-tZlubG6yjpXRpaVznt4PVQp2N1DT73Crpx0ch4l7ZNhC5IlljI0VHZXdtJrPGj43ao9lxXzIHh_TkoyuOs9O1ynPs0NeDJMXGXmqQDeGidOpvXNiXfDkGIZ5JTpB9FUPDhZ3RGcM37Hbu4NzVE1n5dJdQJ-6axg6JZ5JroI"/>
+<span class="text-body-md font-bold">Dr. Sarah Jenkins</span>
+</div>
+</div>
+<div>
+<label class="block text-label-sm font-bold text-outline uppercase mb-2">Search Subject</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary outline-none" placeholder="Type subject code or name..." type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-label-sm font-bold text-outline uppercase mb-2">Section</label>
+<select class="w-full border border-outline-variant rounded-lg py-2 px-3">
+<option>Section A</option>
+<option>Section B</option>
+</select>
+</div>
+<div>
+<label class="block text-label-sm font-bold text-outline uppercase mb-2">Preferred Slot</label>
+<select class="w-full border border-outline-variant rounded-lg py-2 px-3">
+<option>Morning (08:00 - 12:00)</option>
+<option>Afternoon (13:00 - 17:00)</option>
+</select>
+</div>
+</div>
+<div class="p-4 bg-surface-container rounded-lg border border-outline-variant">
+<div class="flex justify-between items-center mb-2">
+<span class="text-label-sm font-bold">Conflict Check</span>
+<span class="text-[10px] text-green-600 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> NO OVERLAP
+                        </span>
+</div>
+<p class="text-[11px] text-on-surface-variant">The selected slot is clear of current assignments for Dr. Jenkins.</p>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low border-t border-outline-variant flex justify-end gap-3">
+<button class="px-4 py-2 text-label-sm font-bold text-outline hover:text-on-surface" onclick="toggleModal('assignModal')">Cancel</button>
+<button class="px-6 py-2 bg-primary text-white rounded font-bold text-label-sm hover:bg-primary-container transition-colors">Confirm Assignment</button>
+</div>
+</div>
+</div>
+<script>
+        function toggleModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.toggle('hidden');
+        }
+
+        // Lightweight hover effect for table rows
+        document.querySelectorAll('.instructor-row').forEach(row => {
+            row.addEventListener('click', () => {
+                document.querySelectorAll('.instructor-row').forEach(r => r.classList.remove('table-row-selected', 'bg-white'));
+                row.classList.add('table-row-selected', 'bg-white');
+            });
+        });
+    </script>
+</body></html>

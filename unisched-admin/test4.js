@@ -1,0 +1,1 @@
+const fs=require('fs'); const {JSDOM} = require('jsdom'); const dom = new JSDOM(fs.readFileSync('index.html','utf8'), {runScripts: 'dangerously'}); dom.window.onload = () => { try { dom.window.eval('App.switchDay(\'Monday\')'); console.log('SUCCESS'); } catch(e) { console.error('ERROR:', e); } };

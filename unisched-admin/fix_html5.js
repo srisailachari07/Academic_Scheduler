@@ -1,0 +1,1 @@
+const fs=require('fs'); let c=fs.readFileSync('index.html','utf8'); c=c.replace(/updateGlobalContextForActiveUniversity\(\);/g, ''); c=c.replace(/function updateGlobalContextForActiveUniversity\(\) \{[\s\S]*?TEACHING_PERIODS\.push\(p\)\);\n\}/, ''); fs.writeFileSync('index.html', c);

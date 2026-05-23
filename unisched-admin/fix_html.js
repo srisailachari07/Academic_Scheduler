@@ -1,0 +1,1 @@
+const fs=require('fs'); let c=fs.readFileSync('index.html','utf8'); c=c.replace(/<a class="nav-item" data-view="universities" onclick="App.showView\('universities'\)">[\s\S]*?Universities & Timings[\s\S]*?<\/a>/, ''); c=c.replace(/<div class="view" id="view-universities">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/, ''); fs.writeFileSync('index.html', c);

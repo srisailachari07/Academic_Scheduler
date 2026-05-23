@@ -1,0 +1,1 @@
+const fs=require('fs'); let c = fs.readFileSync('index.html','utf8'); c = c.replace(/const PERIODS = \\[[^]*?const TEACHING_PERIODS = PERIODS\\.filter\\(p => p\\.type === 'teaching'\\);\\r?\\n/, ''); fs.writeFileSync('index.html', c);

@@ -1,0 +1,9 @@
+WORKLOAD FOR SRISAILACHARI
+Week 1 (2026-05-21 to 2026-05-25)
+
+2026-05-22 | Tue | 03:00 PM - 03:50 PM | undefined (Section-2) | Lecture
+2026-05-22 | Tue | 03:50 PM - 04:40 PM | undefined (Section-2) | Lecture
+2026-05-23 | Wed | 09:50 AM - 10:40 AM | undefined (Section-3) | Lecture
+2026-05-23 | Wed | 03:00 PM - 03:50 PM | undefined (Section-3) | Lecture
+2026-05-24 | Thu | 03:00 PM - 03:50 PM | undefined (Section-1) | Lecture
+2026-05-25 | Fri | 03:50 PM - 04:40 PM | undefined (Section-1) | Lecture

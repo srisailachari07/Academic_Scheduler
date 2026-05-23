@@ -1,0 +1,3483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>UniSched Admin – Academic Scheduler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ─────────────────── RESET & BASE ─────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#f0f4f8;
+  --surface:#ffffff;
+  --brand:#00236f;
+  --brand-light:#e8effd;
+  --border:#dde3ec;
+  --text:#191c1e;
+  --muted:#6b7280;
+  --sidebar-w:230px;
+  --header-h:56px;
+  --radius:10px;
+
+  /* Subject palette */
+  --c-frontend:#f4a261;
+  --c-frontend-lab:#e67e4e;
+  --c-dsa:#48cae4;
+  --c-dsa-lab:#ff85a1;
+  --c-math:#ffd166;
+  --c-math-prac:#95d5b2;
+  --c-llm:#9b5de5;
+  --c-db:#264653;
+  --c-db-lab:#118ab2;
+  --c-eng:#1d3557;
+  --c-yoga:#f8a5c2;
+  --c-coin:#748ffc;
+  --c-quiz:#74c0fc;
+  --c-sports:#69db7c;
+  --c-library:#ff922b;
+  --c-mentor:#ffd43b;
+  --c-break:#c5c8f5;
+  --c-lunch:#fde68a;
+}
+html,body{height:100%;font-family:'Inter',sans-serif;font-size:13px;color:var(--text);background:var(--bg);}
+button{cursor:pointer;font-family:inherit;}
+input,select,textarea{font-family:inherit;}
+
+/* ─────────────────── LAYOUT ─────────────────── */
+#app{display:flex;height:100vh;overflow:hidden;}
+
+/* ─────────────────── SIDEBAR ─────────────────── */
+#sidebar{
+  width:var(--sidebar-w);min-width:var(--sidebar-w);
+  background:var(--brand);
+  display:flex;flex-direction:column;
+  overflow-y:auto;
+  z-index:100;
+  flex-shrink:0;
+}
+.sb-logo{
+  padding:20px 18px 16px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.sb-logo-title{color:#fff;font-size:16px;font-weight:800;letter-spacing:-.3px;line-height:1.2;}
+.sb-logo-sub{color:rgba(255,255,255,.55);font-size:10px;font-weight:500;margin-top:2px;letter-spacing:.5px;text-transform:uppercase;}
+
+/* Semester selector */
+.sb-sem-box{
+  margin:14px 12px;background:rgba(255,255,255,.08);
+  border-radius:8px;padding:10px 12px;
+}
+.sb-sem-label{color:rgba(255,255,255,.5);font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px;}
+.sb-sem-select{
+  width:100%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
+  color:#fff;border-radius:6px;padding:6px 8px;font-size:11.5px;cursor:pointer;
+  appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center;padding-right:26px;
+}
+.sb-sem-select option{background:#002060;color:#fff;}
+.sb-add-sem-btn{
+  width:100%;margin-top:8px;background:rgba(255,255,255,.15);
+  border:1px dashed rgba(255,255,255,.3);color:#fff;border-radius:6px;
+  padding:6px;font-size:11px;font-weight:500;
+  transition:background .2s;
+}
+.sb-add-sem-btn:hover{background:rgba(255,255,255,.22);}
+
+/* Nav links */
+.sb-nav{flex:1;padding:8px 0;}
+.sb-nav-group{margin:4px 12px 10px;}
+.sb-nav-group-label{color:rgba(255,255,255,.35);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:6px 4px 4px;}
+.nav-item{
+  display:flex;align-items:center;gap:9px;
+  padding:8px 12px;border-radius:8px;
+  color:rgba(255,255,255,.72);font-size:12px;font-weight:500;
+  cursor:pointer;transition:all .15s;text-decoration:none;
+  margin:1px 0;
+}
+.nav-item:hover{background:rgba(255,255,255,.1);color:#fff;}
+.nav-item.active{background:rgba(255,255,255,.18);color:#fff;font-weight:600;}
+.nav-item svg{flex-shrink:0;opacity:.8;}
+
+.sb-bottom{
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:14px 12px;
+}
+.sb-version{color:rgba(255,255,255,.3);font-size:9.5px;text-align:center;}
+
+/* ─────────────────── MAIN AREA ─────────────────── */
+#main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;}
+
+/* Top bar */
+#topbar{
+  height:var(--header-h);min-height:var(--header-h);
+  background:var(--surface);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 22px;gap:14px;
+  z-index:50;
+}
+.topbar-title{font-size:15px;font-weight:700;color:var(--text);flex:1;}
+.topbar-title span{font-size:12px;font-weight:400;color:var(--muted);margin-left:8px;}
+.tb-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:7px;font-size:12px;font-weight:600;
+  border:none;transition:all .15s;
+}
+.tb-btn-secondary{background:var(--brand-light);color:var(--brand);}
+.tb-btn-secondary:hover{background:#d4e2fb;}
+.tb-btn-primary{background:var(--brand);color:#fff;}
+.tb-btn-primary:hover{background:#00195a;}
+.tb-btn-danger{background:#fff0f0;color:#d32f2f;}
+.tb-btn-danger:hover{background:#ffd6d6;}
+
+/* ─────────────────── VIEWS ─────────────────── */
+.view{display:none;flex:1;overflow:hidden;flex-direction:column;}
+.view.active{display:flex;}
+
+/* ──── SCHEDULE VIEW ──── */
+#view-schedule{background:var(--bg);}
+.schedule-toolbar{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;padding:10px 18px;flex-wrap:wrap;
+}
+.day-tabs{display:flex;gap:4px;}
+.day-tab{
+  padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;
+  border:1.5px solid var(--border);background:#fff;color:var(--muted);
+  cursor:pointer;transition:all .15s;
+}
+.day-tab.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+.day-tab:hover:not(.active){background:var(--brand-light);color:var(--brand);border-color:var(--brand);}
+
+.sched-actions{margin-left:auto;display:flex;gap:8px;align-items:center;}
+.week-badge{
+  background:#f1f5f9;border:1px solid #e2e8f0;border-radius:6px;
+  padding:5px 12px;font-size:11px;font-weight:600;color:var(--muted);
+}
+
+/* Schedule table wrapper */
+.schedule-body{flex:1;overflow:auto;padding:16px;}
+.schedule-card{
+  background:var(--surface);border-radius:var(--radius);
+  border:1px solid var(--border);overflow:hidden;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.schedule-card-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;border-bottom:1px solid var(--border);
+  background:var(--brand);
+}
+.schedule-card-title{color:#fff;font-size:13px;font-weight:700;letter-spacing:.2px;}
+.schedule-card-sub{color:rgba(255,255,255,.6);font-size:10px;}
+
+.tt-scroll-wrap{overflow-x:auto;}
+
+/* ──── THE MAIN TIMETABLE TABLE ──── */
+.tt-main{
+  border-collapse:collapse;
+  min-width:1300px;
+  width:100%;
+  table-layout:fixed;
+  font-size:10.5px;
+}
+.tt-main th,.tt-main td{
+  border:1px solid #c8d0dc;
+  vertical-align:middle;
+  padding:0;
+}
+
+/* Header */
+.tt-main thead tr{background:var(--brand);}
+.tt-main .th-section{
+  width:54px;background:var(--brand);
+  color:rgba(255,255,255,.7);font-size:9px;font-weight:600;
+  text-align:center;padding:8px 4px;letter-spacing:.4px;
+}
+.tt-main .th-rowlabel{
+  width:76px;background:#15295a;
+  color:rgba(255,255,255,.6);font-size:9px;text-align:center;
+}
+.tt-main .th-period{
+  background:var(--brand);color:#fff;text-align:center;
+  padding:6px 3px;line-height:1.3;
+}
+.th-period-time{font-size:10.5px;font-weight:700;display:block;}
+.th-period-end{font-size:9px;color:rgba(255,255,255,.6);display:block;}
+
+.tt-main .th-break{
+  width:38px;background:#7c83c8;color:#fff;
+  text-align:center;font-size:8.5px;font-weight:700;
+  writing-mode:vertical-rl;letter-spacing:.5px;padding:4px 3px;
+}
+.tt-main .th-lunch{
+  width:38px;background:#b48a00;color:#fff;
+  text-align:center;font-size:8.5px;font-weight:700;
+  writing-mode:vertical-rl;letter-spacing:.5px;padding:4px 3px;
+}
+
+/* Section label cells */
+.td-section{
+  width:54px;background:#f0f4fa;
+  font-size:9.5px;font-weight:800;color:#1a2d5a;
+  text-align:center;vertical-align:middle;
+  border-right:2px solid #b0bcd4;
+  padding:4px 2px;letter-spacing:.3px;
+}
+.section-label-inner{
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  font-size:9px;font-weight:700;color:#1a2d5a;
+  white-space:nowrap;
+}
+
+/* Row label cells */
+.td-rowlabel{
+  width:76px;background:#f8f9fc;color:#8898b0;
+  font-size:8.5px;font-weight:600;text-align:right;
+  padding:3px 7px 3px 3px;letter-spacing:.3px;border-right:1px solid #d0d8e8;
+}
+
+/* Course cells */
+.td-course{
+  vertical-align:middle;text-align:center;
+  padding:4px 5px;
+  min-height:44px;height:44px;
+  cursor:pointer;transition:filter .15s;
+  line-height:1.25;
+  position:relative;
+}
+.td-course:hover{filter:brightness(.93);}
+.td-course.td-empty{
+  background:#fafbfd;cursor:pointer;
+}
+.td-course.td-empty:hover{background:#eef2f8;}
+.course-text{
+  font-size:9.5px;font-weight:600;
+  display:block;word-break:break-word;
+  line-height:1.25;
+}
+.td-course.conflict-cell{outline:2px solid #d32f2f;outline-offset:-2px;}
+
+/* Topic cells */
+.td-topic{
+  background:#fff;vertical-align:top;
+  padding:2px 5px;height:18px;min-height:18px;
+  font-size:8.5px;color:#5a6a80;
+  border-top:none;
+}
+
+/* Instructor cells */
+.td-instr{
+  background:#f5f8ff;vertical-align:middle;
+  text-align:center;padding:2px 5px;
+  height:22px;min-height:22px;
+  font-size:9px;font-weight:700;color:#1a2d5a;
+  border-top:none;
+}
+
+/* Break / Lunch fixed columns */
+.td-break{
+  background:linear-gradient(135deg,#c5c8f5,#9fa4e8);
+  text-align:center;vertical-align:middle;
+  font-size:8px;font-weight:700;color:#3540a0;
+  writing-mode:vertical-rl;padding:3px;
+}
+.td-lunch{
+  background:linear-gradient(135deg,#fde68a,#f6c90e);
+  text-align:center;vertical-align:middle;
+  font-size:8px;font-weight:700;color:#7a5200;
+  writing-mode:vertical-rl;padding:3px;
+}
+.break-inner{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.break-inner span:first-child{font-size:8px;font-weight:700;}
+.break-inner span:last-child{font-size:7.5px;opacity:.75;}
+
+/* Section separator row */
+.tt-main tr.section-border td,.tt-main tr.section-border th{
+  border-top:2px solid #8898b0 !important;
+}
+
+/* ──── SUBJECTS VIEW ──── */
+#view-subjects{background:var(--bg);}
+.subjects-body{flex:1;overflow-y:auto;padding:20px;}
+.subjects-grid{display:grid;grid-template-columns:1fr 340px;gap:18px;max-width:1200px;}
+.panel-card{
+  background:var(--surface);border-radius:var(--radius);
+  border:1px solid var(--border);overflow:hidden;
+}
+.panel-card-header{
+  padding:14px 18px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.panel-card-title{font-size:13px;font-weight:700;color:var(--text);}
+.panel-card-body{padding:16px 18px;}
+
+/* Subject table */
+.subj-table{width:100%;border-collapse:collapse;font-size:11.5px;}
+.subj-table th{
+  padding:8px 10px;background:#f1f5fb;color:var(--muted);
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+  border-bottom:1px solid var(--border);text-align:left;
+}
+.subj-table td{
+  padding:8px 10px;border-bottom:1px solid #f0f4f8;vertical-align:middle;
+}
+.subj-table tbody tr:hover{background:#f7faff;}
+.color-dot{
+  width:16px;height:16px;border-radius:4px;display:inline-block;
+  border:1.5px solid rgba(0,0,0,.12);cursor:pointer;
+  vertical-align:middle;flex-shrink:0;
+}
+.subj-name-cell{font-weight:600;color:var(--text);font-size:11px;}
+.subj-code-badge{
+  display:inline-block;background:#f0f4f8;color:var(--muted);
+  font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;
+  margin-left:4px;vertical-align:middle;
+}
+.hrs-ctrl{display:flex;align-items:center;gap:4px;}
+.hrs-btn{
+  width:20px;height:20px;border:1px solid var(--border);border-radius:4px;
+  background:#fff;color:var(--text);font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:background .15s;padding:0;line-height:1;
+}
+.hrs-btn:hover{background:#eef2ff;}
+.hrs-val{min-width:22px;text-align:center;font-weight:700;font-size:12px;}
+.icon-btn{
+  width:28px;height:28px;border:none;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .15s;
+}
+.icon-btn-edit{background:#eef2ff;color:#4a5ec8;}
+.icon-btn-edit:hover{background:#d8deff;}
+.icon-btn-del{background:#fff0f0;color:#d32f2f;}
+.icon-btn-del:hover{background:#ffd6d6;}
+.type-badge{
+  display:inline-block;padding:2px 8px;border-radius:12px;
+  font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;
+}
+.badge-lec{background:#e8effd;color:#1a3a8a;}
+.badge-lab{background:#fff0e0;color:#b55a00;}
+.badge-prac{background:#e8fdf2;color:#1a7a40;}
+.badge-fixed{background:#f3e8ff;color:#6b00c8;}
+.badge-sys{background:#f1f5f9;color:#6b7280;}
+
+/* Add subject form */
+.form-group{margin-bottom:14px;}
+.form-label{font-size:11px;font-weight:600;color:var(--muted);margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:.4px;}
+.form-input,.form-select{
+  width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:7px;
+  font-size:12px;background:#fff;color:var(--text);
+  transition:border-color .15s;outline:none;
+}
+.form-input:focus,.form-select:focus{border-color:var(--brand);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.color-picker-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.color-pick-swatch{
+  width:24px;height:24px;border-radius:5px;cursor:pointer;
+  border:2px solid transparent;transition:transform .1s,border-color .1s;
+}
+.color-pick-swatch:hover{transform:scale(1.15);}
+.color-pick-swatch.sel{border-color:#00236f;transform:scale(1.1);}
+.form-actions{display:flex;gap:8px;margin-top:16px;}
+.btn-full{flex:1;padding:9px;border-radius:7px;font-size:12px;font-weight:700;border:none;cursor:pointer;transition:all .15s;}
+.btn-primary{background:var(--brand);color:#fff;}
+.btn-primary:hover{background:#00195a;}
+.btn-secondary{background:#f0f4f8;color:var(--muted);}
+.btn-secondary:hover{background:#e0e6f0;}
+
+/* Generate button */
+.generate-zone{
+  background:linear-gradient(135deg,#00236f,#1e3a8a);
+  border-radius:10px;padding:18px;color:#fff;margin-bottom:16px;
+}
+.generate-zone h3{font-size:14px;font-weight:700;margin-bottom:6px;}
+.generate-zone p{font-size:11px;opacity:.75;margin-bottom:14px;line-height:1.5;}
+.btn-generate{
+  width:100%;padding:10px;background:rgba(255,255,255,.2);
+  border:1.5px solid rgba(255,255,255,.4);border-radius:8px;
+  color:#fff;font-size:13px;font-weight:700;cursor:pointer;
+  transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-generate:hover{background:rgba(255,255,255,.3);}
+
+/* ──── SECTIONS VIEW ──── */
+#view-sections{background:var(--bg);}
+.sections-body{flex:1;overflow-y:auto;padding:20px;}
+.sections-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px;}
+
+.section-card{
+  background:var(--surface);border-radius:var(--radius);
+  border:1px solid var(--border);padding:16px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.sec-card-name{font-size:14px;font-weight:700;color:var(--text);}
+.sec-card-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.sec-card-actions{display:flex;gap:6px;}
+
+/* ──── FIXED SLOTS VIEW ──── */
+#view-fixed{background:var(--bg);}
+.fixed-body{flex:1;overflow-y:auto;padding:20px;}
+.fixed-table{width:100%;border-collapse:collapse;font-size:11.5px;max-width:900px;}
+.fixed-table th{
+  padding:8px 12px;background:#f1f5fb;color:var(--muted);
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+  border-bottom:1px solid var(--border);text-align:left;
+}
+.fixed-table td{padding:9px 12px;border-bottom:1px solid #f0f4f8;vertical-align:middle;}
+.fixed-table tbody tr:hover{background:#f7faff;}
+
+/* ──── SETTINGS VIEW ──── */
+#view-settings{background:var(--bg);}
+.settings-body{flex:1;overflow-y:auto;padding:20px;}
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px;}
+
+/* ─────────────────── MODAL ─────────────────── */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,30,.45);
+  display:none;align-items:center;justify-content:center;z-index:999;
+  backdrop-filter:blur(2px);
+}
+.modal-backdrop.open{display:flex;}
+.modal-box{
+  background:#fff;border-radius:14px;
+  padding:0;width:480px;max-width:95vw;max-height:90vh;
+  overflow:hidden;display:flex;flex-direction:column;
+  box-shadow:0 20px 60px rgba(0,0,30,.25);animation:mfade .2s ease;
+}
+@keyframes mfade{from{opacity:0;transform:scale(.95);}to{opacity:1;transform:scale(1);}}
+.modal-header{
+  padding:18px 22px 14px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.modal-title{font-size:15px;font-weight:700;color:var(--text);}
+.modal-close{
+  width:30px;height:30px;border:none;background:#f0f4f8;
+  border-radius:50%;font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;color:var(--muted);
+  transition:background .15s;
+}
+.modal-close:hover{background:#dde3ec;}
+.modal-body{padding:20px 22px;overflow-y:auto;flex:1;}
+.modal-footer{
+  padding:14px 22px;border-top:1px solid var(--border);
+  display:flex;justify-content:flex-end;gap:10px;
+}
+.mf-btn{padding:8px 20px;border-radius:7px;font-size:12.5px;font-weight:600;border:none;cursor:pointer;}
+.mf-btn-cancel{background:#f0f4f8;color:var(--muted);}
+.mf-btn-cancel:hover{background:#dde3ec;}
+.mf-btn-save{background:var(--brand);color:#fff;}
+.mf-btn-save:hover{background:#00195a;}
+.mf-btn-del{background:#d32f2f;color:#fff;}
+.mf-btn-del:hover{background:#b71c1c;}
+
+/* ─────────────────── TOAST ─────────────────── */
+#toast-area{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:8px;}
+.toast{
+  padding:12px 18px;border-radius:9px;font-size:12px;font-weight:600;
+  box-shadow:0 4px 20px rgba(0,0,0,.18);color:#fff;min-width:220px;
+  animation:tslide .25s ease;
+}
+@keyframes tslide{from{opacity:0;transform:translateX(30px);}to{opacity:1;transform:translateX(0);}}
+.toast-success{background:#1b7a40;}
+.toast-error{background:#c62828;}
+.toast-info{background:#1565c0;}
+
+/* ─────────────────── STATS BAR ─────────────────── */
+.stats-bar{
+  display:flex;gap:12px;padding:10px 18px;
+  background:var(--surface);border-bottom:1px solid var(--border);
+  overflow-x:auto;flex-shrink:0;
+}
+.stat-pill{
+  background:var(--brand-light);border-radius:20px;
+  padding:4px 14px;white-space:nowrap;
+  font-size:11px;font-weight:600;color:var(--brand);
+  display:flex;align-items:center;gap:5px;
+}
+.stat-pill .num{font-size:13px;font-weight:800;}
+.stat-divider{width:1px;background:var(--border);flex-shrink:0;}
+
+/* ─────────────────── PRINT ─────────────────── */
+@media print{
+  #sidebar,.schedule-toolbar,.topbar,#toast-area{display:none!important;}
+  .schedule-body{padding:0;}
+  .schedule-card{box-shadow:none;border:none;}
+  .tt-main{min-width:unset;font-size:9px;}
+}
+
+/* ─────────────────── SCROLLBAR ─────────────────── */
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:#c5ccd8;border-radius:4px;}
+::-webkit-scrollbar-thumb:hover{background:#a0aabb;}
+
+/* ─────────────────── MISC ─────────────────── */
+.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9.5px;font-weight:600;}
+.tag-uni{background:#ede9fe;color:#6b00c8;}
+.divider{height:1px;background:var(--border);margin:12px 0;}
+.empty-state{text-align:center;padding:40px 20px;color:var(--muted);}
+.empty-state svg{opacity:.3;margin-bottom:10px;}
+.empty-state p{font-size:13px;}
+.info-box{background:#eef4ff;border-left:3px solid var(--brand);border-radius:6px;padding:10px 14px;font-size:11.5px;color:#1a3a8a;margin-bottom:14px;}
+.warn-box{background:#fff9e6;border-left:3px solid #f59e0b;border-radius:6px;padding:10px 14px;font-size:11.5px;color:#7a5200;margin-bottom:14px;}
+
+/* Fixed-slot row in fixed config */
+.fixed-slot-placement{
+  display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;
+}
+.fsp-chip{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:3px 8px;border-radius:5px;font-size:9.5px;font-weight:600;
+  background:#eef2ff;color:#3540a0;border:1px solid #c5caf5;
+}
+.fsp-chip .rm{
+  width:14px;height:14px;border-radius:3px;border:none;
+  background:rgba(53,64,160,.15);color:#3540a0;cursor:pointer;
+  font-size:11px;display:flex;align-items:center;justify-content:center;
+  line-height:1;
+}
+
+/* Conflict indicator */
+.conflict-dot{
+  position:absolute;top:2px;right:2px;
+  width:7px;height:7px;border-radius:50%;background:#d32f2f;
+  border:1.5px solid #fff;
+}
+
+/* Legend */
+.legend{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px;background:var(--surface);border-top:1px solid var(--border);}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--muted);}
+.legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+</style>
+</head>
+<body>
+<!--  ADMIN LOGIN OVERLAY  -->
+<div id="login-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);z-index:9999;display:flex;justify-content:center;align-items:center;">
+  <div style="background:white;padding:40px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.1);width:360px;text-align:center;">
+    <h2 style="color:var(--brand);margin-bottom:8px;">Admin Login</h2>
+    <p style="color:var(--muted);font-size:12px;margin-bottom:24px;">Please enter your admin credentials.</p>
+    <input type="text" id="overlay-admin-user" placeholder="Username" style="width:100%;padding:10px;margin-bottom:12px;border:1px solid #ccc;border-radius:6px;font-family:inherit;">
+    <input type="password" id="overlay-admin-pass" placeholder="Password" style="width:100%;padding:10px;margin-bottom:20px;border:1px solid #ccc;border-radius:6px;font-family:inherit;">
+    <button onclick="App.adminLogin()" style="width:100%;padding:10px;background:#2563eb;color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;font-family:inherit;">Login</button>
+    <p id="overlay-admin-err" style="color:#d32f2f;font-size:12px;margin-top:12px;display:none;">Invalid credentials</p>
+  </div>
+</div>
+<div id="app">
+
+<!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+<nav id="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-title">Academic<br>Scheduler</div>
+    <div class="sb-logo-sub">Timetable Management</div>
+  </div>
+
+
+
+  <!-- Semester Selector -->
+  <div class="sb-sem-box">
+    <div class="sb-sem-label">Active Semester</div>
+    <select class="sb-sem-select" id="sem-select" onchange="App.changeSemester(this.value)">
+      <!-- Populated by JS -->
+    </select>
+    <button class="sb-add-sem-btn" onclick="App.openAddSemesterModal()">+ New Semester</button>
+  </div>
+
+  <div class="sb-nav">
+    <div class="sb-nav-group">
+      <div class="sb-nav-group-label">Timetable</div>
+      <a class="nav-item active" data-view="schedule" onclick="App.showView('schedule')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Weekly Schedule
+      </a>
+      <a class="nav-item" data-view="fixed" onclick="App.showView('fixed')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Fixed Slots
+      </a>
+    </div>
+    <div class="sb-nav-group">
+      <div class="sb-nav-group-label">Configuration</div>
+      <a class="nav-item" data-view="subjects" onclick="App.showView('subjects')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Subjects & Workload
+      </a>
+      <a class="nav-item" data-view="sections" onclick="App.showView('sections')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Sections
+      </a>
+      <a class="nav-item" data-view="workload" onclick="App.showView('workload')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Instructor Workload
+      </a>
+      <a class="nav-item" data-view="import" onclick="App.showView('import')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Data Import / Export
+      </a>
+      <a class="nav-item" data-view="instructors" onclick="App.showView('instructors')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Instructor Directory
+      </a>
+      
+      <a class="nav-item" data-view="settings" onclick="App.showView('settings')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M20 12h2M2 12h2M12 2v2M12 20v2"/></svg>
+        Settings
+      </a>
+    </div>
+  </div>
+
+  <div class="sb-bottom">
+    <button onclick="App.adminLogout()" style="width:100%;margin-bottom:12px;padding:8px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:6px;cursor:pointer;font-family:inherit;font-weight:600;display:flex;align-items:center;justify-content:center;gap:6px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+      Logout
+    </button>
+    <div class="sb-version">Academic Scheduler v3.0 · 4-Year Programme</div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<div id="main">
+  <!-- Top bar -->
+  <div id="topbar">
+    <div class="topbar-title" id="topbar-title">
+      Weekly Schedule <span id="topbar-sub"></span>
+    </div>
+    
+    <div style="display:flex;align-items:center;gap:12px;background:#f8fafc;padding:6px 12px;border-radius:8px;border:1px solid var(--border);">
+      <div style="display:flex;flex-direction:column;gap:2px;">
+        <label style="font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;">Semester Start</label>
+        <input type="date" id="sem-start-date" style="border:none;background:transparent;font-size:12px;font-weight:600;color:var(--text);outline:none;cursor:pointer;" onchange="App.updateWeekDropdown()">
+      </div>
+      <div style="width:1px;height:24px;background:var(--border);"></div>
+      <div style="display:flex;flex-direction:column;gap:2px;">
+        <label style="font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;">Semester End</label>
+        <input type="date" id="sem-end-date" style="border:none;background:transparent;font-size:12px;font-weight:600;color:var(--text);outline:none;cursor:pointer;" onchange="App.updateWeekDropdown()">
+      </div>
+    </div>
+
+    <span id="backend-status" style="display:none;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;background:rgba(255,255,255,.12);"></span>
+    <button class="tb-btn tb-btn-secondary" onclick="window.print()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Print
+    </button>
+    <button class="tb-btn tb-btn-secondary" onclick="App.exportExcel()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Export Excel
+    </button>
+  </div>
+
+  <!-- ─── SCHEDULE VIEW ─── -->
+  <section id="view-schedule" class="view active">
+    <div class="schedule-toolbar">
+      <div class="day-tabs" id="day-tabs">
+        <button class="day-tab active" data-day="Mon" onclick="App.switchDay('Mon')">Monday</button>
+        <button class="day-tab" data-day="Tue" onclick="App.switchDay('Tue')">Tuesday</button>
+        <button class="day-tab" data-day="Wed" onclick="App.switchDay('Wed')">Wednesday</button>
+        <button class="day-tab" data-day="Thu" onclick="App.switchDay('Thu')">Thursday</button>
+        <button class="day-tab" data-day="Fri" onclick="App.switchDay('Fri')">Friday</button>
+      </div>
+      <div class="sched-actions">
+        <select id="week-selector" style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:600;color:var(--brand);cursor:pointer;outline:none;">
+          <option value="1">Week 1</option>
+        </select>
+        
+        <button class="tb-btn" style="background:#2563eb;color:#fff;" onclick="App.saveManualEdits()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save Manual Edits
+        </button>
+
+        <button class="tb-btn" style="background:#10b981;color:#fff;" onclick="App.publishWorkload()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Publish via Email & WhatsApp
+        </button>
+
+        <button class="tb-btn tb-btn-secondary" onclick="App.shuffleWeek()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+          Shuffle Week
+        </button>
+        <button class="tb-btn tb-btn-secondary" onclick="App.clearSchedule()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+          Clear Schedule
+        </button>
+        <button class="tb-btn tb-btn-primary" onclick="App.showView('subjects')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          Regenerate
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar" id="stats-bar"></div>
+
+    <!-- Timetable -->
+    <div class="schedule-body">
+      <div class="schedule-card">
+        <div class="schedule-card-header">
+          <div>
+            <div class="schedule-card-title" id="sched-card-title">Monday Schedule</div>
+            <div class="schedule-card-sub" id="sched-card-sub">09:00 AM – 04:40 PM · 8 Periods</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button onclick="App.scrollTable(-400)" style="cursor:pointer;width:28px;height:28px;border-radius:6px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;transition:0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'" title="Scroll Left">◀</button>
+            <button onclick="App.scrollTable(400)" style="cursor:pointer;width:28px;height:28px;border-radius:6px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;transition:0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'" title="Scroll Right">▶</button>
+            <span id="conflict-badge" style="display:none;background:#d32f2f;color:#fff;border-radius:12px;padding:3px 10px;font-size:10px;font-weight:700;"></span>
+          </div>
+        </div>
+        <div class="tt-scroll-wrap">
+          <div id="tt-table-area">
+            <!-- rendered by JS -->
+          </div>
+        </div>
+        <div class="legend" id="legend-area"></div>
+        <div id="missing-area" style="margin-top:16px;padding:12px;background:#fff5f5;border-left:4px solid #ef4444;border-radius:4px;display:none;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── INSTRUCTOR WORKLOAD VIEW ─── -->
+  <section id="view-workload" class="view">
+    <div class="sections-body">
+      <div style="max-width:1100px;">
+        <div class="info-box" style="margin-bottom:14px;">
+          <b>🛡 Active Constraints per instructor per day:</b>
+          &nbsp; Max <b>4 Lectures</b> · Max <b>2 Practice/Lab</b> · Max <b>3 Morning sessions (P1–P4)</b> · Max <b>3 Afternoon sessions (P5–P8)</b> · <b>Break after 2 consecutive periods</b>
+        </div>
+        <div id="workload-panel"><!-- rendered by JS --></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SUBJECTS VIEW ─── -->
+  <section id="view-subjects" class="view">
+    <div class="subjects-body">
+      <div class="subjects-grid">
+        <!-- Left: subject list -->
+        <div>
+          <div class="panel-card">
+            <div class="panel-card-header" style="justify-content:space-between;display:flex;align-items:center;">
+              <div style="display:flex;gap:10px;align-items:center;">
+                <div class="panel-card-title">📚 Subjects & Workload</div>
+                <div id="total-periods-badge" style="background:#f0f4f8;border-radius:12px;padding:3px 12px;font-size:11px;font-weight:600;color:var(--muted);"></div>
+              </div>
+              <button class="tb-btn tb-btn-secondary" style="margin:0;padding:4px 10px;font-size:12px;height:auto;" onclick="App.resetWorkloads()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                Reset Workloads
+              </button>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="subj-table" id="subjects-table">
+                <thead>
+                  <tr>
+                    <th style="width:24px;"></th>
+                    <th>Subject</th>
+                    <th>Instructor</th>
+                    <th>Type</th>
+                    <th style="text-align:center;">Lec/wk</th>
+                    <th style="text-align:center;">Lab/wk</th>
+                    <th style="text-align:center;">Req</th>
+                    <th style="text-align:center;">Sch</th>
+                    <th style="text-align:center;">Left</th>
+                    <th style="width:70px;"></th>
+                  </tr>
+                </thead>
+                <tbody id="subjects-tbody"></tbody>
+              </table>
+            </div>
+            <div style="padding:12px 18px;border-top:1px solid var(--border);">
+              <div class="info-box" id="workload-info"></div>
+            </div>
+          </div>
+          <!-- Fixed/System subjects -->
+          <div class="panel-card" style="margin-top:16px;">
+            <div class="panel-card-header">
+              <div class="panel-card-title">🏛️ University & Fixed Slots</div>
+            </div>
+            <div style="overflow-x:auto;">
+              <table class="subj-table" id="fixed-table">
+                <thead><tr><th style="width:24px;"></th><th>Name</th><th>Instructor</th><th>Per Section/Week</th><th></th></tr></thead>
+                <tbody id="fixed-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Add/Edit form + Generate -->
+        <div>
+          <div class="generate-zone">
+            <h3>⚡ Auto-Generate Schedule</h3>
+            <p>Based on your subject workloads and fixed slots, the system will auto-assign sessions to all sections using a conflict-aware rotation algorithm.</p>
+            <button class="btn-generate" onclick="App.generateAndShow()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Generate Full Week Schedule
+            </button>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card-header">
+              <div class="panel-card-title" id="subj-form-title">+ Add Subject</div>
+            </div>
+            <div class="panel-card-body">
+              <input type="hidden" id="edit-subj-code-orig"/>
+              <div class="form-group">
+                <label class="form-label">Subject Code</label>
+                <input type="text" class="form-input" id="f-code" placeholder="e.g. BTNX221"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Subject Name</label>
+                <input type="text" class="form-input" id="f-name" placeholder="e.g. Data Structures Using C++"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Instructor</label>
+                <select class="form-select" id="f-instr">
+                  <option value="">-- Unassigned --</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Subject Type</label>
+                <select class="form-select" id="f-type">
+                  <option value="lecture">Lecture</option>
+                  <option value="lab">Lab / Practical</option>
+                  <option value="practice">Practice</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Lectures / Week</label>
+                  <input type="number" class="form-input" id="f-lec" min="0" max="10" value="3"/>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Labs / Week</label>
+                  <input type="number" class="form-input" id="f-lab" min="0" max="10" value="0"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Cell Color</label>
+                <div class="color-picker-row" id="color-picker"></div>
+                <input type="hidden" id="f-color" value="#48cae4"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Text Color</label>
+                <div style="display:flex;gap:8px;">
+                  <button type="button" onclick="App.setTextColor('#1a1a1a',this)" style="padding:5px 12px;border-radius:6px;border:1.5px solid #1a1a1a;background:#fff;color:#1a1a1a;font-size:11px;font-weight:700;cursor:pointer;" class="tc-btn active-tc">Dark</button>
+                  <button type="button" onclick="App.setTextColor('#ffffff',this)" style="padding:5px 12px;border-radius:6px;border:1.5px solid #333;background:#333;color:#fff;font-size:11px;font-weight:700;cursor:pointer;" class="tc-btn">Light</button>
+                </div>
+                <input type="hidden" id="f-textcolor" value="#1a1a1a"/>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn-full btn-secondary" onclick="App.clearSubjForm()">Clear</button>
+                <button type="button" class="btn-full btn-primary" onclick="App.saveSubject()">Save Subject</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTIONS VIEW ─── -->
+  <section id="view-sections" class="view">
+    <div class="sections-body">
+      <div style="max-width:700px;">
+        <div class="panel-card" style="margin-bottom:18px;">
+          <div class="panel-card-header">
+            <div class="panel-card-title">Sections for Current Semester</div>
+            <button class="tb-btn tb-btn-primary" style="font-size:11px;padding:6px 14px;" onclick="App.addSection()">+ Add Section</button>
+          </div>
+          <div class="panel-card-body" id="sections-list"></div>
+        </div>
+        <div class="info-box">Sections are per semester. Each section gets the same subjects but at rotated times to avoid instructor conflicts.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FIXED SLOTS VIEW ─── -->
+  <section id="view-fixed" class="view">
+    <div class="fixed-body">
+      <div style="max-width:1000px;">
+        <div class="warn-box">⭐ Fixed slots (University YOGA, COIN, Sports, Library, Module Quiz, Mentoring) are locked for this semester. They are placed before auto-generation and will not be shuffled.</div>
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <div class="panel-card-title">Fixed Slot Placement</div>
+            <button class="tb-btn tb-btn-primary" style="font-size:11px;padding:6px 14px;" onclick="App.openAddFixedModal()">+ Add Placement</button>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="fixed-table" id="fixed-placement-table">
+              <thead><tr><th>Slot</th><th>Day</th><th>Section</th><th>Period</th><th>Instructor Override</th><th></th></tr></thead>
+              <tbody id="fixed-placement-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── UNIVERSITIES VIEW ─── -->
+  <section id="view-universities" class="view">
+    <div class="subjects-body">
+      <div class="subjects-grid" style="grid-template-columns: 280px 1fr; gap: 20px; align-items: start;">
+        <!-- Left Column: Universities Directory -->
+        <div class="panel-card" style="display:flex; flex-direction:column; max-height:calc(100vh - 120px);">
+          <div class="panel-card-header" style="justify-content:space-between; display:flex; align-items:center; background: var(--brand); color: #fff;">
+            <div class="panel-card-title" style="color:#fff;">🏫 Universities</div>
+            <button class="tb-btn" style="margin:0; padding:4px 8px; font-size:11px; height:auto; background: rgba(255,255,255,0.2); color:#fff; border:1px solid rgba(255,255,255,0.4);" onclick="App.addUniversity()">+ Add</button>
+          </div>
+          <div style="flex:1; overflow-y:auto; padding:12px; display:flex; flex-direction:column; gap:6px;" id="uni-list-container">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+
+        <!-- Right Column: Timings Configurator -->
+        <div class="panel-card" style="display:flex; flex-direction:column; max-height:calc(100vh - 120px); overflow-y:auto;">
+          <div class="panel-card-header" style="justify-content:space-between; display:flex; align-items:center;">
+            <div class="panel-card-title">⚙️ Configure Timing Slots</div>
+            <button class="tb-btn tb-btn-primary" style="margin:0; padding:4px 10px; font-size:11px; height:auto;" onclick="App.addPeriodSlot()">+ Add Slot</button>
+          </div>
+          <div class="panel-card-body" style="padding:20px;">
+            <div class="info-box" style="margin-bottom:18px; line-height:1.5; background: #eef4ff; border-left: 3px solid var(--brand); padding: 10px 14px; font-size:11.5px; color:#1a3a8a;">
+              <b>🕒 Dynamic timing slots:</b> Update timings for the selected university below. The timings will automatically apply across all schedules, timetable grid headers, workload reports, Excel exports, and email/WhatsApp publish notices.
+            </div>
+            
+            <div class="form-group" style="margin-bottom:20px;">
+              <label class="form-label" style="font-weight:700; color:var(--muted); font-size:11px; text-transform:uppercase;">University Name</label>
+              <input type="text" class="form-input" id="uni-name-input" placeholder="e.g. Apex Technical University" style="font-weight:600; font-size:14px; padding:10px 12px; border: 1.5px solid var(--border); border-radius: 7px; width: 100%; outline: none;" />
+            </div>
+
+            <div style="overflow-x:auto;">
+              <table class="subj-table" style="width:100%; border-collapse:collapse; margin-bottom:20px;">
+                <thead>
+                  <tr style="background:#f1f5fb;">
+                    <th style="padding:10px; font-weight:700; text-align:left; color:var(--muted); font-size:10px; text-transform:uppercase;">Period Slot</th>
+                    <th style="padding:10px; font-weight:700; text-align:left; color:var(--muted); font-size:10px; text-transform:uppercase;">Default Label</th>
+                    <th style="padding:10px; font-weight:700; text-align:left; color:var(--muted); font-size:10px; text-transform:uppercase;">Start Time</th>
+                    <th style="padding:10px; font-weight:700; text-align:left; color:var(--muted); font-size:10px; text-transform:uppercase;">End Time</th>
+                    <th style="padding:10px; font-weight:700; text-align:center; color:var(--muted); font-size:10px; text-transform:uppercase; width:50px;"></th>
+                  </tr>
+                </thead>
+                <tbody id="uni-timings-tbody">
+                  <!-- Populated dynamically by JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <button class="btn-full btn-primary" onclick="App.saveUniversityTimings()" style="padding:12px; font-size:13px; font-weight:700; border-radius:8px; background:var(--brand); color:#fff; border:none; width:100%; cursor:pointer;">
+              💾 Save University & Timing Configurations
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SETTINGS VIEW ─── -->
+  <section id="view-settings" class="view">
+    <div class="settings-body">
+      <div class="settings-grid">
+        <div class="panel-card">
+          <div class="panel-card-header"><div class="panel-card-title">Programme Semesters</div></div>
+          <div class="panel-card-body" id="sem-list-panel"></div>
+        </div>
+        <div class="panel-card">
+          <div class="panel-card-header"><div class="panel-card-title">About This Schedule</div></div>
+          <div class="panel-card-body">
+            <div class="info-box" id="settings-info"></div>
+            <div class="form-group" style="margin-top:12px;">
+              <label class="form-label">Programme Duration</label>
+              <select class="form-select" id="prog-years">
+                <option value="4" selected>4 Years (8 Semesters)</option>
+                <option value="3">3 Years (6 Semesters)</option>
+                <option value="2">2 Years (4 Semesters)</option>
+              </select>
+            </div>
+            <button class="btn-full btn-primary" onclick="App.saveSettings()">Save Settings</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="view-import" class="view">
+    <div class="settings-body" style="padding:30px;max-width:800px;margin:0 auto;">
+      <h2 style="font-size:24px;font-weight:800;margin-bottom:10px;">Data Import / Export</h2>
+      <p style="color:var(--muted);margin-bottom:30px;">Download the Excel template, fill in your subjects and instructors, and upload it to automatically configure the system.</p>
+      
+      <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">1. Download Template</h3>
+          <p style="font-size:13px;color:var(--muted);">Get the perfectly formatted Excel sheet to fill out.</p>
+        </div>
+        <button class="tb-btn tb-btn-secondary" onclick="window.location.href='/api/template'">
+          Download Excel Template
+        </button>
+      </div>
+
+      <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">2. Upload Completed Data</h3>
+          <p style="font-size:13px;color:var(--muted);">Upload the filled Excel to automatically generate the scheduler setup.</p>
+        </div>
+        <div>
+          <input type="file" id="excel-upload" accept=".xlsx, .xls" style="display:none;" onchange="App.uploadExcel(event)" />
+          <button class="tb-btn tb-btn-primary" onclick="document.getElementById('excel-upload').click()">
+            Upload Excel File
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-instructors" class="view">
+    <div class="subjects-body" style="padding:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <div>
+          <h2 style="font-size:20px;font-weight:800;">Instructor Directory</h2>
+          <p style="color:var(--muted);font-size:13px;">Manage contact details and login credentials for all instructors.</p>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="tb-btn tb-btn-secondary" onclick="App.addInstructorRow()">+ Add Instructor</button>
+          <button class="tb-btn tb-btn-primary" onclick="App.saveInstructors()">Save Directory</button>
+        </div>
+      </div>
+      <table class="data-table" style="width:100%;background:#fff;border-radius:12px;overflow:hidden;border-collapse:collapse;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+        <thead>
+          <tr style="background:#f8fafc;border-bottom:2px solid var(--border);text-align:left;">
+            <th style="padding:12px 16px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;">Instructor Name</th>
+            <th style="padding:12px 16px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;">Email Address</th>
+            <th style="padding:12px 16px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;">WhatsApp No.</th>
+            <th style="padding:12px 16px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;">Login Username</th>
+            <th style="padding:12px 16px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;">Login Password</th>
+            <th style="padding:12px 16px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;width:50px;"></th>
+          </tr>
+        </thead>
+        <tbody id="instructors-tbody">
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div><!-- /main -->
+</div><!-- /app -->
+
+<!-- ─────────────────── MODALS ─────────────────── -->
+
+<!-- Cell Edit Modal -->
+<div class="modal-backdrop" id="cell-modal">
+  <div class="modal-box" style="width:420px;">
+    <div class="modal-header">
+      <div class="modal-title" id="cell-modal-title">Edit Slot</div>
+      <button class="modal-close" onclick="App.closeModal('cell-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="font-size:11px;color:var(--muted);margin-bottom:12px;" id="cell-modal-info"></div>
+      <div class="form-group">
+        <label class="form-label">Subject</label>
+        <select class="form-select" id="cell-subj-select"></select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Instructor</label>
+        <input type="text" class="form-input" id="cell-instr-input" list="instr-list"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Topic / Note (optional)</label>
+        <input type="text" class="form-input" id="cell-topic-input" placeholder="e.g. Chapter 3, SC 1:1"/>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="mf-btn mf-btn-del" onclick="App.clearCell()">Clear Slot</button>
+      <button class="mf-btn mf-btn-cancel" onclick="App.closeModal('cell-modal')">Cancel</button>
+      <button class="mf-btn mf-btn-save" onclick="App.saveCellEdit()">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Semester Modal -->
+<div class="modal-backdrop" id="sem-modal">
+  <div class="modal-box" style="width:400px;">
+    <div class="modal-header">
+      <div class="modal-title">Add New Semester</div>
+      <button class="modal-close" onclick="App.closeModal('sem-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Year</label>
+        <select class="form-select" id="sem-year">
+          <option value="1">Year 1</option><option value="2">Year 2</option>
+          <option value="3">Year 3</option><option value="4">Year 4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Semester</label>
+        <select class="form-select" id="sem-num">
+          <option value="1">Semester 1 (Odd)</option>
+          <option value="2" selected>Semester 2 (Even)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Cohort / Batch Year</label>
+        <input type="text" class="form-input" id="sem-cohort" placeholder="e.g. 2024"/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Start Date</label>
+          <input type="date" class="form-input" id="sem-start"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">End Date</label>
+          <input type="date" class="form-input" id="sem-end"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Label (auto-filled)</label>
+        <input type="text" class="form-input" id="sem-label" placeholder="e.g. Y2-S1-2024"/>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="mf-btn mf-btn-cancel" onclick="App.closeModal('sem-modal')">Cancel</button>
+      <button class="mf-btn mf-btn-save" onclick="App.saveSemester()">Create Semester</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Fixed Slot Modal -->
+<div class="modal-backdrop" id="fixed-modal">
+  <div class="modal-box" style="width:440px;">
+    <div class="modal-header">
+      <div class="modal-title">Add Fixed Slot Placement</div>
+      <button class="modal-close" onclick="App.closeModal('fixed-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Fixed Slot</label>
+        <select class="form-select" id="fp-slot" onchange="App.toggleFpManual()"></select>
+        <input type="text" class="form-input" id="fp-manual-name" placeholder="Type custom name (e.g. Assembly)" style="display:none; margin-top:8px;"/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Day</label>
+          <select class="form-select" id="fp-day">
+            <option>Mon</option><option>Tue</option><option>Wed</option>
+            <option>Thu</option><option>Fri</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">From Period</label>
+          <select class="form-select" id="fp-period-start">
+            <option value="P1">P1 · 09:00–09:50</option>
+            <option value="P2">P2 · 09:50–10:40</option>
+            <option value="P3">P3 · 10:50–11:40</option>
+            <option value="P4">P4 · 11:40–12:30</option>
+            <option value="P5">P5 · 13:10–14:00</option>
+            <option value="P6">P6 · 14:00–14:50</option>
+            <option value="P7">P7 · 15:00–15:50</option>
+            <option value="P8">P8 · 15:50–16:40</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">To Period (Inclusive)</label>
+          <select class="form-select" id="fp-period-end">
+            <option value="P1">P1 · 09:00–09:50</option>
+            <option value="P2">P2 · 09:50–10:40</option>
+            <option value="P3">P3 · 10:50–11:40</option>
+            <option value="P4">P4 · 11:40–12:30</option>
+            <option value="P5">P5 · 13:10–14:00</option>
+            <option value="P6">P6 · 14:00–14:50</option>
+            <option value="P7">P7 · 15:00–15:50</option>
+            <option value="P8">P8 · 15:50–16:40</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Section</label>
+        <select class="form-select" id="fp-section"></select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Instructor Override (leave blank for default)</label>
+        <input type="text" class="form-input" id="fp-instr" placeholder="Optional override"/>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="mf-btn mf-btn-cancel" onclick="App.closeModal('fixed-modal')">Cancel</button>
+      <button class="mf-btn mf-btn-save" onclick="App.saveFixedPlacement()">Add Placement</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Area -->
+<div id="toast-area"></div>
+
+<!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
+<script>
+'use strict';
+
+/* ═══════════════════════════════════════
+   CONSTANTS
+   ═══════════════════════════════════════ */
+const PERIODS = [
+  {id:'P1', start:'9:00',  end:'9:50',  label:'9:00–9:50',   type:'teaching', num:1},
+  {id:'P2', start:'9:50',  end:'10:40', label:'9:50–10:40',  type:'teaching', num:2},
+  {id:'SB1',start:'10:40', end:'10:50', label:'10:40–10:50', type:'break',    name:'Short Break'},
+  {id:'P3', start:'10:50', end:'11:40', label:'10:50–11:40', type:'teaching', num:3},
+  {id:'P4', start:'11:40', end:'12:30', label:'11:40–12:30', type:'teaching', num:4},
+  {id:'LB', start:'12:30', end:'13:10', label:'12:30–13:10', type:'lunch',    name:'Lunch'},
+  {id:'P5', start:'13:10', end:'14:00', label:'13:10–14:00', type:'teaching', num:5},
+  {id:'P6', start:'14:00', end:'14:50', label:'14:00–14:50', type:'teaching', num:6},
+  {id:'SB2',start:'14:50', end:'15:00', label:'14:50–15:00', type:'break',    name:'Short Break'},
+  {id:'P7', start:'15:00', end:'15:50', label:'15:00–15:50', type:'teaching', num:7},
+  {id:'P8', start:'15:50', end:'16:40', label:'15:50–16:40', type:'teaching', num:8},
+];
+const TEACHING_PERIODS = PERIODS.filter(p => p.type === 'teaching');
+const DAYS = ['Mon','Tue','Wed','Thu','Fri'];
+const DAY_NAMES = {Mon:'Monday',Tue:'Tuesday',Wed:'Wednesday',Thu:'Thursday',Fri:'Friday'};
+
+const COLOR_PALETTE = [
+  '#f4a261','#e67e4e','#48cae4','#0096c7','#ff85a1','#e63980',
+  '#ffd166','#f9a825','#95d5b2','#52b788','#9b5de5','#7b2fff',
+  '#264653','#118ab2','#1d3557','#fb8500','#ffd43b','#74c0fc',
+  '#69db7c','#ff922b','#f8a5c2','#748ffc','#74c0fc','#a9e34b',
+  '#b5838d','#e07a5f','#3d405b','#81b29a','#f2cc8f','#264653',
+];
+
+/* ═══════════════════════════════════════
+   DEFAULT DATA
+   ═══════════════════════════════════════ */
+const FIXED_SLOT_DEFS = [
+  {code:'YOGA201',  name:'Application of yoga in mind body management YOGA201', instructor:'UNIVERSITY FACULTY', color:'#f8a5c2', textColor:'#1a1a1a', isFixed:true},
+  {code:'COIN201',  name:'COIN201', instructor:'UNIVERSITY FACULTY', color:'#748ffc', textColor:'#ffffff', isFixed:true},
+  {code:'MODQUIZ',  name:'Module Quiz', instructor:'', color:'#74c0fc', textColor:'#1a1a1a', isFixed:true},
+  {code:'SPORTS',   name:'Sports', instructor:'', color:'#69db7c', textColor:'#1a1a1a', isFixed:true},
+  {code:'LIBRARY',  name:'Library', instructor:'', color:'#ff922b', textColor:'#ffffff', isFixed:true},
+  {code:'MENTOR',   name:'Mentoring', topic:'SC 1:1\nUniversity allotted slot for interactions', instructor:'', color:'#ffd43b', textColor:'#1a1a1a', isFixed:true},
+  {code:'INTASSESS',name:'Internal Assessments', instructor:'UNIVERSITY FACULTY', color:'#b197fc', textColor:'#ffffff', isFixed:true},
+  {code:'MIDTERM',  name:'Mid Term Exams', instructor:'UNIVERSITY FACULTY', color:'#ff8787', textColor:'#ffffff', isFixed:true},
+];
+
+
+
+
+
+function makeDefaultPlacements(sections) {
+  const s = sections;
+  const s0 = s[0]||'Section-1', s1 = s[1]||'Section-2', s2 = s[2]||'Section-3';
+  const U = 'UNIVERSITY FACULTY';
+  return [
+    {code:'MODQUIZ',day:'Mon',section:s0,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Mon',section:s1,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Mon',section:s2,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Tue',section:s0,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Tue',section:s1,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Tue',section:s2,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Wed',section:s0,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Wed',section:s1,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Wed',section:s2,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Thu',section:s0,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Thu',section:s1,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Thu',section:s2,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Fri',section:s0,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Fri',section:s1,periodId:'P7',instructor:''},
+    {code:'MODQUIZ',day:'Fri',section:s2,periodId:'P7',instructor:''},
+    {code:'YOGA201',day:'Mon',section:s0,periodId:'P3',instructor:U},
+    {code:'YOGA201',day:'Mon',section:s1,periodId:'P5',instructor:U},
+    {code:'YOGA201',day:'Tue',section:s2,periodId:'P3',instructor:U},
+    {code:'COIN201',day:'Thu',section:s0,periodId:'P2',instructor:U},
+    {code:'COIN201',day:'Mon',section:s1,periodId:'P2',instructor:U},
+    {code:'COIN201',day:'Tue',section:s2,periodId:'P2',instructor:U},
+    {code:'SPORTS',day:'Wed',section:s0,periodId:'P8',instructor:''},
+    {code:'SPORTS',day:'Thu',section:s1,periodId:'P8',instructor:''},
+    {code:'SPORTS',day:'Fri',section:s2,periodId:'P8',instructor:''},
+    {code:'LIBRARY',day:'Fri',section:s0,periodId:'P8',instructor:''},
+    {code:'LIBRARY',day:'Tue',section:s1,periodId:'P8',instructor:''},
+    {code:'LIBRARY',day:'Thu',section:s2,periodId:'P8',instructor:''},
+    {code:'MENTOR',day:'Mon',section:s0,periodId:'P5',instructor:''},
+    {code:'MENTOR',day:'Wed',section:s1,periodId:'P5',instructor:''},
+    {code:'MENTOR',day:'Fri',section:s2,periodId:'P5',instructor:''},
+  ];
+}
+
+
+/* ═══════════════════════════════════════
+   STATE
+   ═══════════════════════════════════════ */
+const STATE = {
+  currentSemId: 'Y2-S2-2024',
+  currentDay: 'Mon',
+  semesters: [
+    {
+      id: 'Y2-S2-2024',
+      label: 'Year 2 · Sem 2 · 2024',
+      year: 2, sem: 2, cohort: '2024',
+      sections: ['Section-1','Section-2','Section-3'],
+      subjects: [],
+      fixedSlots: JSON.parse(JSON.stringify(FIXED_SLOT_DEFS)),
+      fixedPlacements: makeDefaultPlacements(['Section-1','Section-2','Section-3']),
+      schedule: {},
+    }
+  ],
+  _editCtx: null,
+};
+
+function curSem() { return STATE.semesters.find(s=>s.id===STATE.currentSemId); }
+function getAllSubjects(sem) { return [...(sem.subjects||[]), ...(sem.fixedSlots||[])]; }
+function getSubject(sem, code) { return getAllSubjects(sem).find(s=>s.code===code); }
+
+/* ═══════════════════════════════════════
+   PERSISTENCE
+   ═══════════════════════════════════════ */
+const API = window.location.port === '3000' ? '' : 'http://localhost:3000';
+let _backendOnline = false;
+
+async function checkBackend() {
+  try {
+    const r = await fetch(`${API}/api/health`, { signal: AbortSignal.timeout(2000) });
+    _backendOnline = r.ok;
+  } catch { _backendOnline = false; }
+  const el = document.getElementById('backend-status');
+  if (el) {
+    el.textContent   = _backendOnline ? '🟢 Backend Connected' : '🔴 Backend Offline';
+    el.style.color   = _backendOnline ? '#1a7a40' : '#d32f2f';
+    el.style.display = 'inline';
+  }
+}
+
+function saveState() {
+  try { localStorage.setItem('unisched_v3', JSON.stringify(STATE)); } catch(e) {}
+  if (_backendOnline) {
+    fetch(`${API}/api/state`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(STATE),
+    }).catch(() => {});
+  }
+}
+
+async function loadState() {
+  if (_backendOnline) {
+    try {
+      const r = await fetch(`${API}/api/state`);
+      if (r.ok) {
+        const saved = await r.json();
+        if (saved && saved.semesters) { Object.assign(STATE, saved); }
+      }
+    } catch(e) {}
+  }
+  if (!STATE.semesters || STATE.semesters.length === 0) {
+    try {
+      const raw = localStorage.getItem('unisched_v3');
+      if (raw) { const saved = JSON.parse(raw); Object.assign(STATE, saved); }
+    } catch(e) {}
+  }
+
+  // Initialize universities directory (26 entries for 25+ universities) if it does not exist
+  if (!STATE.universities || STATE.universities.length === 0) {
+    const list = [
+      'Stitch Enterprise Academic University', 'Apex Technology Institute', 'Stitch University of Science',
+      'Summit Research University', 'Beacon Hill College', 'Vanguard Engineering Academy',
+      'Meridian State University', 'Pacific Crest University', 'Metro Business School',
+      'Atlas Design Academy', 'Cascade Culinary Institute', 'Apex Medical College',
+      'Pinnacle Flight Academy', 'Liberty Law School', 'Zenith Arts & Science College',
+      'Nova Maritime University', 'Horizon Engineering College', 'Vanguard Business Academy',
+      'Equinox Theological Seminary', 'Elysian Music Conservatory', 'Fortis Military Institute',
+      'Sovereign Sports University', 'Aegis Security College', 'Omni Virtual University',
+      'Stellar Aerospace Academy', 'Unity Environmental College'
+    ];
+    STATE.universities = list.map((name, idx) => {
+      const uId = 'U' + (idx + 1);
+      return {
+        id: uId,
+        name: name,
+        periods: JSON.parse(JSON.stringify(PERIODS)),
+        semesters: [
+          {
+            id: 'Y2-S2-2024',
+            label: 'Year 2 · Sem 2 · 2024',
+            year: 2, sem: 2, cohort: '2024',
+            sections: ['Section-1','Section-2','Section-3'],
+            subjects: JSON.parse(JSON.stringify(DEFAULT_SUBJECTS)),
+            fixedSlots: JSON.parse(JSON.stringify(FIXED_SLOT_DEFS)),
+            fixedPlacements: makeDefaultPlacements(['Section-1','Section-2','Section-3']),
+            schedule: {},
+          }
+        ],
+        currentSemId: 'Y2-S2-2024',
+        instructors: {}
+      };
+    });
+    STATE.currentUniversityId = 'U1';
+  }
+
+  // Migrate: Ensure INTASSESS and MIDTERM exist in all semesters of all universities
+  (STATE.universities||[]).forEach(uni => {
+    (uni.semesters||[]).forEach(sem => {
+      if (!sem.fixedSlots) sem.fixedSlots = [];
+      ['INTASSESS', 'MIDTERM'].forEach(code => {
+        if (!sem.fixedSlots.find(s => s.code === code)) {
+          const def = FIXED_SLOT_DEFS.find(d => d.code === code);
+          if (def) sem.fixedSlots.push(JSON.parse(JSON.stringify(def)));
+        }
+      });
+    });
+  });
+
+  
+}
+
+async function generateScheduleBackend(sem) {
+  if (_backendOnline) {
+    try {
+      const r = await fetch(`${API}/api/generate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          sem: {
+            ...sem,
+            periods: PERIODS,
+            fixedPlacements: [
+              ...(sem.fixedPlacements || []),
+              ...extractManualFixed(sem)
+            ]
+          }
+        }),
+      });
+      if (r.ok) {
+        const result = await r.json();
+        sem.schedule         = result.schedule;
+        sem._unplaced        = result.unplaced;
+        sem._unplacedRounds  = result.unplacedRounds  || [];
+        sem._capacityWarnings= result.capacityWarnings|| [];
+        sem._imbalanced      = result.imbalances       || [];
+        flagConflicts(sem.schedule, sem);
+        return true;
+      }
+    } catch(e) {
+      console.warn('[Backend] generate failed, falling back to client-side:', e);
+    }
+  }
+  generateSchedule(sem);
+  return false;
+}
+
+/* ═══════════════════════════════════════
+   AUTO-GENERATION ENGINE
+   ═══════════════════════════════════════ */
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length-1; i>0; i--) {
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+function rotateArr(arr, n) {
+  const len = arr.length;
+  if (!len) return arr;
+  n = ((n%len)+len)%len;
+  return [...arr.slice(n),...arr.slice(0,n)];
+}
+
+function generateSessionList(sem) {
+  const list = [];
+  (sem.subjects||[]).forEach(subj => {
+    for (let i=0;i<(subj.lecPerWeek||0);i++) list.push({code:subj.code,instructor:subj.instructor,topic:'',type:'lecture'});
+    for (let i=0;i<(subj.labPerWeek||0);i++) list.push({code:subj.code,instructor:subj.instructor,topic:'',type:'lab'});
+  });
+  return list;
+}
+
+const CONSEC_PAIRS  = [['P1','P2'],['P3','P4'],['P5','P6'],['P7','P8']];
+const MORNING_PS    = new Set(['P1','P2','P3','P4']);
+const AFTERNOON_PS  = new Set(['P5','P6','P7','P8']);
+const PAIR_NEXT_FREE = { P2:'P3', P6:'P7' };
+const PAIR_PARTNER   = { P1:'P2', P2:'P1', P3:'P4', P4:'P3', P5:'P6', P6:'P5', P7:'P8', P8:'P7' };
+
+const BATCH_PATTERNS_3 = [
+  ['P1','P2','P4'],
+  ['P5','P6','P8'],
+  ['P3','P4','P6'],
+  ['P3','P4','P5'],
+  ['P1','P2','P5'],
+  ['P1','P3','P4'],
+  ['P2','P3','P4'],
+  ['P2','P4','P5'],
+  ['P4','P5','P6'],
+  ['P4','P6','P7'],
+  ['P1','P3','P5'],
+  ['P2','P3','P5'],
+  ['P5','P7','P8'],
+  ['P6','P7','P8'],
+];
+const BATCH_PATTERNS_2 = [
+  ['P1','P2'],['P5','P6'],['P3','P4'],['P7','P8'],
+  ['P1','P3'],['P2','P4'],['P4','P5'],['P3','P5'],
+  ['P2','P3'],['P4','P6'],['P5','P7'],['P6','P8'],
+  ['P1','P4'],['P2','P5'],['P3','P6'],['P5','P8'],
+];
+
+function getInstrDayData(instr, day, sched, sem) {
+  const periodType = {};
+  (sem.sections||[]).forEach(section => {
+    TEACHING_PERIODS.forEach(p => {
+      if (periodType[p.id]) return;
+      const sess = sched?.[day]?.[section]?.[p.id];
+      if (!sess || sess.instructor !== instr) return;
+      const subj = getSubject(sem, sess.code);
+      periodType[p.id] = subj?.type || sess.type || 'lecture';
+    });
+  });
+
+  const periods = new Set(Object.keys(periodType));
+  let lecCount = 0, pracCount = 0;
+  for (const t of Object.values(periodType)) {
+    if (t === 'practice' || t === 'lab') pracCount++;
+    else lecCount++;
+  }
+  return { periods, lecCount, pracCount };
+}
+
+function canAssignWith(instr, periodId, type, tempPeriods, tempLec, tempPrac) {
+  if (!instr || instr === 'UNIVERSITY FACULTY') return true;
+  const isPrac = (type === 'practice' || type === 'lab');
+
+  if (isPrac && periodId === 'P1') return false;
+  if (tempPeriods.has(periodId)) return false;
+  
+  if (tempLec + tempPrac >= 6) return false;
+  if (!isPrac && tempLec >= 4) return false;
+  if (isPrac && tempPrac >= 3) return false;
+  
+  // C4: No 3 continuous classes (reset at lunch)
+  const periodsWithNew = new Set([...tempPeriods, periodId]);
+  let consecMorning = 0;
+  for (const p of ['P1','P2','P3','P4']) {
+    if (periodsWithNew.has(p)) consecMorning++;
+    else consecMorning = 0;
+    if (consecMorning >= 3) return false;
+  }
+  let consecAfternoon = 0;
+  for (const p of ['P5','P6','P7','P8']) {
+    if (periodsWithNew.has(p)) consecAfternoon++;
+    else consecAfternoon = 0;
+    if (consecAfternoon >= 3) return false;
+  }
+
+  return true;
+}
+
+function canAssign(instr, day, periodId, type, sched, sem) {
+  if (!instr || instr === 'UNIVERSITY FACULTY') return true;
+  const d = getInstrDayData(instr, day, sched, sem);
+  return canAssignWith(instr, periodId, type, d.periods, d.lecCount, d.pracCount);
+}
+
+function slotScore(instr, day, sched, sem) {
+  if (!instr) return 0;
+  const d = getInstrDayData(instr, day, sched, sem);
+  return d.lecCount + d.pracCount;
+}
+
+function findBatchPattern(instr, sections, day, type, sched, sem) {
+  const n = sections.length;
+  if (!n) return [];
+
+  const d0 = getInstrDayData(instr, day, sched, sem);
+  const isPrac = (type === 'practice' || type === 'lab');
+  const patterns = n >= 3 ? BATCH_PATTERNS_3 : (n >= 2 ? BATCH_PATTERNS_2 : TEACHING_PERIODS.map(p=>[p.id]));
+
+  for (const patt of patterns) {
+    if (patt.length < n) continue;
+
+    const slotsOk = sections.every((sec, i) => !sched[day]?.[sec]?.[patt[i]]);
+    if (!slotsOk) continue;
+
+    let tempPeriods = new Set(d0.periods);
+    let tempLec  = d0.lecCount;
+    let tempPrac = d0.pracCount;
+    let ok = true;
+
+    for (let i = 0; i < n; i++) {
+      const pid = patt[i];
+      if (!canAssignWith(instr, pid, type, tempPeriods, tempLec, tempPrac)) {
+        ok = false; break;
+      }
+      tempPeriods.add(pid);
+      if (isPrac) tempPrac++; else tempLec++;
+    }
+
+    if (ok) return sections.map((sec, i) => ({ section: sec, periodId: patt[i] }));
+  }
+  return null;
+}
+
+function generateSchedule(sem) {
+  const sched = {};
+  DAYS.forEach(d => {
+    sched[d] = {};
+    (sem.sections||[]).forEach(s => { sched[d][s] = {}; });
+  });
+
+  const instrCapacity = {};
+  const numSec = (sem.sections||[]).length;
+  (sem.subjects||[]).forEach(subj => {
+    const key = subj.instructor || '(unassigned)';
+    if (!instrCapacity[key]) instrCapacity[key] = { lecTotal:0, pracTotal:0, subjects:[] };
+    instrCapacity[key].lecTotal  += (subj.lecPerWeek||0) * numSec;
+    instrCapacity[key].pracTotal += (subj.labPerWeek||0) * numSec;
+    if ((subj.lecPerWeek||0) + (subj.labPerWeek||0) > 0)
+      instrCapacity[key].subjects.push(subj.name || subj.code);
+  });
+  const MAX_LEC_WEEK = 4 * 5;
+  const MAX_PRAC_WEEK = 3 * 5;
+  const capacityWarnings = [];
+  Object.entries(instrCapacity).forEach(([instr, data]) => {
+    const msgs = [];
+    if (data.lecTotal > MAX_LEC_WEEK)
+      msgs.push(`${data.lecTotal} lectures needed but max is ${MAX_LEC_WEEK}/week`);
+    if (data.pracTotal > MAX_PRAC_WEEK)
+      msgs.push(`${data.pracTotal} labs/practice needed but max is ${MAX_PRAC_WEEK}/week`);
+    if (msgs.length) capacityWarnings.push({ instr, msgs, subjects: data.subjects });
+  });
+  sem._capacityWarnings = capacityWarnings;
+
+  (sem.fixedPlacements||[]).forEach(fp => {
+    const subj = getSubject(sem, fp.code);
+    if (!subj || !sched[fp.day] || !sched[fp.day][fp.section]) return;
+    sched[fp.day][fp.section][fp.periodId] = {
+      code: fp.code,
+      instructor: fp.instructor || subj.instructor || '',
+      topic: subj.topic || '',
+      isFixed: true,
+    };
+  });
+
+  const lectureRounds = [];
+  const labRounds = [];
+  (sem.subjects||[]).forEach(subj => {
+    const secs = [...(sem.sections||[])];
+    for (let i = 0; i < (subj.lecPerWeek||0); i++)
+      lectureRounds.push({ code:subj.code, instructor:subj.instructor, type:'lecture', sections:secs, round:i });
+    for (let i = 0; i < (subj.labPerWeek||0); i++)
+      labRounds.push({ code:subj.code, instructor:subj.instructor, type:subj.type||'lab', sections:secs, round:i });
+  });
+  if (!lectureRounds.length && !labRounds.length) { sem.schedule = sched; return; }
+
+  const instrLoad = {};
+  [...lectureRounds,...labRounds].forEach(r => {
+    instrLoad[r.instructor] = (instrLoad[r.instructor]||0) + r.sections.length;
+  });
+  const sortByLoad = arr => {
+    const s = shuffle(arr);
+    s.sort((a,b) => (instrLoad[b.instructor]||0) - (instrLoad[a.instructor]||0));
+    return s;
+  };
+  const orderedRounds = [...sortByLoad(lectureRounds), ...sortByLoad(labRounds)];
+
+  const unplaced = [];
+
+  orderedRounds.forEach(round => {
+    let placed = false;
+
+    for (const day of shuffle([...DAYS])) {
+      const pattern = findBatchPattern(round.instructor, round.sections, day, round.type, sched, sem);
+      if (pattern) {
+        pattern.forEach(({ section, periodId }) => {
+          sched[day][section][periodId] = {
+            code: round.code,
+            instructor: round.instructor,
+            topic: '',
+            isFixed: false,
+            type: round.type,
+          };
+        });
+        placed = true;
+        break;
+      }
+    }
+
+    if (!placed) {
+      let anyUnplaced = false;
+      round.sections.forEach(section => {
+        let bestSlot = null, bestScore = Infinity;
+        for (const day of shuffle([...DAYS])) {
+          for (const period of shuffle([...TEACHING_PERIODS])) {
+            if (sched[day][section][period.id]) continue;
+            if (!canAssign(round.instructor, day, period.id, round.type, sched, sem)) continue;
+            const score = slotScore(round.instructor, day, sched, sem);
+            if (score < bestScore) { bestScore = score; bestSlot = { day, periodId: period.id }; }
+          }
+        }
+        if (bestSlot) {
+          sched[bestSlot.day][section][bestSlot.periodId] = {
+            code: round.code, instructor: round.instructor, topic: '', isFixed: false, type: round.type,
+          };
+        } else {
+          anyUnplaced = true;
+        }
+      });
+      if (anyUnplaced) unplaced.push(round);
+    }
+  });
+
+  flagConflicts(sched, sem);
+  sem._unplaced = unplaced.length;
+
+  (sem.sections||[]).forEach(section => {
+    DAYS.forEach(day => {
+      if (sched[day]?.[section]?.['P1']) return;
+
+      const swapCandidates = ['P2','P3','P4','P5','P6'];
+      for (const pid of swapCandidates) {
+        const sess = sched[day]?.[section]?.[pid];
+        if (!sess || sess.isFixed || sess.forced) continue;
+        const t = sess.type;
+        if (t !== 'lecture') continue;
+
+        const instrOk = !sess.instructor || sess.instructor === 'UNIVERSITY FACULTY' ||
+          !(sem.sections||[]).some(
+            s2 => s2 !== section &&
+                  sched[day]?.[s2]?.['P1']?.instructor === sess.instructor
+          );
+        if (!instrOk) continue;
+
+        sched[day][section]['P1'] = { ...sess };
+        delete sched[day][section][pid];
+        break;
+      }
+    });
+  });
+
+  flagConflicts(sched, sem);
+
+  const workloadCheck = {};
+  (sem.subjects||[]).forEach(subj => {
+    workloadCheck[subj.code] = {
+      name: subj.name || subj.code,
+      expectedLec: subj.lecPerWeek || 0,
+      expectedLab: subj.labPerWeek || 0,
+      sections: {}
+    };
+    (sem.sections||[]).forEach(sec => {
+      workloadCheck[subj.code].sections[sec] = { lec: 0, lab: 0 };
+    });
+  });
+  DAYS.forEach(day => {
+    (sem.sections||[]).forEach(sec => {
+      TEACHING_PERIODS.forEach(p => {
+        const sess = sched[day]?.[sec]?.[p.id];
+        if (!sess || !workloadCheck[sess.code]) return;
+        const t = sess.type || 'lecture';
+        if (t === 'practice' || t === 'lab') workloadCheck[sess.code].sections[sec].lab++;
+        else workloadCheck[sess.code].sections[sec].lec++;
+      });
+    });
+  });
+  const imbalanced = [];
+  Object.entries(workloadCheck).forEach(([code, info]) => {
+    const sectionEntries = Object.entries(info.sections);
+    const lecCounts = sectionEntries.map(([,v]) => v.lec);
+    const labCounts = sectionEntries.map(([,v]) => v.lab);
+    const lecOk = lecCounts.every(c => c === info.expectedLec);
+    const labOk = labCounts.every(c => c === info.expectedLab);
+    if (!lecOk || !labOk) {
+      imbalanced.push({ code, name: info.name, expectedLec: info.expectedLec, expectedLab: info.expectedLab,
+        sections: info.sections, lecOk, labOk });
+    }
+  });
+  sem._workloadCheck  = workloadCheck;
+  sem._imbalanced     = imbalanced;
+  sem.schedule        = sched;
+}
+
+function flagConflicts(sched, sem) {
+  DAYS.forEach(day => {
+    TEACHING_PERIODS.forEach(period => {
+      (sem.sections||[]).forEach(section => {
+        const sess = sched?.[day]?.[section]?.[period.id];
+        if (sess) delete sess.conflict;
+      });
+    });
+  });
+  DAYS.forEach(day => {
+    TEACHING_PERIODS.forEach(period => {
+      const instrSeen = {};
+      (sem.sections||[]).forEach(section => {
+        const sess = sched[day]?.[section]?.[period.id];
+        if (!sess || !sess.instructor || sess.instructor === 'UNIVERSITY FACULTY') return;
+        if (instrSeen[sess.instructor]) {
+          sess.conflict = true;
+          instrSeen[sess.instructor].conflict = true;
+        } else {
+          instrSeen[sess.instructor] = sess;
+        }
+      });
+    });
+  });
+}
+
+
+/* ═══════════════════════════════════════
+   RENDERING
+   ═══════════════════════════════════════ */
+function renderSemesterSelect() {
+  const sel = document.getElementById('sem-select');
+  sel.innerHTML = STATE.semesters.map(s =>
+    `<option value="${s.id}" ${s.id===STATE.currentSemId?'selected':''}>${s.label}</option>`
+  ).join('');
+}
+
+
+
+function renderTopbar() {
+  const sem = curSem();
+  
+  document.getElementById('topbar-title').innerHTML =
+    `Weekly Schedule <span>${sem ? sem.label : ''}</span>`;
+  document.getElementById('topbar-sub').textContent = '';
+
+  const startInput = document.getElementById('sem-start-date');
+  const endInput = document.getElementById('sem-end-date');
+  if (sem) {
+    if (startInput) startInput.value = sem.startDate || '';
+    if (endInput) endInput.value = sem.endDate || '';
+  }
+}
+
+function renderStatsBar() {
+  const sem = curSem();
+  if (!sem) return;
+  const sessions = generateSessionList(sem);
+  const fixedCount = (sem.fixedPlacements||[]).length;
+
+  let conflicts = 0;
+  DAYS.forEach(day => {
+    TEACHING_PERIODS.forEach(period => {
+      (sem.sections||[]).forEach(sec => {
+        if (sem.schedule?.[day]?.[sec]?.[period.id]?.conflict) conflicts++;
+      });
+    });
+  });
+
+  const unplaced   = sem._unplaced  || 0;
+  const imbalanced = sem._imbalanced || [];
+  const hasIssues  = conflicts > 0 || unplaced > 0 || imbalanced.length > 0;
+
+  let imbalanceHTML = '';
+  if (imbalanced.length > 0) {
+    const rows = imbalanced.map(s => {
+      const secDetail = Object.entries(s.sections)
+        .map(([sec, cnt]) => `${sec}: ${cnt.lec}L/${cnt.lab}P`).join(', ');
+      return `<div style="margin-bottom:4px"><b>${s.name}</b> — expected ${s.expectedLec}L/${s.expectedLab}P per section → ${secDetail}</div>`;
+    }).join('');
+    imbalanceHTML = `
+      <div class="stat-divider"></div>
+      <div class="stat-pill" style="background:#fff0f4;color:#b80060;cursor:pointer;"
+        title="${imbalanced.map(s=>s.name).join(', ')} have unequal session counts across sections">
+        <span class="num" style="color:#b80060;">⚖ ${imbalanced.length}</span> Workload Imbalance
+      </div>`;
+  }
+
+  let bufferHours = 0, p1Warnings = 0;
+  if (sem.schedule && Object.keys(sem.schedule).length > 0) {
+    DAYS.forEach(day => {
+      (sem.sections||[]).forEach(sec => {
+        TEACHING_PERIODS.forEach(p => {
+          if (!sem.schedule[day]?.[sec]?.[p.id]) {
+            bufferHours++;
+            if (p.id === 'P1') p1Warnings++;
+          }
+        });
+      });
+    });
+  }
+
+  document.getElementById('stats-bar').innerHTML = `
+    <div class="stat-pill"><span class="num">${(sem.sections||[]).length}</span> Sections</div>
+    <div class="stat-divider"></div>
+    <div class="stat-pill"><span class="num">${(sem.subjects||[]).length}</span> Subjects</div>
+    <div class="stat-divider"></div>
+    <div class="stat-pill"><span class="num">${sessions.length}</span> Sessions/Section/Week</div>
+    <div class="stat-divider"></div>
+    <div class="stat-pill"><span class="num">${fixedCount}</span> Fixed Placements</div>
+    <div class="stat-divider"></div>
+    ${conflicts > 0
+      ? `<div class="stat-pill" style="background:#fff0f0;color:#d32f2f;"><span class="num" style="color:#d32f2f;">⚠ ${conflicts}</span> Same-Time Conflicts</div>`
+      : `<div class="stat-pill" style="background:#e8fdf2;color:#1a7a40;">✓ No Conflicts</div>`}
+    ${unplaced > 0
+      ? `<div class="stat-divider"></div><div class="stat-pill" style="background:#fff8e6;color:#b45309;"><span class="num" style="color:#b45309;">⚑ ${unplaced}</span> Unplaced Rounds</div>`
+      : ''}
+    ${bufferHours > 0
+      ? `<div class="stat-divider"></div><div class="stat-pill" style="background:#fffbeb;color:#92400e;" title="${bufferHours} empty teaching slots across all sections — shown as Buffer Hours in the grid"><span class="num" style="color:#d97706;">⏸ ${bufferHours}</span> Buffer Hours${p1Warnings > 0 ? ` <span style="color:#ba1a1a;font-weight:800;">(⚠️ ${p1Warnings} at P1!)</span>` : ''}</div>`
+      : `<div class="stat-divider"></div><div class="stat-pill" style="background:#e8fdf2;color:#1a7a40;">📅 Schedule Full</div>`}
+    ${imbalanceHTML}
+    <div class="stat-divider"></div>
+    ${imbalanced.length === 0 && sem.schedule
+      ? `<div class="stat-pill" style="background:#e8fdf2;color:#1a7a40;">⚖ Workload Balanced</div><div class="stat-divider"></div>`
+      : ''}
+    <div class="stat-pill" style="background:#f0f4ff;color:#3540a0;" title="Rules: No lab in P1, ≤4 Lec/day, ≤2 Prac/day, ≤3 Morning, ≤3 Afternoon, Break after 2 consecutive, Equal sessions across all sections">
+      🛡 Constraints Active
+    </div>
+  `;
+}
+
+function renderScheduleTable() {
+  const sem = curSem();
+  const day = STATE.currentDay;
+  if (!sem) { document.getElementById('tt-table-area').innerHTML = '<div class="empty-state"><p>No semester selected.</p></div>'; return; }
+
+  const sched = sem.schedule[day] || {};
+  const sections = sem.sections || [];
+  if (!sections.length) {
+    document.getElementById('tt-table-area').innerHTML = '<div class="empty-state"><p>No sections configured. Go to Sections to add them.</p></div>';
+    return;
+  }
+
+  document.getElementById('sched-card-title').textContent = DAY_NAMES[day] + ' Schedule';
+
+  function getSubj(code) {
+    return getSubject(sem, code) || {name:code, color:'#eee', textColor:'#333', instructor:''};
+  }
+
+  let html = '<table class="tt-main">';
+  html += '<thead><tr>';
+  html += '<th class="th-section">Section</th>';
+  html += '<th class="th-rowlabel" style="background:#15295a;"></th>';
+  PERIODS.forEach(p => {
+    if (p.type === 'teaching') {
+      html += `<th class="th-period"><span class="th-period-time">${p.start}</span><span class="th-period-end">–${p.end}</span></th>`;
+    } else if (p.type === 'break') {
+      html += `<th class="th-break">${p.name}<br>${p.start}–${p.end}</th>`;
+    } else {
+      html += `<th class="th-lunch">Lunch<br>${p.start}–${p.end}</th>`;
+    }
+  });
+  html += '</tr></thead>';
+  html += '<tbody>';
+  const totalDataRows = sections.length * 3;
+  const rowLabels = ['Course','Topic','Instructors Name'];
+
+  sections.forEach((section, si) => {
+    const secData = sched[section] || {};
+    const isFirstSection = si === 0;
+
+    ['course','topic','instr'].forEach((rt, ri) => {
+      const isFirstDataRow = isFirstSection && ri === 0;
+      const sectionBorder = (si > 0 && ri === 0);
+      html += `<tr class="${sectionBorder ? 'section-border' : ''}">`;
+      if (ri === 0) {
+        html += `<td class="td-section" rowspan="3"><div class="section-label-inner">${section}</div></td>`;
+      }
+      html += `<td class="td-rowlabel">${rowLabels[ri]}</td>`;
+      PERIODS.forEach(p => {
+        if (p.type !== 'teaching') {
+          if (isFirstDataRow) {
+            if (p.type === 'break') {
+              html += `<td class="td-break" rowspan="${totalDataRows}"><div class="break-inner"><span>${p.name}</span><span>${p.start}–${p.end}</span></div></td>`;
+            } else {
+              html += `<td class="td-lunch" rowspan="${totalDataRows}"><div class="break-inner"><span>Lunch</span><span>${p.start}–${p.end}</span></div></td>`;
+            }
+          }
+          return;
+        }
+
+        const sess = secData[p.id];
+        const subj = sess ? getSubj(sess.code) : null;
+        if (rt === 'course') {
+          if (sess && subj) {
+            const conflictClass = sess.conflict ? ' conflict-cell' : '';
+            const cColor = subj.color || '#e2e8f0';
+            const tColor = subj.textColor || '#1a1a1a';
+            const forcedStyle = `background:${cColor};color:${tColor};`;
+            const typeSuffix = sess.type === 'lab' ? ' (Lab)' : sess.type === 'practice' ? ' (Practice)' : '';
+            html += `<td class="td-course${conflictClass}"
+              style="${forcedStyle}"
+              onclick="App.openCellModal('${day}','${section}','${p.id}')"
+              title="${subj.name}${typeSuffix}">
+              ${sess.conflict ? '<span class="conflict-dot"></span>' : ''}
+              <span class="course-text">${subj.name}${typeSuffix}</span>
+            </td>`;
+          } else {
+            const isP1 = p.id === 'P1';
+            html += `<td class="td-course"
+              onclick="App.openCellModal('${day}','${section}','${p.id}')"
+              style="background:${isP1?'#fff0f0':'#fffbeb'};border:1px dashed #d97706;cursor:pointer;"
+              title="Buffer Hour — click to assign a subject">
+              <span style="font-size:9px;font-weight:700;color:${isP1?'#d32f2f':'#b45309'};display:block;text-align:center;line-height:1.4;padding:4px 2px;">
+                ${isP1?'⚠<br>Must be<br>Lecture':'⏸<br>Buffer<br>Hour'}
+              </span>
+            </td>`;
+          }
+        } else if (rt === 'topic') {
+          html += `<td class="td-topic" style="white-space:pre-line;">${sess?.topic || ''}</td>`;
+        } else {
+          html += `<td class="td-instr">${sess?.instructor || ''}</td>`;
+        }
+      });
+      html += '</tr>';
+    });
+  });
+  html += '</tbody></table>';
+  document.getElementById('tt-table-area').innerHTML = html;
+  renderLegend(sem, day);
+  renderMissingClasses(sem);
+}
+
+function renderLegend(sem, day) {
+  const sched = sem.schedule[day] || {};
+  const usedCodes = new Set();
+  (sem.sections||[]).forEach(sec => {
+    TEACHING_PERIODS.forEach(p => {
+      const sess = sched[sec]?.[p.id];
+      if (sess?.code) usedCodes.add(sess.code);
+    });
+  });
+  const items = [...usedCodes].map(code => {
+    const s = getSubject(sem, code);
+    return s ? `<div class="legend-item"><span class="legend-dot" style="background:${s.color||'#e2e8f0'};border:1px solid rgba(0,0,0,.15);"></span>${s.name}</div>` : '';
+  }).join('');
+  document.getElementById('legend-area').innerHTML = items || '';
+}
+
+function buildColorPicker() {
+  const colors = [
+    '#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', '#a0c4ff', '#bdb2ff', '#ffc6ff', '#fffffc', '#f1f5f9',
+    '#f87171', '#fb923c', '#fbbf24', '#a3e635', '#4ade80', '#34d399', '#2dd4bf', '#38bdf8', '#818cf8', '#a78bfa',
+    '#ef4444', '#f97316', '#f59e0b', '#84cc16', '#22c55e', '#10b981', '#14b8a6', '#0ea5e9', '#6366f1', '#8b5cf6',
+    '#b91c1c', '#c2410c', '#b45309', '#4d7c0f', '#15803d', '#047857', '#0f766e', '#0369a1', '#4338ca', '#6d28d9',
+    '#f43f5e', '#ec4899', '#d946ef', '#94a3b8', '#64748b', '#475569', '#334155', '#1e293b', '#0f172a', '#000000'
+  ];
+  const current = document.getElementById('f-color')?.value || '#38bdf8';
+  const container = document.getElementById('color-picker');
+  if (!container) return;
+  container.style.display = 'flex';
+  container.style.gap = '6px';
+  container.style.flexWrap = 'wrap';
+  container.style.marginTop = '6px';
+  container.innerHTML = colors.map(c => `
+    <div onclick="App.pickColor('${c}')" style="background:${c};width:24px;height:24px;border-radius:4px;cursor:pointer;border:2px solid ${c===current?'#1e293b':'transparent'};box-shadow:${c===current?'0 0 0 1px #fff inset':''}"></div>
+  `).join('');
+}
+
+function renderSubjectsView() {
+  const sem = curSem();
+  if (!sem) return;
+  const tbody = document.getElementById('subjects-tbody');
+  tbody.innerHTML = (sem.subjects||[]).map((s,i) => {
+    let placed = 0;
+    DAYS.forEach(day => {
+      (sem.sections||[]).forEach(sec => {
+        TEACHING_PERIODS.forEach(p => {
+          if (sem.schedule?.[day]?.[sec]?.[p.id]?.code === s.code) placed++;
+        });
+      });
+    });
+    const targetPerSection = (s.lecPerWeek||0) + (s.labPerWeek||0);
+    const totalTarget = targetPerSection * (sem.sections||[]).length;
+    const leftOver = totalTarget - placed;
+
+    const typeBadge = s.type==='lab' ? 'badge-lab' : s.type==='practice' ? 'badge-prac' : 'badge-lec';
+    const typeLabel = s.type==='lab' ? 'Lab' : s.type==='practice' ? 'Practice' : 'Lecture';
+    const instrOptions = ['<option value="">-- Unassigned --</option>']
+      .concat((App.globalInstructors||[]).map(i => `<option value="${i}" ${s.instructor===i?'selected':''}>${i}</option>`))
+      .join('');
+    return `<tr>
+      <td><span class="color-dot" style="background:${s.color};" onclick="App.editSubject('${s.code}')"></span></td>
+      <td class="subj-name-cell">${s.name}<span class="subj-code-badge">${s.code}</span></td>
+      <td style="font-size:11px;color:var(--muted);">
+        <select class="form-select" style="font-size:11px;padding:4px;height:auto;min-width:120px;" onchange="App.assignInstructor('${s.code}', this.value)">
+          ${instrOptions}
+        </select>
+      </td>
+      <td><span class="type-badge ${typeBadge}">${typeLabel}</span></td>
+      <td style="text-align:center;">
+        <div class="hrs-ctrl">
+          <button class="hrs-btn" onclick="App.changeHrs('${s.code}','lec',-1)">−</button>
+          <span class="hrs-val">${s.lecPerWeek||0}</span>
+          <button class="hrs-btn" onclick="App.changeHrs('${s.code}','lec',1)">+</button>
+        </div>
+      </td>
+      <td style="text-align:center;">
+        <div class="hrs-ctrl">
+          <button class="hrs-btn" onclick="App.changeHrs('${s.code}','lab',-1)">−</button>
+          <span class="hrs-val">${s.labPerWeek||0}</span>
+          <button class="hrs-btn" onclick="App.changeHrs('${s.code}','lab',1)">+</button>
+        </div>
+      </td>
+      <td style="text-align:center;font-weight:700;color:var(--brand);">${totalTarget}</td>
+      <td style="text-align:center;font-weight:600;color:${placed===totalTarget?'#10b981':'#3b82f6'};">${placed}</td>
+      <td style="text-align:center;font-weight:700;color:${leftOver>0?'#ef4444':leftOver<0?'#f59e0b':'#10b981'};">${leftOver}</td>
+      <td>
+        <div style="display:flex;gap:4px;">
+          <button class="icon-btn icon-btn-edit" onclick="App.editSubject('${s.code}')" title="Edit">✎</button>
+          <button class="icon-btn icon-btn-del" onclick="App.deleteSubject('${s.code}')" title="Delete">✕</button>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+  buildInstrDatalist();
+}
+
+function renderFixedView() {
+  const sem = curSem();
+  if (!sem) return;
+  const tbody = document.getElementById('fixed-placement-tbody');
+  const pls = sem.fixedPlacements || [];
+  tbody.innerHTML = pls.length ? pls.map((fp, i) => {
+    const subj = getSubject(sem, fp.code);
+    return `<tr>
+      <td><div style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:3px;background:${subj?.color||'#ddd'};display:inline-block;"></span><span style="font-weight:600;font-size:11px;">${subj?.name||fp.code}</span></div></td>
+      <td><span style="font-weight:600;color:var(--brand);">${DAY_NAMES[fp.day]||fp.day}</span></td>
+      <td>${fp.section}</td>
+      <td>${fp.periodId} · ${PERIODS.find(p=>p.id===fp.periodId)?.label||''}</td>
+      <td style="font-size:11px;color:var(--muted);">${fp.instructor||'(default)'}</td>
+      <td><button class="icon-btn icon-btn-del" onclick="App.removeFixedPlacement(${i})" title="Remove">✕</button></td>
+    </tr>`;
+  }).join('') :
+    '<tr><td colspan="6"><div class="empty-state"><p>No fixed placements.</p></div></td></tr>';
+}
+
+function renderSectionsView() {
+  const sem = curSem();
+  if (!sem) return;
+  const container = document.getElementById('sections-list');
+  container.innerHTML = (sem.sections||[]).map((s,i) => `
+    <div class="section-card" style="margin-bottom:10px;">
+      <div>
+        <div class="sec-card-name">${s}</div>
+        <div class="sec-card-sub">Active in ${sem.label}</div>
+      </div>
+      <div class="sec-card-actions"><button class="icon-btn icon-btn-del" onclick="App.removeSection(${i})" title="Remove">✕</button></div>
+    </div>
+  `).join('');
+}
+
+function renderSettingsView() {
+  App.updateAdminUI();
+  const sem = curSem();
+  const semList = document.getElementById('sem-list-panel');
+  semList.innerHTML = STATE.semesters.map(s => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);">
+      <div>
+        <div style="font-weight:700;font-size:12px;">${s.label}</div>
+        <div style="font-size:10px;color:var(--muted);">${(s.sections||[]).length} sections · ${(s.subjects||[]).length} subjects</div>
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="tb-btn tb-btn-secondary" style="font-size:10px;padding:4px 10px;" onclick="App.copySemester('${s.id}')">Copy</button>
+        ${STATE.semesters.length>1?`<button class="icon-btn icon-btn-del" onclick="App.deleteSemester('${s.id}')">✕</button>`:''}
+      </div>
+    </div>
+  `).join('');
+}
+
+
+
+function renderWorkloadView() {
+  const sem = curSem();
+  const panel = document.querySelector('#view-workload .sections-body');
+  if (!sem || !panel) return;
+
+  const headerHtml = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <h3 style="margin:0;color:var(--text);font-size:16px;">Instructor Workload & Analytics</h3>
+      <button class="btn-primary" style="margin:0;padding:6px 12px;font-size:12px;cursor:pointer;background:#2563eb;color:#fff;border-radius:6px;border:none;font-weight:600;" onclick="App.publishWorkloads()">📧 Publish to Instructors</button>
+    </div>
+  `;
+
+  const sched = sem.schedule || {};
+
+  const instrSet = new Set();
+  DAYS.forEach(day => {
+    (sem.sections||[]).forEach(sec => {
+      TEACHING_PERIODS.forEach(p => {
+        const sess = sched?.[day]?.[sec]?.[p.id];
+        if (sess?.instructor && sess.instructor !== 'UNIVERSITY FACULTY') instrSet.add(sess.instructor);
+      });
+    });
+  });
+
+  if (!instrSet.size) {
+    panel.innerHTML = '<div class="empty-state"><p>Generate the schedule first to see workload analysis.</p></div>';
+    return;
+  }
+
+  let html = '<div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));padding:20px;">';
+  [...instrSet].sort().forEach(instr => {
+    let weekLec = 0, weekPrac = 0;
+    let subjCounts = {};
+
+    let tableHtml = `<table class="data-table" style="width:100%;margin-top:10px;font-size:12px;background:#f8fafc;border-collapse:collapse;">
+      <thead><tr style="text-align:left;color:var(--muted);border-bottom:1px solid var(--border);">
+        <th style="padding:6px;">Day</th><th style="padding:6px;">Period</th><th style="padding:6px;">Section</th><th style="padding:6px;">Subject</th><th style="padding:6px;">Type</th>
+      </tr></thead><tbody>`;
+
+    DAYS.forEach(day => {
+      (sem.sections||[]).forEach(sec => {
+        TEACHING_PERIODS.forEach(p => {
+          const sess = sched[day]?.[sec]?.[p.id];
+          if (sess && sess.instructor === instr) {
+            const isPrac = sess.type === 'practice' || sess.type === 'lab';
+            if (isPrac) weekPrac++; else weekLec++;
+            
+            // Find subject name
+            const subjObj = (sem.subjects||[]).find(s => s.code === sess.code);
+            const subjName = subjObj ? subjObj.name : sess.code;
+
+            if (!subjCounts[subjName]) subjCounts[subjName] = { lec: 0, prac: 0 };
+            if (isPrac) subjCounts[subjName].prac++; else subjCounts[subjName].lec++;
+
+            tableHtml += `<tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:6px;font-weight:600;">${day}</td>
+              <td style="padding:6px;">${p.id}</td>
+              <td style="padding:6px;"><span style="background:#e2e8f0;padding:2px 6px;border-radius:4px;font-weight:600;">${sec}</span></td>
+              <td style="padding:6px;max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${subjName}">${subjName}</td>
+              <td style="padding:6px;"><span style="color:${isPrac?'#b45309':'#1d4ed8'};font-weight:600;">${isPrac?'Practice/Lab':'Lecture'}</span></td>
+            </tr>`;
+          }
+        });
+      });
+    });
+    tableHtml += `</tbody></table>`;
+    
+    let breakdownHtml = `<div style="margin-bottom:12px;display:flex;flex-direction:column;gap:4px;">`;
+    for (const [subj, counts] of Object.entries(subjCounts)) {
+      breakdownHtml += `<div style="font-size:11px;color:#475569;background:#f8fafc;padding:4px 8px;border-radius:4px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-weight:600;max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${subj}">${subj}</span>
+        <span style="font-weight:700;color:${counts.prac > 0 ? '#b45309' : '#1d4ed8'}">${counts.lec} Lec, ${counts.prac} Lab</span>
+      </div>`;
+    }
+    breakdownHtml += `</div>`;
+    
+    html += `
+      <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+        <div style="font-size:16px;font-weight:800;color:var(--brand);margin-bottom:8px;">${instr}</div>
+        <div style="display:flex;gap:10px;margin-bottom:8px;">
+          <span style="background:#dbeafe;color:#1e40af;padding:4px 8px;border-radius:6px;font-size:12px;font-weight:600;">${weekLec} Lectures</span>
+          <span style="background:#fce7f3;color:#9d174d;padding:4px 8px;border-radius:6px;font-size:12px;font-weight:600;">${weekPrac} Practices</span>
+          <span style="background:#f1f5f9;color:#475569;padding:4px 8px;border-radius:6px;font-size:12px;font-weight:700;">Total: ${weekLec+weekPrac} Sessions</span>
+        </div>
+        ${breakdownHtml}
+        <div style="max-height:220px;overflow-y:auto;border:1px solid var(--border);border-radius:8px;">
+          ${tableHtml}
+        </div>
+      </div>
+    `;
+  });
+  html += '</div>';
+  panel.innerHTML = headerHtml + html;
+}
+
+function buildInstrDatalist() {
+  const sel = document.getElementById('f-instr');
+  if (sel) {
+    const opts = ['<option value="">-- Unassigned --</option>']
+      .concat((App.globalInstructors||[]).map(i => `<option value="${i}">${i}</option>`))
+      .join('');
+    sel.innerHTML = opts;
+  }
+}
+
+const App = {
+  updateWeekDropdown() {
+    const startStr = document.getElementById('sem-start-date').value;
+    const endStr = document.getElementById('sem-end-date').value;
+    const selector = document.getElementById('week-selector');
+    if (!startStr || !endStr) return;
+
+    const sem = curSem();
+    if (sem) {
+      sem.startDate = startStr;
+      sem.endDate = endStr;
+      saveState();
+    }
+
+    const start = new Date(startStr);
+    const end = new Date(endStr);
+    const diffTime = Math.abs(end - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    const totalWeeks = Math.max(1, Math.ceil(diffDays / 7));
+    selector.innerHTML = '';
+    for (let i = 1; i <= totalWeeks; i++) {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = `Week ${i}`;
+      selector.appendChild(opt);
+    }
+  },
+  
+  async publishWorkload() {
+    const sem = curSem();
+    if (!sem || !sem.schedule) return alert("Generate a schedule first!");
+    const startStr = document.getElementById('sem-start-date').value;
+    const endStr = document.getElementById('sem-end-date').value;
+    if (!startStr || !endStr) return alert("Please select a Semester Start and End date first.");
+    
+    const weekSelector = document.getElementById('week-selector');
+    const weekNum = weekSelector.options[weekSelector.selectedIndex]?.text || "Week 1";
+    
+    document.getElementById('backend-status').textContent = "Publishing...";
+    document.getElementById('backend-status').style.display = 'inline';
+    document.getElementById('backend-status').style.color = '#fff';
+    document.getElementById('backend-status').style.background = '#d97706';
+    
+    try {
+      const res = await fetch(`${API}/api/publish`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ schedule: sem.schedule, weekNum, startStr, endStr })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        document.getElementById('backend-status').textContent = "✓ Published to Emails & WhatsApp!";
+        document.getElementById('backend-status').style.background = '#10b981';
+        setTimeout(() => { document.getElementById('backend-status').style.display = 'none'; }, 4000);
+      } else {
+        alert("Error publishing: " + data.error);
+      }
+    } catch(err) {
+      alert("Failed to connect to backend publish API.");
+      console.error(err);
+    }
+  },
+
+  async uploadExcel(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    try {
+      document.getElementById('backend-status').textContent = "Uploading & Parsing Excel...";
+      document.getElementById('backend-status').style.display = 'inline';
+      document.getElementById('backend-status').style.background = '#d97706';
+      document.getElementById('backend-status').style.color = '#fff';
+
+      const res = await fetch(`${API}/api/upload`, {
+        method: 'POST',
+        body: formData
+      });
+      const data = await res.json();
+      
+      if (res.ok) {
+        document.getElementById('backend-status').textContent = `✓ Uploaded! ${data.subjectsAdded} subjects, ${data.instructorsProcessed} instructors processed.`;
+        document.getElementById('backend-status').style.background = '#10b981';
+        setTimeout(() => { document.getElementById('backend-status').style.display = 'none'; }, 5000);
+        
+        // Reload state to reflect new data
+        await App.loadState();
+        App.showView('subjects');
+      } else {
+        alert("Upload failed: " + data.error);
+        document.getElementById('backend-status').style.display = 'none';
+      }
+    } catch(err) {
+      alert("Server connection error during upload.");
+      document.getElementById('backend-status').style.display = 'none';
+    }
+    e.target.value = ''; // reset file input
+  },
+
+  /* ── View management ── */
+  showView(view) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    const vEl = document.getElementById('view-'+view);
+    if (vEl) vEl.classList.add('active');
+    const navEl = document.querySelector(`.nav-item[data-view="${view}"]`);
+    if (navEl) navEl.classList.add('active');
+
+    // Update top bar title
+    const titles = {
+      schedule: 'Weekly Schedule',
+      subjects: 'Subjects & Workload',
+      sections: 'Sections',
+      fixed: 'Fixed Slot Placements',
+      workload: 'Instructor Workload',
+      settings: 'Settings',
+      universities: 'Universities & Timings'
+    };
+    const sem = curSem();
+    document.getElementById('topbar-title').innerHTML = `${titles[view]||view} <span>${sem?.label||''}</span>`;
+
+    if (view === 'subjects') renderSubjectsView();
+    if (view === 'sections') renderSectionsView();
+    if (view === 'fixed') renderFixedView();
+    if (view === 'settings') renderSettingsView();
+    if (view === 'workload') renderWorkloadView();
+    if (view === 'instructors') renderInstructorsView();
+    if (view === 'schedule') { renderScheduleTable(); renderStatsBar(); }
+    if (view === 'subjects') buildColorPicker();
+    if (view === 'universities') renderUniversitiesView();
+  },
+
+  /* ── Day switching ── */
+  switchDay(day) {
+    STATE.currentDay = day;
+    document.querySelectorAll('.day-tab').forEach(t => t.classList.toggle('active', t.dataset.day===day));
+    renderScheduleTable();
+    renderStatsBar();
+  },
+
+  /* ── Semester management ── */
+    changeSemester(id) {
+    if (!STATE.semesters.find(s=>s.id===id)) return;
+    STATE.currentSemId = id;
+    saveState();
+    renderTopbar();
+    renderScheduleTable();
+    renderStatsBar();
+    this.showView('schedule');
+    toast('Switched to ' + (curSem()?.label||id), 'info');
+  },
+
+  openAddSemesterModal() {
+    const today = new Date();
+    document.getElementById('sem-cohort').value = today.getFullYear();
+    document.getElementById('sem-modal').classList.add('open');
+    this._updateSemLabel();
+    ['sem-year','sem-num','sem-cohort'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => this._updateSemLabel(), {once:false});
+    });
+  },
+
+  _updateSemLabel() {
+    const y = document.getElementById('sem-year').value;
+    const n = document.getElementById('sem-num').value;
+    const c = document.getElementById('sem-cohort').value;
+    document.getElementById('sem-label').value = `Y${y}-S${n}-${c}`;
+  },
+
+  saveSemester() {
+    const year  = +document.getElementById('sem-year').value;
+    const semNum   = +document.getElementById('sem-num').value;
+    const cohort= document.getElementById('sem-cohort').value.trim();
+    const startDate = document.getElementById('sem-start').value;
+    const endDate = document.getElementById('sem-end').value;
+    const label = document.getElementById('sem-label').value.trim() || `Y${year}-S${semNum}-${cohort}`;
+    const id    = label.replace(/\s+/g,'-');
+    if (STATE.semesters.find(s=>s.id===id)) { toast('Semester already exists','error'); return; }
+    const newSem = {
+      id, label,
+      year, sem: semNum, cohort, startDate, endDate,
+      sections: ['Section-1','Section-2','Section-3'],
+      subjects: JSON.parse(JSON.stringify(DEFAULT_SUBJECTS)),
+      fixedSlots: JSON.parse(JSON.stringify(FIXED_SLOT_DEFS)),
+      fixedPlacements: makeDefaultPlacements(['Section-1','Section-2','Section-3']),
+      schedule: {},
+    };
+    STATE.semesters.push(newSem);
+    STATE.currentSemId = id;
+    renderSemesterSelect();
+    this.closeModal('sem-modal');
+    saveState();
+    generateSchedule(newSem);
+    saveState();
+    renderScheduleTable();
+    renderStatsBar();
+    toast(`Created: ${label}`, 'success');
+  },
+
+  deleteSemester(id) {
+    if (!confirm('Delete this semester and all its data?')) return;
+    STATE.semesters = STATE.semesters.filter(s=>s.id!==id);
+    if (STATE.currentSemId === id) STATE.currentSemId = STATE.semesters[0]?.id||'';
+    saveState();
+    renderSemesterSelect();
+    renderTopbar();
+    renderScheduleTable();
+    renderStatsBar();
+    toast('Semester deleted', 'info');
+  },
+
+  copySemester(id) {
+    
+    
+    const src = uni.semesters.find(s=>s.id===id);
+    if (!src) return;
+    const newId = src.id + '-copy-' + Date.now();
+    const copy = JSON.parse(JSON.stringify(src));
+    copy.id = newId;
+    copy.label = src.label + ' (Copy)';
+    copy.schedule = {};
+    uni.semesters.push(copy);
+    
+    renderSemesterSelect();
+    saveState();
+    renderSettingsView();
+    toast('Semester copied. Switch to it to edit.','success');
+  },
+
+  async publishWorkloads() {
+    if (!localStorage.getItem('admin_token')) { toast('Please log in as Admin in the Settings tab to publish schedules.', 'error'); return; }
+    const sem = curSem();
+    if (!sem) return;
+    const btn = document.querySelector('.btn-primary[onclick="App.publishWorkloads()"]');
+    if (btn) { btn.disabled = true; btn.textContent = '⏳ Publishing...'; }
+    toast('Preparing to send messages...', 'info');
+
+    try {
+      const cWeek = sem.currentWeek || 1;
+      let startD = new Date();
+      if (sem.startDate) {
+        startD = new Date(sem.startDate);
+      }
+      startD.setDate(startD.getDate() + (cWeek - 1) * 7);
+      const endD = new Date(startD);
+      endD.setDate(endD.getDate() + 4); // 5-day academic week (Mon-Fri)
+
+      const res = await fetch(`${API}/api/publish`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          schedule: sem.schedule,
+          startStr: startD.toISOString().split('T')[0],
+          endStr: endD.toISOString().split('T')[0],
+          weekNum: 'Week ' + cWeek
+        })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        toast(`✅ Published ${data.sent} messages successfully!`, 'success');
+      } else {
+        toast(`❌ Failed to publish: ${data.error}`, 'error');
+      }
+    } catch (err) {
+      console.error(err);
+      toast('❌ Error connecting to backend publisher.', 'error');
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = '📧 Publish to Instructors'; }
+    }
+  },
+
+  saveSettings() {
+    if (!localStorage.getItem('admin_token')) { toast('Please log in as Admin to save settings.', 'error'); return; }
+    saveState();
+    toast('Settings saved','success');
+  },
+
+  adminLogin() {
+    const u = document.getElementById('overlay-admin-user').value;
+    const p = document.getElementById('overlay-admin-pass').value;
+    if (u === 'admin' && p === 'admin') {
+      localStorage.setItem('admin_token', 'true');
+      document.getElementById('overlay-admin-user').value = '';
+      document.getElementById('overlay-admin-pass').value = '';
+      document.getElementById('overlay-admin-err').style.display = 'none';
+      App.updateAdminUI();
+    } else {
+      document.getElementById('overlay-admin-err').style.display = 'block';
+    }
+  },
+
+  adminLogout() {
+    localStorage.removeItem('admin_token');
+    App.updateAdminUI();
+  },
+
+  updateAdminUI() {
+    const isLoggedIn = localStorage.getItem('admin_token') === 'true';
+    const overlay = document.getElementById('login-overlay');
+    if (overlay) {
+      overlay.style.display = isLoggedIn ? 'none' : 'flex';
+    }
+  },
+
+  /* ── Section management ── */
+  addSection() {
+    const sem = curSem(); if (!sem) return;
+    const name = prompt('Section name:', `Section-${(sem.sections||[]).length+1}`);
+    if (!name) return;
+    if ((sem.sections||[]).includes(name)) { toast('Section already exists','error'); return; }
+    sem.sections = [...(sem.sections||[]), name];
+    // Refresh fixed placements for new section count
+    // (don't reset existing ones)
+    renderSectionsView();
+    saveState();
+    toast(`Added ${name}`,'success');
+  },
+
+  removeSection(i) {
+    const sem = curSem(); if (!sem) return;
+    const name = sem.sections[i];
+    if (!confirm(`Remove ${name}? This will also remove its schedule data.`)) return;
+    sem.sections.splice(i,1);
+    // Remove schedule for this section
+    DAYS.forEach(d => { if(sem.schedule[d]) delete sem.schedule[d][name]; });
+    renderSectionsView();
+    saveState();
+    toast(`Removed ${name}`,'info');
+  },
+
+  /* ── Subject management ── */
+  changeHrs(code, field, delta) {
+    const sem = curSem(); if (!sem) return;
+    const s = (sem.subjects||[]).find(s=>s.code===code);
+    if (!s) return;
+    if (field==='lec') s.lecPerWeek = Math.max(0, (s.lecPerWeek||0)+delta);
+    else s.labPerWeek = Math.max(0, (s.labPerWeek||0)+delta);
+    saveState();
+    renderSubjectsView();
+  },
+
+  assignInstructor(code, instrName) {
+    const sem = curSem(); if (!sem) return;
+    const subj = (sem.subjects||[]).find(s => s.code === code);
+    if (subj) {
+      subj.instructor = instrName;
+      saveState();
+      toast('Instructor assigned', 'success');
+    }
+  },
+
+  editSubject(code) {
+    const sem = curSem(); if (!sem) return;
+    const s = (sem.subjects||[]).find(s=>s.code===code);
+    if (!s) return;
+    document.getElementById('edit-subj-code-orig').value = code;
+    document.getElementById('f-code').value = s.code;
+    document.getElementById('f-name').value = s.name;
+    document.getElementById('f-instr').value = s.instructor||'';
+    document.getElementById('f-type').value = s.type||'lecture';
+    document.getElementById('f-lec').value = s.lecPerWeek||0;
+    document.getElementById('f-lab').value = s.labPerWeek||0;
+    document.getElementById('f-color').value = s.color||'#48cae4';
+    document.getElementById('f-textcolor').value = s.textColor||'#1a1a1a';
+    document.getElementById('subj-form-title').textContent = '✎ Edit Subject';
+    buildColorPicker();
+    // Scroll to form
+    document.getElementById('subj-form-title').scrollIntoView({behavior:'smooth'});
+  },
+
+  deleteSubject(code) {
+    const sem = curSem(); if (!sem) return;
+    if (!confirm('Remove this subject?')) return;
+    sem.subjects = (sem.subjects||[]).filter(s=>s.code!==code);
+    saveState();
+    renderSubjectsView();
+    toast('Subject removed','info');
+  },
+
+  clearSubjForm() {
+    document.getElementById('edit-subj-code-orig').value='';
+    document.getElementById('f-code').value='';
+    document.getElementById('f-name').value='';
+    document.getElementById('f-instr').value='';
+    document.getElementById('f-type').value='lecture';
+    document.getElementById('f-lec').value='3';
+    document.getElementById('f-lab').value='0';
+    document.getElementById('subj-form-title').textContent='+ Add Subject';
+  },
+
+  saveSubject() {
+    const sem = curSem(); if (!sem) return;
+    const origCode = document.getElementById('edit-subj-code-orig').value;
+    const code  = document.getElementById('f-code').value.trim().toUpperCase();
+    const name  = document.getElementById('f-name').value.trim();
+    const instr = document.getElementById('f-instr').value.trim();
+    const type  = document.getElementById('f-type').value;
+    const lec   = +document.getElementById('f-lec').value||0;
+    const lab   = +document.getElementById('f-lab').value||0;
+    const color = document.getElementById('f-color').value;
+    const textColor = document.getElementById('f-textcolor').value;
+    if (!code||!name) { toast('Code and Name are required','error'); return; }
+    const obj = {code,name,instructor:instr,type,lecPerWeek:lec,labPerWeek:lab,color,textColor};
+    if (origCode) {
+      // edit
+      const i = (sem.subjects||[]).findIndex(s=>s.code===origCode);
+      if (i>=0) sem.subjects[i] = obj;
+    } else {
+      if ((sem.subjects||[]).find(s=>s.code===code)) { toast('Subject code already exists','error'); return; }
+      sem.subjects = [...(sem.subjects||[]), obj];
+    }
+    this.clearSubjForm();
+    saveState();
+    renderSubjectsView();
+    toast(`Subject saved: ${name}`,'success');
+  },
+
+  updateWeekDropdown() {
+    const sem = curSem();
+    if (!sem) return;
+    const sel = document.getElementById('top-week-sel');
+    if (!sel) return;
+    const cw = sem.currentWeek || 1;
+    sel.innerHTML = Array.from({length:sem.totalWeeks||16}, (_,i) => 
+      `<option value="${i+1}" ${cw===i+1?'selected':''}>Week ${i+1}</option>`
+    ).join('');
+  },
+
+  scrollTable(delta) {
+    const wrap = document.querySelector('.tt-scroll-wrap');
+    if (wrap) wrap.scrollBy({ left: delta, behavior: 'smooth' });
+  },
+
+  pickColor(c) {
+    document.getElementById('f-color').value = c;
+    buildColorPicker();
+  },
+
+  setTextColor(c, btn) {
+    document.getElementById('f-textcolor').value = c;
+    document.querySelectorAll('.tc-btn').forEach(b=>b.classList.remove('active-tc'));
+    btn.classList.add('active-tc');
+  },
+
+  /* ── Fixed slot management ── */
+  toggleFpManual() {
+    const val = document.getElementById('fp-slot').value;
+    document.getElementById('fp-manual-name').style.display = (val === 'MANUAL_ENTRY') ? 'block' : 'none';
+  },
+
+  openAddFixedModal() {
+    const sem = curSem(); if (!sem) return;
+    document.getElementById('fp-section').innerHTML = (sem.sections||[]).map(s=>`<option>${s}</option>`).join('');
+    let slotOpts = (sem.fixedSlots||[]).map(s=>`<option value="${s.code}">${s.name}</option>`).join('');
+    slotOpts += `<option value="MANUAL_ENTRY">-- Custom Manual Entry --</option>`;
+    document.getElementById('fp-slot').innerHTML = slotOpts;
+    document.getElementById('fp-manual-name').style.display = 'none';
+    document.getElementById('fp-manual-name').value = '';
+
+
+
+    document.getElementById('fixed-modal').classList.add('open');
+  },
+
+  saveFixedPlacement() {
+    const sem = curSem(); if (!sem) return;
+    let code = document.getElementById('fp-slot').value;
+    if (code === 'MANUAL_ENTRY') {
+      code = document.getElementById('fp-manual-name').value.trim();
+      if (!code) { toast('Please enter a custom name', 'error'); return; }
+    }
+    const day       = document.getElementById('fp-day').value;
+    const startId   = document.getElementById('fp-period-start').value;
+    const endId     = document.getElementById('fp-period-end').value;
+    const section   = document.getElementById('fp-section').value;
+    const instr     = document.getElementById('fp-instr').value.trim();
+    
+    const pids = PERIODS.map(p => p.id);
+    const sIdx = pids.indexOf(startId);
+    const eIdx = pids.indexOf(endId);
+    if (eIdx < sIdx) { toast('To Period must be after or equal to From Period', 'error'); return; }
+
+    let addedCount = 0;
+    for (let i = sIdx; i <= eIdx; i++) {
+      const periodId = pids[i];
+      const dup = (sem.fixedPlacements||[]).find(p=>p.day===day&&p.section===section&&p.periodId===periodId);
+      if (dup) {
+        toast(`Skipped ${periodId} - A slot is already placed here (${dup.code})`, 'error');
+        continue;
+      }
+      sem.fixedPlacements = [...(sem.fixedPlacements||[]), {code, day, section, periodId, instructor: instr}];
+      addedCount++;
+    }
+    
+    if (addedCount > 0) {
+      saveState();
+      renderFixedView();
+      this.closeModal('fixed-modal');
+      toast(`Added ${addedCount} fixed slot(s)`, 'success');
+    }
+  },
+
+  removeFixedPlacement(i) {
+    const sem = curSem(); if (!sem) return;
+    const fp = sem.fixedPlacements[i];
+    if (fp && sem.schedule?.[fp.day]?.[fp.section]) {
+      const sess = sem.schedule[fp.day][fp.section][fp.periodId];
+      if (sess && sess.code === fp.code) {
+        delete sem.schedule[fp.day][fp.section][fp.periodId];
+      }
+    }
+    sem.fixedPlacements.splice(i,1);
+    saveState();
+    renderFixedView();
+    renderScheduleTable();
+    toast('Placement removed','info');
+  },
+
+  /* ── Cell editing ── */
+  openCellModal(day, section, periodId) {
+    const sem = curSem(); if (!sem) return;
+    const sess = sem.schedule?.[day]?.[section]?.[periodId];
+    const period = PERIODS.find(p=>p.id===periodId);
+
+    STATE._editCtx = {day,section,periodId};
+    document.getElementById('cell-modal-title').textContent = `${DAY_NAMES[day]||day} · ${period?.label||periodId} · ${section}`;
+    document.getElementById('cell-modal-info').textContent = `Period ${period?.num||''} · ${period?.start||''}–${period?.end||''}`;
+
+    // Build subject dropdown
+    const sel = document.getElementById('cell-subj-select');
+    const allSubj = getAllSubjects(sem);
+    sel.innerHTML = `<option value="">— Empty Slot —</option>` +
+      allSubj.map(s=>`<option value="${s.code}" ${sess?.code===s.code?'selected':''}>${s.name}</option>`).join('');
+
+    // Set instructor and topic
+    document.getElementById('cell-instr-input').value = sess?.instructor || (sess?.code ? (getSubject(sem,sess.code)?.instructor||'') : '');
+    document.getElementById('cell-topic-input').value = sess?.topic||'';
+
+    // Auto-fill instructor on subject change
+    sel.onchange = () => {
+      const s = getSubject(sem, sel.value);
+      if (s) document.getElementById('cell-instr-input').value = s.instructor||'';
+    };
+
+    document.getElementById('cell-modal').classList.add('open');
+  },
+
+  saveCellEdit() {
+    const ctx = STATE._editCtx; if (!ctx) return;
+    const sem = curSem(); if (!sem) return;
+    const {day,section,periodId} = ctx;
+    const code  = document.getElementById('cell-subj-select').value;
+    const instr = document.getElementById('cell-instr-input').value.trim();
+    const topic = document.getElementById('cell-topic-input').value.trim();
+
+    // Check for instructor conflict across other sections at the same time
+    if (code && instr && instr !== 'UNIVERSITY FACULTY') {
+      const conflictSec = (sem.sections||[]).find(sec => 
+        sec !== section && 
+        sem.schedule?.[day]?.[sec]?.[periodId]?.instructor === instr
+      );
+      if (conflictSec) {
+        alert(`Instructor conflict: ${instr} is already teaching section ${conflictSec} at this time.`);
+        return;
+      }
+
+      // Check strict daily workload limits
+      const subjObj = (sem.subjects||[]).find(s => s.code === code);
+      const isPrac = subjObj && (subjObj.type === 'practice' || subjObj.type === 'lab');
+      let lecCount = 0;
+      let pracCount = 0;
+
+      (sem.sections||[]).forEach(sec => {
+        ['P1','P2','P3','P4','P5','P6','P7','P8'].forEach(p => {
+           if (sec === section && p === periodId) return;
+           const s = sem.schedule?.[day]?.[sec]?.[p];
+           if (s && s.instructor === instr) {
+             if (s.type === 'practice' || s.type === 'lab') pracCount++;
+             else lecCount++;
+           }
+        });
+      });
+      if (lecCount + pracCount >= 6) {
+         alert(`Daily Limit Exceeded: ${instr} is already scheduled for the absolute maximum of 6 classes on ${day}.`);
+         return;
+      }
+      if (isPrac && pracCount >= 3) {
+         alert(`Daily Limit Exceeded: ${instr} is already scheduled for the maximum of 3 lab sessions on ${day}.`);
+         return;
+      }
+      if (!isPrac && lecCount >= 4) {
+         alert(`Daily Limit Exceeded: ${instr} is already scheduled for the maximum of 4 lectures on ${day}.`);
+         return;
+      }
+
+      // Check strict fatigue limit (No 3 continuous periods, resets at Lunch)
+      const instrPeriods = new Set([periodId]);
+      (sem.sections||[]).forEach(sec => {
+        ['P1','P2','P3','P4','P5','P6','P7','P8'].forEach(p => {
+           if (sec === section && p === periodId) return;
+           const s = sem.schedule?.[day]?.[sec]?.[p];
+           if (s && s.instructor === instr) instrPeriods.add(p);
+        });
+      });
+      let consecMorning = 0;
+      for (const p of ['P1','P2','P3','P4']) {
+        if (instrPeriods.has(p)) consecMorning++;
+        else consecMorning = 0;
+        if (consecMorning >= 3) {
+           alert(`Fatigue Limit Exceeded: ${instr} cannot teach 3 consecutive classes without a break. Please insert a free period.`);
+           return;
+        }
+      }
+      let consecAfternoon = 0;
+      for (const p of ['P5','P6','P7','P8']) {
+        if (instrPeriods.has(p)) consecAfternoon++;
+        else consecAfternoon = 0;
+        if (consecAfternoon >= 3) {
+           alert(`Fatigue Limit Exceeded: ${instr} cannot teach 3 consecutive classes without a break. Please insert a free period.`);
+           return;
+        }
+      }
+    }
+
+    if (!sem.schedule[day]) sem.schedule[day] = {};
+    if (!sem.schedule[day][section]) sem.schedule[day][section] = {};
+
+    if (!code) {
+      delete sem.schedule[day][section][periodId];
+    } else {
+      const subjObj = (sem.subjects||[]).find(s => s.code === code);
+      const type = subjObj ? subjObj.type : 'lecture';
+      sem.schedule[day][section][periodId] = {code, instructor:instr, topic, type, isFixed:true};
+    }
+    flagConflicts(sem.schedule, sem);
+    saveState();
+    this.closeModal('cell-modal');
+    renderScheduleTable();
+    renderStatsBar();
+    toast('Slot updated','success');
+  },
+
+  clearCell() {
+    const ctx = STATE._editCtx; if (!ctx) return;
+    const sem = curSem(); if (!sem) return;
+    const {day,section,periodId} = ctx;
+    if (sem.schedule?.[day]?.[section]) delete sem.schedule[day][section][periodId];
+    flagConflicts(sem.schedule, sem);
+    saveState();
+    this.closeModal('cell-modal');
+    renderScheduleTable();
+    renderStatsBar();
+    toast('Slot cleared','info');
+  },
+
+  /* ── Generate & Shuffle ── */
+  async generateAndShow() {
+    const sem = curSem(); if (!sem) return;
+    const btn = document.querySelector('.btn-generate');
+    if (btn) { btn.disabled = true; btn.textContent = '⏳ Generating…'; }
+    toast('⏳ Running backend scheduling engine (CSP + Backtracking)…', 'info');
+    const fromBackend = await generateScheduleBackend(sem);
+    saveState();
+    this.showView('schedule');
+    renderScheduleTable();
+    renderStatsBar();
+    const src = fromBackend ? '🟢 Backend CSP Engine' : '🟡 Client fallback';
+    toast(`Schedule generated! [${src}]`, 'success');
+    
+    // Check for missing assignments
+    let missingArr = [];
+    (sem.sections||[]).forEach(sec => {
+      (sem.subjects||[]).forEach(subj => {
+        let placedLec = 0, placedLab = 0;
+        DAYS.forEach(day => {
+          TEACHING_PERIODS.forEach(p => {
+            const sess = sem.schedule?.[day]?.[sec]?.[p.id];
+            if (sess && sess.code === subj.code) {
+               const t = sess.type || 'lecture';
+               if (t === 'lab' || t === 'practice') placedLab++; else placedLec++;
+            }
+          });
+        });
+        if (placedLec < (subj.lecPerWeek||0)) missingArr.push(`- ${sec} is missing ${subj.lecPerWeek - placedLec} Lecture(s) of ${subj.name}`);
+        if (placedLab < (subj.labPerWeek||0)) missingArr.push(`- ${sec} is missing ${subj.labPerWeek - placedLab} Practice/Lab(s) of ${subj.name}`);
+      });
+    });
+    if (missingArr.length > 0) {
+       alert("⚠️ INCOMPLETE SCHEDULE GENERATED:\n\nThe engine could not place all required classes due to severe constraints (e.g. instructor conflicts or lack of slots).\n\n" + missingArr.join("\n"));
+    }
+
+    this.showScheduleSummaryModal(sem);
+    if (btn) { btn.disabled = false; btn.textContent = '⚡ Generate Full Week'; }
+  },
+
+  showScheduleSummaryModal(sem) {
+    if (!sem) return;
+    const sched = sem.schedule || {};
+
+    // Count scheduled sessions per section per subject
+    const counts = {}; // counts[section][code] = {lec:0, lab:0}
+    (sem.sections||[]).forEach(sec => {
+      counts[sec] = {};
+      (sem.subjects||[]).forEach(subj => {
+        counts[sec][subj.code] = { lec:0, lab:0, name:subj.name, color:subj.color,
+          textColor:subj.textColor, expLec:subj.lecPerWeek||0, expLab:subj.labPerWeek||0,
+          instructor:subj.instructor };
+      });
+    });
+    DAYS.forEach(day => {
+      (sem.sections||[]).forEach(sec => {
+        TEACHING_PERIODS.forEach(p => {
+          const sess = sched[day]?.[sec]?.[p.id];
+          if (!sess || !counts[sec]?.[sess.code]) return;
+          const t = sess.type || getSubject(sem, sess.code)?.type || 'lecture';
+          if (t === 'lab' || t === 'practice') counts[sec][sess.code].lab++;
+          else counts[sec][sess.code].lec++;
+        });
+      });
+    });
+
+    const typeColor = t => t==='lab'?'#c05621':t==='practice'?'#276749':'#2b4acb';
+    const typeBg    = t => t==='lab'?'#fff0e6':t==='practice'?'#e6f7ef':'#ebedff';
+
+    let body = `<div style="display:flex;flex-direction:column;gap:18px;">`;
+    (sem.sections||[]).forEach(sec => {
+      const subjEntries = Object.entries(counts[sec]);
+      let totalLec=0, totalLab=0;
+      subjEntries.forEach(([,c]) => { totalLec+=c.lec; totalLab+=c.lab; });
+
+      body += `<div style="border:1px solid #dde3ec;border-radius:10px;overflow:hidden;">`;
+      body += `<div style="padding:10px 16px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:space-between;">
+        <span style="font-weight:700;font-size:13px;">📚 ${sec}</span>
+        <span style="font-size:11px;opacity:.8;">${totalLec} Lectures &nbsp;·&nbsp; ${totalLab} Practice/Lab sessions scheduled</span>
+      </div>`;
+      body += `<div style="padding:0;">`;
+      // Column headers
+      body += `<div style="display:grid;grid-template-columns:1fr 130px 100px 80px 80px 60px 60px;
+        background:#f1f5fb;border-bottom:1px solid #e2e8f0;padding:5px 14px;gap:4px;">
+        <div style="font-size:9px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.5px;">Subject</div>
+        <div style="font-size:9px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.5px;">Instructor</div>
+        <div style="font-size:9px;font-weight:700;color:#2b4acb;text-transform:uppercase;letter-spacing:.5px;text-align:center;">Lectures</div>
+        <div style="font-size:9px;font-weight:700;color:#2b4acb;text-transform:uppercase;letter-spacing:.5px;text-align:center;">Expected</div>
+        <div style="font-size:9px;font-weight:700;color:#c05621;text-transform:uppercase;letter-spacing:.5px;text-align:center;">Lab/Prac</div>
+        <div style="font-size:9px;font-weight:700;color:#c05621;text-transform:uppercase;letter-spacing:.5px;text-align:center;">Expected</div>
+        <div style="font-size:9px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.5px;text-align:center;">Status</div>
+      </div>`;
+
+      subjEntries.forEach(([code, c], idx) => {
+        const lecOk = c.lec === c.expLec;
+        const labOk = c.lab === c.expLab;
+        const allOk = lecOk && labOk;
+        const rowBg = idx%2===0?'#fff':'#fafbfd';
+        const statusIcon = allOk
+          ? `<span style="color:#1a7a40;font-weight:700;">✓</span>`
+          : `<span style="color:#d32f2f;font-weight:700;" title="${!lecOk?`Lec: ${c.lec}/${c.expLec} `:''}${!labOk?`Lab: ${c.lab}/${c.expLab}`:''}">⚠</span>`;
+        body += `<div style="display:grid;grid-template-columns:1fr 130px 100px 80px 80px 60px 60px;
+          padding:6px 14px;background:${rowBg};border-top:1px solid #f0f2f5;gap:4px;align-items:center;">
+          <div style="font-size:10px;font-weight:600;color:#1e293b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${c.name}">
+            <span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${c.color};margin-right:5px;"></span>${c.name}
+          </div>
+          <div style="font-size:10px;color:#555;">${c.instructor}</div>
+          <div style="text-align:center;"><span style="font-size:11px;font-weight:700;color:${lecOk?'#2b4acb':'#d32f2f'}">${c.lec}</span></div>
+          <div style="text-align:center;font-size:10px;color:#94a3b8;">${c.expLec}</div>
+          <div style="text-align:center;"><span style="font-size:11px;font-weight:700;color:${labOk?'#c05621':'#d32f2f'}">${c.lab}</span></div>
+          <div style="text-align:center;font-size:10px;color:#94a3b8;">${c.expLab}</div>
+          <div style="text-align:center;">${statusIcon}</div>
+        </div>`;
+      });
+
+      // Section footer
+      body += `<div style="padding:7px 14px;background:#e9f0fa;border-top:1px solid #dde3ec;display:flex;justify-content:space-between;font-size:11px;font-weight:700;color:var(--brand);">
+        <span>Total: ${totalLec + totalLab} sessions</span>
+        <span>${totalLec} Lectures &nbsp;+&nbsp; ${totalLab} Practice/Lab</span>
+      </div>`;
+      body += `</div></div>`;
+    });
+    body += `</div>`;
+
+    // Show in modal
+    let modal = document.getElementById('summary-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'summary-modal';
+      modal.className = 'modal-backdrop';
+      modal.innerHTML = `
+        <div class="modal-box" style="width:820px;max-width:96vw;">
+          <div class="modal-header">
+            <div class="modal-title">📊 Schedule Summary — ${sem.label}</div>
+            <button class="modal-close" onclick="document.getElementById('summary-modal').classList.remove('open')">✕</button>
+          </div>
+          <div class="modal-body" id="summary-modal-body" style="max-height:70vh;overflow-y:auto;"></div>
+          <div class="modal-footer">
+            <button class="mf-btn mf-btn-save" onclick="document.getElementById('summary-modal').classList.remove('open')">Close</button>
+          </div>
+        </div>`;
+      document.body.appendChild(modal);
+    }
+        document.getElementById('summary-modal-body').innerHTML = body;
+    modal.classList.add('open');
+  },
+
+  resetToDefaultWorkload() {
+    const sem = curSem(); if (!sem) return;
+    if (!confirm(
+      'This will replace ALL subjects and fixed placements with the standard workload:\n\n' +
+      '  DSA: 4 lec + 4 lab\n' +
+      '  Frontend: 3 lec + 2 lab\n' +
+      '  DBMS: 3 lec + 2 lab\n' +
+      '  LLM: 2 lec\n' +
+      '  Math: 2 lec + 2 prac\n' +
+      '  English: 2 lec + 1 prac\n' +
+      '  Yoga:4  COIN:1  Sports:1  Library:1  Mentor:1  Quiz:5\n\n' +
+      'Continue?'
+    )) return;
+
+    sem.subjects          = JSON.parse(JSON.stringify(DEFAULT_SUBJECTS));
+    sem.fixedSlots        = JSON.parse(JSON.stringify(FIXED_SLOT_DEFS));
+    sem.fixedPlacements   = makeDefaultPlacements(sem.sections || ['Section-1','Section-2','Section-3']);
+    sem.schedule          = {};
+    this.showView('schedule');
+    toast('⏳ Generating schedule via backend…', 'info');
+    generateScheduleBackend(sem).then(fromBackend => {
+      saveState();
+      renderScheduleTable();
+      renderStatsBar();
+      renderSubjectsView();
+      const src = fromBackend ? '(Backend CSP Engine)' : '(Client fallback)';
+      toast(`✅ Standard workload applied ${src}`, 'success');
+      this.showScheduleSummaryModal(sem);
+    });
+  },
+
+  async shuffleWeek() {
+    const sem = curSem(); if (!sem) return;
+    toast('Shuffling schedule via backend...', 'info');
+    
+    sem.shuffle = true;
+    await generateScheduleBackend(sem);
+    sem.shuffle = false;
+
+    saveState();
+    renderScheduleTable();
+    renderStatsBar();
+    toast('Week schedule shuffled!', 'success');
+  },
+
+  clearSchedule() {
+    const sem = curSem(); if (!sem) return;
+    if (!confirm('Are you sure you want to clear the schedule? Fixed slots will be kept.')) return;
+    if (sem.schedule) {
+      Object.keys(sem.schedule).forEach(day => {
+        Object.keys(sem.schedule[day]).forEach(sec => {
+          Object.keys(sem.schedule[day][sec]).forEach(pid => {
+            if (!sem.schedule[day][sec][pid].isFixed) {
+              delete sem.schedule[day][sec][pid];
+            }
+          });
+        });
+      });
+    }
+    saveState();
+    renderScheduleTable();
+    renderStatsBar();
+    toast('Schedule cleared (except fixed slots).', 'success');
+  },
+
+  resetWorkloads() {
+    const sem = curSem(); if (!sem) return;
+    if (!confirm('Are you sure you want to reset all subject workloads to 0 AND clear the entire schedule?')) return;
+    if (sem.subjects) {
+      sem.subjects.forEach(subj => {
+        subj.lecPerWeek = 0;
+        subj.labPerWeek = 0;
+      });
+    }
+    // Also clear the entire schedule so SCH and LEFT become 0
+    sem.schedule = {};
+    saveState();
+    renderSubjectsView();
+    renderStatsBar();
+    toast('Workloads and Schedule fully reset to zero.', 'success');
+  },
+
+
+  saveManualEdits() {
+    saveState();
+    toast('Manual edits saved securely!', 'success');
+  },
+
+  /* ── Modal helpers ── */
+  closeModal(id) { document.getElementById(id).classList.remove('open'); },
+
+  /* ── Export ── */
+  async exportExcel() {
+    const sem = curSem(); if (!sem) return;
+    toast('Generating Excel file...', 'info');
+    try {
+      const r = await fetch(`${API}/api/export-excel`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sem: sem })
+      });
+      if (!r.ok) throw new Error('Export failed');
+      const blob = await r.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Timetable_${sem.label || 'export'}.xlsx`;
+      a.click();
+      URL.revokeObjectURL(url);
+      toast('Excel exported successfully!', 'success');
+    } catch (err) {
+      console.error(err);
+      toast('Export failed', 'error');
+    }
+  },
+
+  
+
+  
+
+  
+};
+
+/* ═══════════════════════════════════════
+   TOAST
+   ═══════════════════════════════════════ */
+function toast(msg, type='info') {
+  const el = document.createElement('div');
+  el.className = `toast toast-${type}`; el.textContent = msg;
+  document.getElementById('toast-area').appendChild(el);
+  setTimeout(() => el.remove(), 3200);
+}
+
+/* ═══════════════════════════════════════
+   MODAL: Close on backdrop click
+   ═══════════════════════════════════════ */
+document.querySelectorAll('.modal-backdrop').forEach(m => {
+  m.addEventListener('click', e => { if(e.target===m) m.classList.remove('open'); });
+});
+
+/* ═══════════════════════════════════════
+   SEMESTER LABEL AUTO-UPDATE
+   ═══════════════════════════════════════ */
+['sem-year','sem-num','sem-cohort'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', () => App._updateSemLabel());
+});
+
+/* ═══════════════════════════════════════
+   BOOT
+   ═══════════════════════════════════════ */
+(async function init() {
+  App.globalInstructors = [];
+  try {
+    const res = await fetch(`${API}/api/instructors`);
+    if(res.ok) {
+      const data = await res.json();
+      App.globalInstructors = Object.values(data).map(d => d.name).sort();
+    }
+  } catch(e) {}
+
+  // 1. Check backend availability
+  await checkBackend();
+
+  // 2. Load state (backend preferred, localStorage fallback)
+  await loadState();
+
+  // 3. Ensure a default semester exists
+  if (!STATE.semesters.length) {
+    const sem = {
+      id:'Y1-S1-2026', label:'Year 1 · Sem 1 · 2026',
+      year:1, sem:1, cohort:'2026',
+      sections:['Section-1','Section-2','Section-3'],
+      subjects: JSON.parse(JSON.stringify(DEFAULT_SUBJECTS)),
+      fixedSlots: JSON.parse(JSON.stringify(FIXED_SLOT_DEFS)),
+      fixedPlacements: makeDefaultPlacements(['Section-1','Section-2','Section-3']),
+      schedule:{},
+    };
+    STATE.semesters.push(sem);
+    STATE.currentSemId = sem.id;
+  }
+
+  // 4. Render UI immediately (even before schedule is generated)
+  renderSemesterSelect();
+    renderTopbar();
+  renderScheduleTable();
+  renderStatsBar();
+
+  // 5. Generate schedules for any semester that doesn't have one yet
+  const needsGen = STATE.semesters.filter(s => !s.schedule || !Object.keys(s.schedule).length);
+  if (needsGen.length) {
+    toast(`⏳ Generating ${needsGen.length} schedule(s) via backend…`, 'info');
+    for (const sem of needsGen) {
+      await generateScheduleBackend(sem);
+    }
+    renderScheduleTable();
+    renderStatsBar();
+    saveState();
+    toast('✅ Schedule generated successfully!', 'success');
+  }
+})();
+
+function extractManualFixed(sem) {
+  const manual = [];
+  DAYS.forEach(day => {
+    (sem.sections||[]).forEach(sec => {
+      TEACHING_PERIODS.forEach(p => {
+        const sess = sem.schedule?.[day]?.[sec]?.[p.id];
+        if (sess && sess.isFixed) {
+          manual.push({
+            code: sess.code,
+            day,
+            section: sec,
+            periodId: p.id,
+            instructor: sess.instructor,
+            type: sess.type
+          });
+        }
+      });
+    });
+  });
+  return manual;
+}
+
+function renderMissingClasses(sem) {
+  const missingArr = [];
+  (sem.sections||[]).forEach(sec => {
+    (sem.subjects||[]).forEach(subj => {
+      let placedLec = 0, placedLab = 0;
+      DAYS.forEach(day => {
+        TEACHING_PERIODS.forEach(p => {
+          const sess = sem.schedule?.[day]?.[sec]?.[p.id];
+          if (sess && sess.code === subj.code) {
+             const t = sess.type || 'lecture';
+             if (t === 'lab' || t === 'practice') placedLab++; else placedLec++;
+          }
+        });
+      });
+      const missingLec = (subj.lecPerWeek||0) - placedLec;
+      const missingLab = (subj.labPerWeek||0) - placedLab;
+      if (missingLec > 0) missingArr.push(`<b>${sec}</b>: Needs ${missingLec} more Lecture(s) of <b>${subj.name}</b>`);
+      if (missingLab > 0) missingArr.push(`<b>${sec}</b>: Needs ${missingLab} more Practice/Lab(s) of <b>${subj.name}</b>`);
+    });
+  });
+
+  const area = document.getElementById('missing-area');
+  if (missingArr.length > 0) {
+    area.style.display = 'block';
+    area.innerHTML = '<h4 style="margin:0 0 8px 0;color:#b91c1c;font-size:13px;">⚠️ Classes Yet to be Scheduled</h4>' +
+      '<ul style="margin:0;padding-left:20px;font-size:12px;color:#7f1d1d;line-height:1.6;">' + 
+      missingArr.map(m => `<li>${m}</li>`).join('') + 
+      '</ul>';
+  } else {
+    area.style.display = 'none';
+    area.innerHTML = '';
+  }
+}
+
+async function renderInstructorsView() {
+  try {
+    const res = await fetch(`${API}/api/instructors`);
+    const instrs = await res.json();
+    const tbody = document.getElementById('instructors-tbody');
+    let html = '';
+    
+    if (Object.keys(instrs).length === 0) {
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="6" style="text-align:center;padding:40px;color:var(--muted);">No instructors found. Click "+ Add Instructor" to add manually, or upload your Excel data.</td></tr>';
+      return;
+    }
+
+    for (const [key, instr] of Object.entries(instrs)) {
+      html += `
+        <tr style="border-bottom:1px solid var(--border);" class="instructor-row">
+          <td style="padding:12px 16px;"><input type="text" class="form-input" style="width:100%;font-weight:600;" data-field="name" value="${instr.name}" placeholder="Name"></td>
+          <td style="padding:12px 16px;"><input type="text" class="form-input" style="width:100%" data-field="email" value="${instr.email||''}" placeholder="Email"></td>
+          <td style="padding:12px 16px;"><input type="text" class="form-input" style="width:100%" data-field="whatsapp" value="${instr.whatsapp||''}" placeholder="WhatsApp No"></td>
+          <td style="padding:12px 16px;"><input type="text" class="form-input" style="width:100%" data-field="username" value="${instr.username||''}" placeholder="Username"></td>
+          <td style="padding:12px 16px;"><input type="text" class="form-input" style="width:100%" data-field="password" value="${instr.password||''}" placeholder="Password"></td>
+          <td style="padding:12px 16px;text-align:center;"><button class="icon-btn icon-btn-del" onclick="this.closest('tr').remove()" title="Remove">✕</button></td>
+        </tr>
+      `;
+    }
+    tbody.innerHTML = html;
+  } catch(e) {
+    console.error("Failed to load instructors", e);
+  }
+}
+
+App.addInstructorRow = function() {
+  const tbody = document.getElementById('instructors-tbody');
+  if (tbody.querySelector('.empty-row')) tbody.innerHTML = '';
+  
+  const tr = document.createElement('tr');
+  tr.className = 'instructor-row';
+  tr.style.borderBottom = '1px solid var(--border)';
+  tr.innerHTML = `
+      <td style="padding:12px 16px;"><input type="text" class="form-input" style="width:100%;font-weight:600;" data-field="name" value="" placeholder="New Instructor"></td>
+      <td style="padding:12px 16px;"><input type="text" class="form-input" style="width:100%" data-field="email" value="" placeholder="Email"></td>
+      <td style="padding:12px 16px;"><input type="text" class="form-input" style="width:100%" data-field="whatsapp" value="" placeholder="WhatsApp No"></td>
+      <td style="padding:12px 16px;"><input type="text" class="form-input" style="width:100%" data-field="username" value="" placeholder="Username"></td>
+      <td style="padding:12px 16px;"><input type="text" class="form-input" style="width:100%" data-field="password" value="${Math.random().toString(36).slice(-8)}" placeholder="Password"></td>
+      <td style="padding:12px 16px;text-align:center;"><button class="icon-btn icon-btn-del" onclick="this.closest('tr').remove()" title="Remove">✕</button></td>
+  `;
+  tbody.appendChild(tr);
+};
+
+App.saveInstructors = async function() {
+  const rows = document.querySelectorAll('#instructors-tbody tr.instructor-row');
+  const data = {};
+  
+  rows.forEach(row => {
+    const nameInput = row.querySelector('[data-field="name"]');
+    if (!nameInput) return;
+    const name = nameInput.value.trim().toUpperCase();
+    if (!name) return;
+    
+    data[name] = {
+      name: name,
+      email: row.querySelector('[data-field="email"]').value.trim(),
+      whatsapp: row.querySelector('[data-field="whatsapp"]').value.trim(),
+      username: row.querySelector('[data-field="username"]').value.trim(),
+      password: row.querySelector('[data-field="password"]').value.trim()
+    };
+  });
+  
+  App.globalInstructors = Object.values(data).map(d => d.name).sort();
+  buildInstrDatalist();
+  
+  try {
+    const postRes = await fetch(`${API}/api/instructors`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (postRes.ok) {
+      toast('Instructor Directory Saved Successfully!', 'success');
+    } else {
+      toast('Error saving directory.', 'error');
+    }
+    saveState();
+  } catch(e) {
+    toast('Server error.', 'error');
+  }
+};
+
+function renderUniversitiesView() {
+  const container = document.getElementById('uni-list-container');
+  if (!container) return;
+
+  
+  
+  // Render Left Column: Universities List
+  container.innerHTML = (STATE.universities || []).map(u => {
+    const isActive = currentUni && u.id === currentUni.id;
+    return `
+      <div onclick="App.selectUniversity('${u.id}')" 
+           style="padding:10px 12px; border-radius:6px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition: all 0.2s;
+                  background: ${isActive ? 'var(--brand-light)' : '#fff'};
+                  border: 1px solid ${isActive ? 'var(--brand)' : 'var(--border)'};">
+        <div style="font-weight:600; color:${isActive ? 'var(--brand)' : 'var(--text)'}; font-size:12px; max-width:180px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${u.name}">
+          ${u.name}
+        </div>
+        ${STATE.universities.length > 1 ? `
+          <button onclick="event.stopPropagation(); App.deleteUniversity('${u.id}')" 
+                  style="border:none; background:transparent; color:#d32f2f; cursor:pointer; font-size:12px; font-weight:bold; padding:4px;" 
+                  title="Delete University">✕</button>
+        ` : ''}
+      </div>
+    `;
+  }).join('');
+
+  // Render Right Column: Timing Configurator for current university
+  if (currentUni) {
+    document.getElementById('uni-name-input').value = currentUni.name;
+    const tbody = document.getElementById('uni-timings-tbody');
+    if (tbody) {
+      let html = PERIODS.map(p => {
+        const t = currentUni.periods.find(pe => pe.id === p.id) || p;
+        const label = p.type === 'teaching' ? `Period ${p.num}` : (p.type === 'break' ? 'Short Break' : 'Lunch');
+        return `
+          <tr style="border-bottom:1px solid #f0f4f8;">
+            <td style="padding:10px; font-weight:700; color:var(--brand);">${p.id}</td>
+            <td style="padding:10px; font-weight:600; color:var(--muted);">${label}</td>
+            <td style="padding:8px 10px;">
+              <input type="text" class="form-input time-start-input" data-pid="${p.id}" value="${t.start}" 
+                     style="width:90px; text-align:center; padding:6px; font-weight:600; font-family:monospace; border:1px solid var(--border); border-radius:5px;" />
+            </td>
+            <td style="padding:8px 10px;">
+              <input type="text" class="form-input time-end-input" data-pid="${p.id}" value="${t.end}" 
+                     style="width:90px; text-align:center; padding:6px; font-weight:600; font-family:monospace; border:1px solid var(--border); border-radius:5px;" />
+            </td>
+            <td style="padding:8px 10px; text-align:center;">
+              <button class="icon-btn icon-btn-del" onclick="App.removePeriodSlot('${p.id}')" title="Remove Period">✕</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+
+      tbody.innerHTML = html;
+    }
+  }
+}
+</script>
+</body>
+</html>

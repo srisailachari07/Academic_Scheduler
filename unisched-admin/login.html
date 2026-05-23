@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Login - Academic Scheduler</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #f0f4f8;
+    --surface: #ffffff;
+    --brand: #00236f;
+    --border: #dde3ec;
+    --text: #191c1e;
+    --muted: #6b7280;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { background: var(--bg); display: flex; align-items: center; justify-content: center; height: 100vh; color: var(--text); }
+  .login-card { background: var(--surface); padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); width: 100%; max-width: 400px; text-align: center; }
+  .logo { font-size: 24px; font-weight: 800; color: var(--brand); margin-bottom: 5px; }
+  .sub { font-size: 13px; color: var(--muted); margin-bottom: 30px; font-weight: 500; }
+  .form-group { text-align: left; margin-bottom: 20px; }
+  label { display: block; font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-bottom: 6px; }
+  input { width: 100%; padding: 12px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; outline: none; transition: border 0.2s; }
+  input:focus { border-color: var(--brand); }
+  button { width: 100%; padding: 12px; background: var(--brand); color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
+  button:hover { background: #00195a; }
+  .error { color: #d32f2f; font-size: 12px; margin-top: 15px; font-weight: 600; display: none; }
+</style>
+</head>
+<body>
+  <div class="login-card">
+    <div class="logo">Academic Scheduler</div>
+    <div class="sub">Log in to access your dashboard</div>
+    
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" id="username" placeholder="Enter your username" autocomplete="off" />
+    </div>
+    
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="••••••••" />
+    </div>
+
+    <button onclick="login()">Sign In</button>
+    <div id="error-msg" class="error">Invalid credentials</div>
+  </div>
+
+  <script>
+    async function login() {
+      const u = document.getElementById('username').value;
+      const p = document.getElementById('password').value;
+      const err = document.getElementById('error-msg');
+      err.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: u, password: p })
+        });
+        const data = await res.json();
+        
+        if (res.ok) {
+          // Store token/role in localStorage
+          localStorage.setItem('sched_token', data.token);
+          localStorage.setItem('sched_role', data.role);
+          localStorage.setItem('sched_username', data.username);
+          
+          if (data.role === 'admin') window.location.href = '/index.html';
+          else window.location.href = '/instructor.html';
+        } else {
+          err.textContent = data.error || 'Login failed';
+          err.style.display = 'block';
+        }
+      } catch (e) {
+        err.textContent = 'Server connection error';
+        err.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

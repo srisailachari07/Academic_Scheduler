@@ -1,0 +1,1 @@
+const fs=require('fs'); let c=fs.readFileSync('build_phase1.js','utf8'); c=c.replace(/const PERIODS = \\[[\\s\\S]*?const TEACHING_PERIODS = PERIODS\\.filter\\(p => p\\.type === 'teaching'\\);\\/, '\\'); fs.writeFileSync('build_phase1.js', c);
