@@ -2,7 +2,7 @@
 
 async function test() {
   try {
-    const res = await fetch('http://localhost:3000/api/export-excel', {
+    const res = await fetch('https://academic-scheduler-2wxz.onrender.com/api/export-excel', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ sem: { id: "test", subjects: [], sections: [] } })

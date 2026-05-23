@@ -1,6 +1,6 @@
 'use strict';
 const { JSDOM } = require("jsdom");
-const dom = new JSDOM(`<!DOCTYPE html><html><body><div id="backend-status"></div><div id="app"></div></body></html>`, { url: "http://localhost:3000" });
+const dom = new JSDOM(`<!DOCTYPE html><html><body><div id="backend-status"></div><div id="app"></div></body></html>`, { url: "https://academic-scheduler-2wxz.onrender.com" });
 global.window = dom.window;
 global.document = dom.window.document;
 global.localStorage = { getItem: () => null, setItem: () => {} };
