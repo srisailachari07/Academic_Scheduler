@@ -306,11 +306,24 @@ function generateSingleSchedule(sem) {
 
   instrs.forEach(k => {
     const { lecs, labs } = instrRounds[k];
-    const maxLen = Math.max(lecs.length, labs.length);
-    for (let i = 0; i < maxLen; i++) {
-      if (i < lecs.length) orderedRounds.push(lecs[i]);
-      if (i < labs.length) orderedRounds.push(labs[i]);
-    }
+    
+    const codes = [...new Set([...lecs, ...labs].map(x => x.code))];
+    
+    codes.forEach(code => {
+      const subjLecs = lecs.filter(x => x.code === code);
+      const subjLabs = labs.filter(x => x.code === code);
+      
+      if (subjLecs.length > 0 && subjLecs.length === subjLabs.length) {
+        orderedRounds.push(...subjLecs);
+        orderedRounds.push(...subjLabs);
+      } else {
+        const maxLen = Math.max(subjLecs.length, subjLabs.length);
+        for (let i = 0; i < maxLen; i++) {
+          if (i < subjLecs.length) orderedRounds.push(subjLecs[i]);
+          if (i < subjLabs.length) orderedRounds.push(subjLabs[i]);
+        }
+      }
+    });
   });
 
   // Inject some randomness for the Hill Climbing search
