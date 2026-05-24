@@ -1884,10 +1884,10 @@
 
       <p style="color:var(--muted);font-size:12px;margin-bottom:24px;">Please enter your admin credentials.</p>
 
-      <input type="text" id="overlay-admin-user" placeholder="Username"
+      <input type="text" id="overlay-admin-user" placeholder="Username" onkeyup="if(event.key === 'Enter') App.adminLogin()"
         style="width:100%;padding:10px;margin-bottom:12px;border:1px solid #ccc;border-radius:6px;font-family:inherit;">
 
-      <input type="password" id="overlay-admin-pass" placeholder="Password"
+      <input type="password" id="overlay-admin-pass" placeholder="Password" onkeyup="if(event.key === 'Enter') App.adminLogin()"
         style="width:100%;padding:10px;margin-bottom:20px;border:1px solid #ccc;border-radius:6px;font-family:inherit;">
 
       <button onclick="App.adminLogin()"
@@ -7500,6 +7500,8 @@ function makeDefaultPlacements(sections) {
         toast('✅ Schedule generated successfully!', 'success');
 
       }
+
+      App.updateAdminUI();
 
     })();
 
