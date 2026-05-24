@@ -1,246 +1,13 @@
 {
-  "currentSemId": "Y1-S2-2026",
-  "currentDay": "Wed",
+  "currentSemId": "Y1-S1-2026",
+  "currentDay": "Mon",
   "semesters": [
     {
-      "id": "Y2-S2-2024",
-      "sem": 2,
-      "year": 2,
-      "label": "Year 2 · Sem 2 · 2024",
-      "cohort": "2024",
-      "shuffle": false,
-      "schedule": {
-        "Fri": {
-          "Section-1": {},
-          "Section-2": {},
-          "Section-3": {}
-        },
-        "Mon": {
-          "Section-1": {
-            "P1": {
-              "code": "BTNX212",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          },
-          "Section-2": {
-            "P3": {
-              "code": "BTNX212",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          },
-          "Section-3": {
-            "P4": {
-              "code": "BTNX212",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          }
-        },
-        "Thu": {
-          "Section-1": {
-            "P2": {
-              "code": "MATH2P",
-              "type": "practice",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          },
-          "Section-2": {
-            "P4": {
-              "code": "MATH2P",
-              "type": "practice",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          },
-          "Section-3": {
-            "P5": {
-              "code": "MATH2P",
-              "type": "practice",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          }
-        },
-        "Tue": {
-          "Section-1": {
-            "P3": {
-              "code": "MATH2P",
-              "type": "practice",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          },
-          "Section-2": {
-            "P4": {
-              "code": "MATH2P",
-              "type": "practice",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          },
-          "Section-3": {
-            "P6": {
-              "code": "MATH2P",
-              "type": "practice",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          }
-        },
-        "Wed": {
-          "Section-1": {
-            "P1": {
-              "code": "BTNX212",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          },
-          "Section-2": {
-            "P4": {
-              "code": "BTNX212",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          },
-          "Section-3": {
-            "P6": {
-              "code": "BTNX212",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false,
-              "instructor": "DILEEP KUMAR"
-            }
-          }
-        },
-        "_shuffleMode": true
-      },
-      "sections": [
-        "Section-1",
-        "Section-2",
-        "Section-3"
-      ],
-      "subjects": [
-        {
-          "code": "BTNX212",
-          "name": "Mathematics 2",
-          "type": "lecture",
-          "color": "#b91c1c",
-          "textColor": "#1a1a1a",
-          "instructor": "DILEEP KUMAR",
-          "labPerWeek": 0,
-          "lecPerWeek": 2
-        },
-        {
-          "code": "MATH2P",
-          "name": "Mathematics 2 Practice",
-          "type": "practice",
-          "color": "#0f766e",
-          "textColor": "#1a1a1a",
-          "instructor": "DILEEP KUMAR",
-          "labPerWeek": 2,
-          "lecPerWeek": 0
-        }
-      ],
-      "_unplaced": 0,
-      "fixedSlots": [
-        {
-          "code": "YOGA201",
-          "name": "Application of yoga in mind body management YOGA201",
-          "color": "#f8a5c2",
-          "isFixed": true,
-          "textColor": "#1a1a1a",
-          "instructor": "UNIVERSITY FACULTY"
-        },
-        {
-          "code": "COIN201",
-          "name": "COIN201",
-          "color": "#748ffc",
-          "isFixed": true,
-          "textColor": "#ffffff",
-          "instructor": "UNIVERSITY FACULTY"
-        },
-        {
-          "code": "MODQUIZ",
-          "name": "Module Quiz",
-          "color": "#74c0fc",
-          "isFixed": true,
-          "textColor": "#1a1a1a",
-          "instructor": ""
-        },
-        {
-          "code": "SPORTS",
-          "name": "Sports",
-          "color": "#69db7c",
-          "isFixed": true,
-          "textColor": "#1a1a1a",
-          "instructor": ""
-        },
-        {
-          "code": "LIBRARY",
-          "name": "Library",
-          "color": "#ff922b",
-          "isFixed": true,
-          "textColor": "#ffffff",
-          "instructor": ""
-        },
-        {
-          "code": "MENTOR",
-          "name": "Mentoring",
-          "color": "#ffd43b",
-          "topic": "SC 1:1\nUniversity allotted slot for interactions",
-          "isFixed": true,
-          "textColor": "#1a1a1a",
-          "instructor": ""
-        },
-        {
-          "code": "INTASSESS",
-          "name": "Internal Assessments",
-          "color": "#b197fc",
-          "isFixed": true,
-          "textColor": "#ffffff",
-          "instructor": "UNIVERSITY FACULTY"
-        },
-        {
-          "code": "MIDTERM",
-          "name": "Mid Term Exams",
-          "color": "#ff8787",
-          "isFixed": true,
-          "textColor": "#ffffff",
-          "instructor": "UNIVERSITY FACULTY"
-        }
-      ],
-      "_imbalanced": [],
-      "_unplacedRounds": [],
-      "fixedPlacements": [],
-      "_capacityWarnings": []
-    },
-    {
-      "id": "Y1-S2-2026",
-      "label": "Y1-S2-2026",
+      "id": "Y1-S1-2026",
+      "label": "Year 1 · Sem 1 · 2026",
       "year": 1,
-      "sem": 2,
+      "sem": 1,
       "cohort": "2026",
-      "startDate": "2026-02-10",
-      "endDate": "2026-06-10",
       "sections": [
         "Section-1",
         "Section-2",
@@ -255,7 +22,7 @@
           "textColor": "#ffffff",
           "instructor": "SATYA APARNA",
           "labPerWeek": 0,
-          "lecPerWeek": 4
+          "lecPerWeek": 2
         },
         {
           "code": "BTNX222",
@@ -264,7 +31,7 @@
           "color": "#fbbf24",
           "textColor": "#ffffff",
           "instructor": "SATYA APARNA",
-          "labPerWeek": 4,
+          "labPerWeek": 1,
           "lecPerWeek": 0
         },
         {
@@ -275,7 +42,7 @@
           "textColor": "#1a1a1a",
           "instructor": "PALLAVI B",
           "labPerWeek": 0,
-          "lecPerWeek": 3
+          "lecPerWeek": 2
         },
         {
           "code": "BTNX232",
@@ -284,7 +51,7 @@
           "color": "#ffc6ff",
           "textColor": "#ffffff",
           "instructor": "PALLAVI B",
-          "labPerWeek": 2,
+          "labPerWeek": 1,
           "lecPerWeek": 0
         },
         {
@@ -295,7 +62,7 @@
           "textColor": "#1a1a1a",
           "instructor": "PALLAVI B",
           "labPerWeek": 0,
-          "lecPerWeek": 2
+          "lecPerWeek": 0
         },
         {
           "code": "BTNX234",
@@ -303,8 +70,8 @@
           "type": "lab",
           "color": "#2dd4bf",
           "textColor": "#ffffff",
-          "instructor": "PALLAVI B",
-          "labPerWeek": 2,
+          "instructor": "SUSHMITHA AMARNATH",
+          "labPerWeek": 1,
           "lecPerWeek": 0
         },
         {
@@ -315,7 +82,7 @@
           "textColor": "#ffffff",
           "instructor": "SUSHMITHA AMARNATH",
           "labPerWeek": 0,
-          "lecPerWeek": 3
+          "lecPerWeek": 1
         },
         {
           "code": "BTNX212",
@@ -325,7 +92,7 @@
           "textColor": "#ffffff",
           "instructor": "DILEEP KUMAR",
           "labPerWeek": 0,
-          "lecPerWeek": 3
+          "lecPerWeek": 2
         },
         {
           "code": "MATH_2P",
@@ -334,7 +101,7 @@
           "color": "#4338ca",
           "textColor": "#ffffff",
           "instructor": "DILEEP KUMAR",
-          "labPerWeek": 2,
+          "labPerWeek": 1,
           "lecPerWeek": 0
         },
         {
@@ -663,9 +430,9 @@
               "type": "lecture"
             },
             "P2": {
-              "code": "BTNX222",
+              "code": "BTNX221",
               "instructor": "SATYA APARNA",
-              "type": "lab",
+              "type": "lecture",
               "topic": "",
               "isFixed": false
             },
@@ -676,24 +443,17 @@
               "topic": "",
               "isFixed": false
             },
-            "P8": {
-              "code": "BTNX234",
-              "instructor": "PALLAVI B",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P6": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
             "P4": {
               "code": "BTNX212",
               "instructor": "DILEEP KUMAR",
               "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX234",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lab",
               "topic": "",
               "isFixed": false
             }
@@ -720,13 +480,6 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P4": {
-              "code": "BTNX222",
-              "instructor": "SATYA APARNA",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
             "P3": {
               "code": "BTNX231",
               "instructor": "PALLAVI B",
@@ -735,22 +488,22 @@
               "isFixed": false
             },
             "P6": {
-              "code": "BTNX234",
-              "instructor": "PALLAVI B",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P8": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
+            "P8": {
+              "code": "BTNX234",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
             "P1": {
-              "code": "BTNX212",
-              "instructor": "DILEEP KUMAR",
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -764,51 +517,30 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P5": {
-              "code": "BTNX222",
-              "instructor": "SATYA APARNA",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P4": {
-              "code": "BTNX231",
-              "instructor": "PALLAVI B",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P1": {
+            "P6": {
               "code": "BTNX221",
               "instructor": "SATYA APARNA",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
-            "P6": {
-              "code": "BTNX212",
-              "instructor": "DILEEP KUMAR",
+            "P5": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
               "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P3": {
-              "code": "MATH_2P",
-              "instructor": "DILEEP KUMAR",
-              "type": "practice",
               "topic": "",
               "isFixed": false
             },
             "P2": {
-              "code": "BTNX223",
+              "code": "BTNX234",
               "instructor": "SUSHMITHA AMARNATH",
-              "type": "lecture",
+              "type": "lab",
               "topic": "",
               "isFixed": false
             },
-            "P8": {
-              "code": "BTNX211",
-              "instructor": "FEBI MARIAM JOHN",
+            "P1": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -824,44 +556,23 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P1": {
+            "P2": {
               "code": "BTNX221",
               "instructor": "SATYA APARNA",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
-            "P2": {
-              "code": "BTNX233",
+            "P4": {
+              "code": "BTNX231",
               "instructor": "PALLAVI B",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
-            "P8": {
-              "code": "BTNX222",
-              "instructor": "SATYA APARNA",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P4": {
-              "code": "MATH_2P",
+            "P1": {
+              "code": "BTNX212",
               "instructor": "DILEEP KUMAR",
-              "type": "practice",
-              "topic": "",
-              "isFixed": false
-            },
-            "P3": {
-              "code": "BTNX223",
-              "instructor": "SUSHMITHA AMARNATH",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P6": {
-              "code": "BTNX211",
-              "instructor": "FEBI MARIAM JOHN",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -882,44 +593,23 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P3": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P5": {
-              "code": "BTNX233",
+            "P6": {
+              "code": "BTNX231",
               "instructor": "PALLAVI B",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
-            "P6": {
-              "code": "BTNX222",
-              "instructor": "SATYA APARNA",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
             "P2": {
-              "code": "MATH_2P",
+              "code": "BTNX212",
               "instructor": "DILEEP KUMAR",
-              "type": "practice",
-              "topic": "",
-              "isFixed": false
-            },
-            "P4": {
-              "code": "BTNX223",
-              "instructor": "SUSHMITHA AMARNATH",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
             "P1": {
-              "code": "BTNX211",
-              "instructor": "FEBI MARIAM JOHN",
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -947,31 +637,17 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P4": {
+            "P6": {
               "code": "BTNX221",
               "instructor": "SATYA APARNA",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
-            "P8": {
-              "code": "BTNX233",
-              "instructor": "PALLAVI B",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P6": {
-              "code": "BTNX234",
-              "instructor": "PALLAVI B",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
             "P5": {
-              "code": "BTNX222",
-              "instructor": "SATYA APARNA",
-              "type": "lab",
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
               "topic": "",
               "isFixed": false
             },
@@ -1000,42 +676,21 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P1": {
-              "code": "BTNX233",
-              "instructor": "PALLAVI B",
-              "type": "lecture",
+            "P3": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
               "topic": "",
               "isFixed": false
             },
-            "P5": {
-              "code": "BTNX234",
+            "P4": {
+              "code": "BTNX232",
               "instructor": "PALLAVI B",
               "type": "lab",
               "topic": "",
               "isFixed": false
             },
-            "P3": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P4": {
-              "code": "MATH_2P",
-              "instructor": "DILEEP KUMAR",
-              "type": "practice",
-              "topic": "",
-              "isFixed": false
-            },
-            "P6": {
-              "code": "BTNX223",
-              "instructor": "SUSHMITHA AMARNATH",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P2": {
+            "P1": {
               "code": "BTNX211",
               "instructor": "FEBI MARIAM JOHN",
               "type": "lecture",
@@ -1058,42 +713,21 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P3": {
-              "code": "BTNX233",
-              "instructor": "PALLAVI B",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P6": {
-              "code": "BTNX234",
-              "instructor": "PALLAVI B",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
             "P4": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P8": {
               "code": "BTNX222",
               "instructor": "SATYA APARNA",
               "type": "lab",
               "topic": "",
               "isFixed": false
             },
-            "P2": {
-              "code": "BTNX223",
-              "instructor": "SUSHMITHA AMARNATH",
-              "type": "lecture",
+            "P6": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
               "topic": "",
               "isFixed": false
             },
-            "P1": {
+            "P3": {
               "code": "BTNX211",
               "instructor": "FEBI MARIAM JOHN",
               "type": "lecture",
@@ -1109,27 +743,6 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P4": {
-              "code": "BTNX233",
-              "instructor": "PALLAVI B",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P8": {
-              "code": "BTNX234",
-              "instructor": "PALLAVI B",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P6": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
             "P5": {
               "code": "BTNX222",
               "instructor": "SATYA APARNA",
@@ -1137,16 +750,16 @@
               "topic": "",
               "isFixed": false
             },
-            "P3": {
-              "code": "MATH_2P",
-              "instructor": "DILEEP KUMAR",
-              "type": "practice",
+            "P8": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
               "topic": "",
               "isFixed": false
             },
-            "P1": {
-              "code": "BTNX223",
-              "instructor": "SUSHMITHA AMARNATH",
+            "P4": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -1169,35 +782,21 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P4": {
-              "code": "BTNX232",
-              "instructor": "PALLAVI B",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
             "P3": {
-              "code": "BTNX222",
-              "instructor": "SATYA APARNA",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P8": {
-              "code": "BTNX231",
-              "instructor": "PALLAVI B",
-              "type": "lecture",
+              "code": "MATH_2P",
+              "instructor": "DILEEP KUMAR",
+              "type": "practice",
               "topic": "",
               "isFixed": false
             },
             "P1": {
-              "code": "BTNX212",
-              "instructor": "DILEEP KUMAR",
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
-            "P5": {
+            "P4": {
               "code": "BTNX223",
               "instructor": "SUSHMITHA AMARNATH",
               "type": "lecture",
@@ -1220,35 +819,7 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P5": {
-              "code": "BTNX232",
-              "instructor": "PALLAVI B",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
             "P4": {
-              "code": "BTNX222",
-              "instructor": "SATYA APARNA",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P1": {
-              "code": "BTNX231",
-              "instructor": "PALLAVI B",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P2": {
-              "code": "BTNX212",
-              "instructor": "DILEEP KUMAR",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P6": {
               "code": "MATH_2P",
               "instructor": "DILEEP KUMAR",
               "type": "practice",
@@ -1256,6 +827,13 @@
               "isFixed": false
             },
             "P3": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
               "code": "BTNX223",
               "instructor": "SUSHMITHA AMARNATH",
               "type": "lecture",
@@ -1278,44 +856,23 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P6": {
-              "code": "BTNX232",
-              "instructor": "PALLAVI B",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
             "P5": {
-              "code": "BTNX222",
-              "instructor": "SATYA APARNA",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P3": {
-              "code": "BTNX231",
-              "instructor": "PALLAVI B",
-              "type": "lecture",
+              "code": "MATH_2P",
+              "instructor": "DILEEP KUMAR",
+              "type": "practice",
               "topic": "",
               "isFixed": false
             },
             "P4": {
-              "code": "BTNX212",
-              "instructor": "DILEEP KUMAR",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P1": {
-              "code": "BTNX223",
-              "instructor": "SUSHMITHA AMARNATH",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P2": {
               "code": "BTNX211",
               "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -1339,41 +896,6 @@
               "type": "lecture"
             },
             "P4": {
-              "code": "BTNX232",
-              "instructor": "PALLAVI B",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P1": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P3": {
-              "code": "BTNX231",
-              "instructor": "PALLAVI B",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P5": {
-              "code": "BTNX222",
-              "instructor": "SATYA APARNA",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P6": {
-              "code": "BTNX212",
-              "instructor": "DILEEP KUMAR",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P2": {
               "code": "ENG_2P",
               "instructor": "FEBI MARIAM JOHN",
               "type": "practice",
@@ -1390,34 +912,6 @@
               "type": "lecture"
             },
             "P5": {
-              "code": "BTNX232",
-              "instructor": "PALLAVI B",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P2": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P1": {
-              "code": "BTNX231",
-              "instructor": "PALLAVI B",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P4": {
-              "code": "BTNX212",
-              "instructor": "DILEEP KUMAR",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P6": {
               "code": "ENG_2P",
               "instructor": "FEBI MARIAM JOHN",
               "type": "practice",
@@ -1448,27 +942,6 @@
               "type": "lecture"
             },
             "P6": {
-              "code": "BTNX232",
-              "instructor": "PALLAVI B",
-              "type": "lab",
-              "topic": "",
-              "isFixed": false
-            },
-            "P4": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P1": {
-              "code": "BTNX212",
-              "instructor": "DILEEP KUMAR",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P3": {
               "code": "ENG_2P",
               "instructor": "FEBI MARIAM JOHN",
               "type": "practice",
@@ -1478,222 +951,11 @@
           }
         }
       },
-      "_capacityWarnings": [],
-      "_unplaced": 0,
-      "_workloadCheck": {
-        "BTNX221": {
-          "name": "Data Structures Using C++",
-          "expectedLec": 2,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 2,
-              "lab": 0
-            }
-          }
-        },
-        "BTNX222": {
-          "name": "Data Structures Using C++ Laboratory",
-          "expectedLec": 0,
-          "expectedLab": 1,
-          "sections": {
-            "Section-1": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-2": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-3": {
-              "lec": 0,
-              "lab": 1
-            }
-          }
-        },
-        "BTNX231": {
-          "name": "Frontend Full Stack Development",
-          "expectedLec": 2,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 2,
-              "lab": 0
-            }
-          }
-        },
-        "BTNX232": {
-          "name": "Frontend Full Stack Development Laboratory",
-          "expectedLec": 0,
-          "expectedLab": 1,
-          "sections": {
-            "Section-1": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-2": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-3": {
-              "lec": 0,
-              "lab": 1
-            }
-          }
-        },
-        "BTNX233": {
-          "name": "Database Systems",
-          "expectedLec": 0,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 0,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 0,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 0,
-              "lab": 0
-            }
-          }
-        },
-        "BTNX234": {
-          "name": "Database Systems Laboratory",
-          "expectedLec": 0,
-          "expectedLab": 1,
-          "sections": {
-            "Section-1": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-2": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-3": {
-              "lec": 0,
-              "lab": 1
-            }
-          }
-        },
-        "BTNX223": {
-          "name": "Building LLM Applications",
-          "expectedLec": 1,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 1,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 1,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 1,
-              "lab": 0
-            }
-          }
-        },
-        "BTNX212": {
-          "name": "Mathematics 2",
-          "expectedLec": 2,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 2,
-              "lab": 0
-            }
-          }
-        },
-        "MATH_2P": {
-          "name": "Mathematics 2",
-          "expectedLec": 0,
-          "expectedLab": 1,
-          "sections": {
-            "Section-1": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-2": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-3": {
-              "lec": 0,
-              "lab": 1
-            }
-          }
-        },
-        "BTNX211": {
-          "name": "English Advanced",
-          "expectedLec": 2,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 2,
-              "lab": 0
-            }
-          }
-        },
-        "ENG_2P": {
-          "name": "English Advanced",
-          "expectedLec": 0,
-          "expectedLab": 1,
-          "sections": {
-            "Section-1": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-2": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-3": {
-              "lec": 0,
-              "lab": 1
-            }
-          }
-        }
-      },
-      "_imbalanced": [],
       "shuffle": false,
-      "_unplacedRounds": []
+      "_unplaced": 0,
+      "_unplacedRounds": [],
+      "_capacityWarnings": [],
+      "_imbalanced": []
     }
   ],
   "_editCtx": {

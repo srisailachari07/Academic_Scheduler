@@ -442,70 +442,74 @@ app.post('/api/publish', async (req, res) => {
     // Load instructors to get emails and phones
     const instrs = loadInstructors();
 
-    // Generate files and send logic
-    let totalSent = 0;
-    for (const [instrName, sessions] of Object.entries(instrSchedules)) {
-      const formatted = `WORKLOAD FOR ${instrName.toUpperCase()}\n${weekNum} (${startStr} to ${endStr})\n\n` + sessions.join('\n');
-      
-      const instrData = instrs[instrName] || { email: 'unknown@unisched.edu', whatsapp: '+000000000' };
+    // Generate files and send logic in the background to prevent request timeout
+    const totalInstructors = Object.keys(instrSchedules).length;
+    
+    (async () => {
+      let totalSent = 0;
+      for (const [instrName, sessions] of Object.entries(instrSchedules)) {
+        const formatted = `WORKLOAD FOR ${instrName.toUpperCase()}\n${weekNum} (${startStr} to ${endStr})\n\n` + sessions.join('\n');
+        
+        const instrData = instrs[instrName] || { email: 'unknown@unisched.edu', whatsapp: '+000000000' };
 
-      // Save locally as proof of generation
-      const filename = path.join(workloadsDir, `${weekNum.replace(' ', '_')}_${instrName.replace(/\s+/g, '_')}.txt`);
-      fs.writeFileSync(filename, formatted);
+        // Save locally as proof of generation
+        const filename = path.join(workloadsDir, `${weekNum.replace(' ', '_')}_${instrName.replace(/\s+/g, '_')}.txt`);
+        fs.writeFileSync(filename, formatted);
 
-      // Email Sending
-      const htmlBody = `
-        <div style="font-family:sans-serif;color:#333;line-height:1.6;max-width:600px;">
-          <h2 style="color:#00236f;">Academic Scheduler Update</h2>
-          <p>Dear <strong>${instrName}</strong>,</p>
-          <p>We hope this email finds you well.</p>
-          <p>Please be advised that your teaching schedule for <strong>${weekNum}</strong> (${startStr} to ${endStr}) has been finalized. Below is a summary of your assigned workload for the upcoming week:</p>
-          <pre style="background:#f8fafc;padding:15px;border-radius:8px;border:1px solid #e2e8f0;font-family:monospace;overflow-x:auto;">${formatted}</pre>
-          <p>For a detailed day-by-day breakdown, please log in to your Instructor Portal.</p>
-          <br>
-          <p>Best regards,<br><strong>Academic Administration</strong></p>
-        </div>
-      `;
-      const mailOptions = {
-        from: '"Academic Administration" <no-reply@unisched.edu>',
-        to: instrData.email || 'unknown@unisched.edu',
-        subject: `Your Teaching Schedule for ${weekNum}`,
-        text: `Dear ${instrName},\n\nWe hope this email finds you well.\n\nPlease be advised that your teaching schedule for ${weekNum} (${startStr} to ${endStr}) has been finalized.\n\n${formatted}\n\nBest regards,\nAcademic Administration`,
-        html: htmlBody
-      };
-      
-      try {
-        const info = await transporter.sendMail(mailOptions);
-        console.log(`📧 [EMAIL SENT] To: ${instrData.email}`);
-        if (nodemailer.getTestMessageUrl(info)) {
-          console.log(`   🔗 Preview URL: ${nodemailer.getTestMessageUrl(info)}`);
-        }
-      } catch(e) {
-        console.error(`📧 [EMAIL FAILED] To: ${instrData.email} - ${e.message}`);
-      }
-      
-      // WhatsApp Sending
-      const waMsg = `Dear ${instrName},\n\nWe hope this message finds you well.\n\nPlease be advised that your teaching schedule for ${weekNum} (${startStr} to ${endStr}) has been finalized and is now available.\n\nKindly log in to your Instructor Portal to view your detailed workload.\n\nBest regards,\nAcademic Administration`;
-      if (twilioClient && instrData.whatsapp) {
+        // Email Sending
+        const htmlBody = `
+          <div style="font-family:sans-serif;color:#333;line-height:1.6;max-width:600px;">
+            <h2 style="color:#00236f;">Academic Scheduler Update</h2>
+            <p>Dear <strong>${instrName}</strong>,</p>
+            <p>We hope this email finds you well.</p>
+            <p>Please be advised that your teaching schedule for <strong>${weekNum}</strong> (${startStr} to ${endStr}) has been finalized. Below is a summary of your assigned workload for the upcoming week:</p>
+            <pre style="background:#f8fafc;padding:15px;border-radius:8px;border:1px solid #e2e8f0;font-family:monospace;overflow-x:auto;">${formatted}</pre>
+            <p>For a detailed day-by-day breakdown, please log in to your Instructor Portal.</p>
+            <br>
+            <p>Best regards,<br><strong>Academic Administration</strong></p>
+          </div>
+        `;
+        const mailOptions = {
+          from: '"Academic Administration" <no-reply@unisched.edu>',
+          to: instrData.email || 'unknown@unisched.edu',
+          subject: `Your Teaching Schedule for ${weekNum}`,
+          text: `Dear ${instrName},\n\nWe hope this email finds you well.\n\nPlease be advised that your teaching schedule for ${weekNum} (${startStr} to ${endStr}) has been finalized.\n\n${formatted}\n\nBest regards,\nAcademic Administration`,
+          html: htmlBody
+        };
+        
         try {
-          await twilioClient.messages.create({
-            body: waMsg,
-            from: `whatsapp:${process.env.TWILIO_WHATSAPP_FROM}`,
-            to: `whatsapp:${instrData.whatsapp}`
-          });
-          console.log(`📱 [WHATSAPP SENT] To: ${instrData.whatsapp}`);
+          const info = await transporter.sendMail(mailOptions);
+          console.log(`📧 [EMAIL SENT] To: ${instrData.email}`);
+          if (nodemailer.getTestMessageUrl(info)) {
+            console.log(`   🔗 Preview URL: ${nodemailer.getTestMessageUrl(info)}`);
+          }
         } catch(e) {
-          console.error(`📱 [WHATSAPP FAILED] To: ${instrData.whatsapp} - ${e.message}`);
+          console.error(`📧 [EMAIL FAILED] To: ${instrData.email} - ${e.message}`);
         }
-      } else {
-        console.log(`📱 [WHATSAPP SIMULATED] To: ${instrData.whatsapp}`);
-        console.log(`   Message preview: "${waMsg}"\n`);
+        
+        // WhatsApp Sending
+        const waMsg = `Dear ${instrName},\n\nWe hope this message finds you well.\n\nPlease be advised that your teaching schedule for ${weekNum} (${startStr} to ${endStr}) has been finalized and is now available.\n\nKindly log in to your Instructor Portal to view your detailed workload.\n\nBest regards,\nAcademic Administration`;
+        if (twilioClient && instrData.whatsapp) {
+          try {
+            await twilioClient.messages.create({
+              body: waMsg,
+              from: `whatsapp:${process.env.TWILIO_WHATSAPP_FROM}`,
+              to: `whatsapp:${instrData.whatsapp}`
+            });
+            console.log(`📱 [WHATSAPP SENT] To: ${instrData.whatsapp}`);
+          } catch(e) {
+            console.error(`📱 [WHATSAPP FAILED] To: ${instrData.whatsapp} - ${e.message}`);
+          }
+        } else {
+          console.log(`📱 [WHATSAPP SIMULATED] To: ${instrData.whatsapp}`);
+        }
+        
+        totalSent++;
       }
-      
-      totalSent++;
-    }
+      console.log(`\n✅ Background publish complete: Sent to ${totalSent} instructors.`);
+    })().catch(err => console.error('[Background Publish Error]', err));
 
-    res.json({ ok: true, totalInstructors: totalSent, message: `Sent to ${totalSent} instructors.` });
+    res.json({ ok: true, totalInstructors, message: `Publishing to ${totalInstructors} instructors in the background...` });
   } catch (err) {
     console.error('[Publish Error]', err);
     res.status(500).json({ error: err.message });

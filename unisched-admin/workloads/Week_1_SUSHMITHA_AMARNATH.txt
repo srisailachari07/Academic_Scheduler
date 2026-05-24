@@ -1,9 +1,9 @@
 WORKLOAD FOR SUSHMITHA AMARNATH
-Week 1 (2026-05-23 to 2026-05-27)
+Week 1 (2026-05-24 to 2026-05-28)
 
-2026-05-23 | Mon | 02:00 PM - 02:50 PM | Database Systems Laboratory (Section-1) | Lab
-2026-05-23 | Mon | 03:50 PM - 04:40 PM | Database Systems Laboratory (Section-2) | Lab
-2026-05-23 | Mon | 09:50 AM - 10:40 AM | Database Systems Laboratory (Section-3) | Lab
-2026-05-26 | Thu | 09:00 AM - 09:50 AM | Building LLM Applications (Section-1) | Lecture
-2026-05-26 | Thu | 09:50 AM - 10:40 AM | Building LLM Applications (Section-2) | Lecture
-2026-05-26 | Thu | 11:40 AM - 12:30 PM | Building LLM Applications (Section-3) | Lecture
+2026-05-24 | Mon | 02:00 PM - 02:50 PM | Database Systems Laboratory (Section-1) | Lab
+2026-05-24 | Mon | 03:50 PM - 04:40 PM | Database Systems Laboratory (Section-2) | Lab
+2026-05-24 | Mon | 09:50 AM - 10:40 AM | Database Systems Laboratory (Section-3) | Lab
+2026-05-27 | Thu | 11:40 AM - 12:30 PM | Building LLM Applications (Section-1) | Lecture
+2026-05-27 | Thu | 09:00 AM - 09:50 AM | Building LLM Applications (Section-2) | Lecture
+2026-05-27 | Thu | 02:00 PM - 02:50 PM | Building LLM Applications (Section-3) | Lecture
