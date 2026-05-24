@@ -4,408 +4,12 @@
   "semesters": [
     {
       "id": "Y1-S2-2026",
-      "label": "Y1-S2-2026",
-      "year": 1,
       "sem": 2,
+      "year": 1,
+      "label": "Y1-S2-2026",
       "cohort": "2026",
-      "startDate": "",
       "endDate": "",
-      "sections": [
-        "Section-1",
-        "Section-2",
-        "Section-3"
-      ],
-      "subjects": [
-        {
-          "code": "BTNX221",
-          "name": "Data Structures Using C++",
-          "type": "lecture",
-          "color": "#b91c1c",
-          "textColor": "#ffffff",
-          "instructor": "SATYA APARNA",
-          "labPerWeek": 0,
-          "lecPerWeek": 2
-        },
-        {
-          "code": "BTNX222",
-          "name": "Data Structures Using C++ Laboratory",
-          "type": "lab",
-          "color": "#fbbf24",
-          "textColor": "#ffffff",
-          "instructor": "SATYA APARNA",
-          "labPerWeek": 1,
-          "lecPerWeek": 0
-        },
-        {
-          "code": "BTNX231",
-          "name": "Frontend Full Stack Development",
-          "type": "lecture",
-          "color": "#ffadad",
-          "textColor": "#1a1a1a",
-          "instructor": "PALLAVI B",
-          "labPerWeek": 0,
-          "lecPerWeek": 2
-        },
-        {
-          "code": "BTNX232",
-          "name": "Frontend Full Stack Development Laboratory",
-          "type": "lab",
-          "color": "#ffc6ff",
-          "textColor": "#ffffff",
-          "instructor": "PALLAVI B",
-          "labPerWeek": 1,
-          "lecPerWeek": 0
-        },
-        {
-          "code": "BTNX233",
-          "name": "Database Systems",
-          "type": "lecture",
-          "color": "#48cae4",
-          "textColor": "#1a1a1a",
-          "instructor": "PALLAVI B",
-          "labPerWeek": 0,
-          "lecPerWeek": 0
-        },
-        {
-          "code": "BTNX234",
-          "name": "Database Systems Laboratory",
-          "type": "lab",
-          "color": "#2dd4bf",
-          "textColor": "#ffffff",
-          "instructor": "SUSHMITHA AMARNATH",
-          "labPerWeek": 1,
-          "lecPerWeek": 0
-        },
-        {
-          "code": "BTNX223",
-          "name": "Building LLM Applications",
-          "type": "lecture",
-          "color": "#818cf8",
-          "textColor": "#ffffff",
-          "instructor": "SUSHMITHA AMARNATH",
-          "labPerWeek": 0,
-          "lecPerWeek": 1
-        },
-        {
-          "code": "BTNX212",
-          "name": "Mathematics 2",
-          "type": "lecture",
-          "color": "#d946ef",
-          "textColor": "#ffffff",
-          "instructor": "DILEEP KUMAR",
-          "labPerWeek": 0,
-          "lecPerWeek": 2
-        },
-        {
-          "code": "MATH_2P",
-          "name": "Mathematics 2",
-          "type": "practice",
-          "color": "#4338ca",
-          "textColor": "#ffffff",
-          "instructor": "DILEEP KUMAR",
-          "labPerWeek": 1,
-          "lecPerWeek": 0
-        },
-        {
-          "code": "BTNX211",
-          "name": "English Advanced",
-          "type": "lecture",
-          "color": "#f97316",
-          "textColor": "#ffffff",
-          "instructor": "FEBI MARIAM JOHN",
-          "labPerWeek": 0,
-          "lecPerWeek": 2
-        },
-        {
-          "code": "ENG_2P",
-          "name": "English Advanced",
-          "type": "practice",
-          "color": "#0369a1",
-          "textColor": "#ffffff",
-          "instructor": "FEBI MARIAM JOHN",
-          "labPerWeek": 1,
-          "lecPerWeek": 0
-        }
-      ],
-      "fixedSlots": [
-        {
-          "code": "YOGA201",
-          "name": "Application of yoga in mind body management YOGA201",
-          "instructor": "UNIVERSITY FACULTY",
-          "color": "#f8a5c2",
-          "textColor": "#1a1a1a",
-          "isFixed": true
-        },
-        {
-          "code": "COIN201",
-          "name": "COIN201",
-          "instructor": "UNIVERSITY FACULTY",
-          "color": "#748ffc",
-          "textColor": "#ffffff",
-          "isFixed": true
-        },
-        {
-          "code": "MODQUIZ",
-          "name": "Module Quiz",
-          "instructor": "",
-          "color": "#74c0fc",
-          "textColor": "#1a1a1a",
-          "isFixed": true
-        },
-        {
-          "code": "SPORTS",
-          "name": "Sports",
-          "instructor": "",
-          "color": "#69db7c",
-          "textColor": "#1a1a1a",
-          "isFixed": true
-        },
-        {
-          "code": "LIBRARY",
-          "name": "Library",
-          "instructor": "",
-          "color": "#ff922b",
-          "textColor": "#ffffff",
-          "isFixed": true
-        },
-        {
-          "code": "MENTOR",
-          "name": "Mentoring",
-          "topic": "SC 1:1\nUniversity allotted slot for interactions",
-          "instructor": "",
-          "color": "#ffd43b",
-          "textColor": "#1a1a1a",
-          "isFixed": true
-        },
-        {
-          "code": "INTASSESS",
-          "name": "Internal Assessments",
-          "instructor": "UNIVERSITY FACULTY",
-          "color": "#b197fc",
-          "textColor": "#ffffff",
-          "isFixed": true
-        },
-        {
-          "code": "MIDTERM",
-          "name": "Mid Term Exams",
-          "instructor": "UNIVERSITY FACULTY",
-          "color": "#ff8787",
-          "textColor": "#ffffff",
-          "isFixed": true
-        }
-      ],
-      "fixedPlacements": [
-        {
-          "code": "MODQUIZ",
-          "day": "Mon",
-          "section": "Section-1",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Mon",
-          "section": "Section-2",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Mon",
-          "section": "Section-3",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Tue",
-          "section": "Section-1",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Tue",
-          "section": "Section-2",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Tue",
-          "section": "Section-3",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Wed",
-          "section": "Section-1",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Wed",
-          "section": "Section-2",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Wed",
-          "section": "Section-3",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Thu",
-          "section": "Section-1",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Thu",
-          "section": "Section-2",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Thu",
-          "section": "Section-3",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Fri",
-          "section": "Section-1",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Fri",
-          "section": "Section-2",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "MODQUIZ",
-          "day": "Fri",
-          "section": "Section-3",
-          "periodId": "P7",
-          "instructor": ""
-        },
-        {
-          "code": "YOGA201",
-          "day": "Mon",
-          "section": "Section-1",
-          "periodId": "P3",
-          "instructor": "UNIVERSITY FACULTY"
-        },
-        {
-          "code": "YOGA201",
-          "day": "Mon",
-          "section": "Section-2",
-          "periodId": "P5",
-          "instructor": "UNIVERSITY FACULTY"
-        },
-        {
-          "code": "YOGA201",
-          "day": "Tue",
-          "section": "Section-3",
-          "periodId": "P3",
-          "instructor": "UNIVERSITY FACULTY"
-        },
-        {
-          "code": "COIN201",
-          "day": "Thu",
-          "section": "Section-1",
-          "periodId": "P2",
-          "instructor": "UNIVERSITY FACULTY"
-        },
-        {
-          "code": "COIN201",
-          "day": "Mon",
-          "section": "Section-2",
-          "periodId": "P2",
-          "instructor": "UNIVERSITY FACULTY"
-        },
-        {
-          "code": "COIN201",
-          "day": "Tue",
-          "section": "Section-3",
-          "periodId": "P2",
-          "instructor": "UNIVERSITY FACULTY"
-        },
-        {
-          "code": "SPORTS",
-          "day": "Wed",
-          "section": "Section-1",
-          "periodId": "P8",
-          "instructor": ""
-        },
-        {
-          "code": "SPORTS",
-          "day": "Thu",
-          "section": "Section-2",
-          "periodId": "P8",
-          "instructor": ""
-        },
-        {
-          "code": "SPORTS",
-          "day": "Fri",
-          "section": "Section-3",
-          "periodId": "P8",
-          "instructor": ""
-        },
-        {
-          "code": "LIBRARY",
-          "day": "Fri",
-          "section": "Section-1",
-          "periodId": "P8",
-          "instructor": ""
-        },
-        {
-          "code": "LIBRARY",
-          "day": "Tue",
-          "section": "Section-2",
-          "periodId": "P8",
-          "instructor": ""
-        },
-        {
-          "code": "LIBRARY",
-          "day": "Thu",
-          "section": "Section-3",
-          "periodId": "P8",
-          "instructor": ""
-        },
-        {
-          "code": "MENTOR",
-          "day": "Mon",
-          "section": "Section-1",
-          "periodId": "P5",
-          "instructor": ""
-        },
-        {
-          "code": "MENTOR",
-          "day": "Wed",
-          "section": "Section-2",
-          "periodId": "P5",
-          "instructor": ""
-        },
-        {
-          "code": "MENTOR",
-          "day": "Fri",
-          "section": "Section-3",
-          "periodId": "P5",
-          "instructor": ""
-        }
-      ],
+      "shuffle": false,
       "schedule": {
         "_shuffleMode": true,
         "Mon": {
@@ -431,7 +35,7 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P1": {
+            "P2": {
               "code": "BTNX221",
               "instructor": "SATYA APARNA",
               "type": "lecture",
@@ -445,9 +49,23 @@
               "topic": "",
               "isFixed": false
             },
-            "P2": {
+            "P8": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
               "code": "BTNX212",
               "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -489,9 +107,23 @@
               "topic": "",
               "isFixed": false
             },
-            "P1": {
+            "P3": {
+              "code": "BTNX234",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
               "code": "BTNX212",
               "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -505,23 +137,51 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P6": {
+            "P5": {
               "code": "BTNX221",
               "instructor": "SATYA APARNA",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
-            "P5": {
+            "P8": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
               "code": "BTNX212",
               "instructor": "DILEEP KUMAR",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
+            "P3": {
+              "code": "MATH_2P",
+              "instructor": "DILEEP KUMAR",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
             "P1": {
-              "code": "BTNX231",
-              "instructor": "PALLAVI B",
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -537,30 +197,51 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P2": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P3": {
+            "P1": {
               "code": "BTNX231",
               "instructor": "PALLAVI B",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
-            "P1": {
-              "code": "BTNX211",
-              "instructor": "FEBI MARIAM JOHN",
+            "P4": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
             "P8": {
-              "code": "BTNX212",
-              "instructor": "DILEEP KUMAR",
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "ENG_2P",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -581,24 +262,24 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P5": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P4": {
+            "P3": {
               "code": "BTNX231",
               "instructor": "PALLAVI B",
               "type": "lecture",
               "topic": "",
               "isFixed": false
             },
-            "P3": {
-              "code": "BTNX211",
-              "instructor": "FEBI MARIAM JOHN",
-              "type": "lecture",
+            "P6": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
               "topic": "",
               "isFixed": false
             },
@@ -606,6 +287,20 @@
               "code": "BTNX212",
               "instructor": "DILEEP KUMAR",
               "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "ENG_2P",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "practice",
               "topic": "",
               "isFixed": false
             }
@@ -632,21 +327,28 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P8": {
-              "code": "BTNX221",
-              "instructor": "SATYA APARNA",
+            "P5": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
               "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
               "topic": "",
               "isFixed": false
             },
             "P4": {
-              "code": "BTNX211",
-              "instructor": "FEBI MARIAM JOHN",
-              "type": "lecture",
-              "topic": "",
-              "isFixed": false
-            },
-            "P5": {
               "code": "BTNX212",
               "instructor": "DILEEP KUMAR",
               "type": "lecture",
@@ -654,8 +356,8 @@
               "isFixed": false
             },
             "P1": {
-              "code": "BTNX231",
-              "instructor": "PALLAVI B",
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -678,23 +380,37 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P5": {
-              "code": "BTNX222",
-              "instructor": "SATYA APARNA",
-              "type": "lab",
+            "P1": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
               "topic": "",
               "isFixed": false
             },
-            "P2": {
-              "code": "BTNX232",
+            "P4": {
+              "code": "BTNX234",
               "instructor": "PALLAVI B",
               "type": "lab",
               "topic": "",
               "isFixed": false
             },
-            "P1": {
-              "code": "BTNX211",
-              "instructor": "FEBI MARIAM JOHN",
+            "P5": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -715,23 +431,37 @@
               "isFixed": true,
               "type": "lecture"
             },
+            "P2": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
             "P6": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
               "code": "BTNX222",
               "instructor": "SATYA APARNA",
               "type": "lab",
               "topic": "",
               "isFixed": false
             },
-            "P4": {
-              "code": "BTNX232",
-              "instructor": "PALLAVI B",
-              "type": "lab",
+            "P1": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
               "topic": "",
               "isFixed": false
             },
             "P3": {
-              "code": "BTNX211",
-              "instructor": "FEBI MARIAM JOHN",
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -745,23 +475,44 @@
               "isFixed": true,
               "type": "lecture"
             },
-            "P8": {
+            "P6": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "BTNX234",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
               "code": "BTNX222",
               "instructor": "SATYA APARNA",
               "type": "lab",
               "topic": "",
               "isFixed": false
             },
-            "P6": {
-              "code": "BTNX232",
-              "instructor": "PALLAVI B",
-              "type": "lab",
+            "P4": {
+              "code": "BTNX212",
+              "instructor": "DILEEP KUMAR",
+              "type": "lecture",
               "topic": "",
               "isFixed": false
             },
-            "P5": {
-              "code": "BTNX211",
+            "P2": {
+              "code": "ENG_2P",
               "instructor": "FEBI MARIAM JOHN",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
               "type": "lecture",
               "topic": "",
               "isFixed": false
@@ -785,8 +536,29 @@
               "type": "lecture"
             },
             "P3": {
-              "code": "BTNX234",
-              "instructor": "SUSHMITHA AMARNATH",
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
               "type": "lab",
               "topic": "",
               "isFixed": false
@@ -795,6 +567,13 @@
               "code": "MATH_2P",
               "instructor": "DILEEP KUMAR",
               "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
               "topic": "",
               "isFixed": false
             }
@@ -815,8 +594,29 @@
               "type": "lecture"
             },
             "P4": {
-              "code": "BTNX234",
-              "instructor": "SUSHMITHA AMARNATH",
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
               "type": "lab",
               "topic": "",
               "isFixed": false
@@ -825,6 +625,13 @@
               "code": "MATH_2P",
               "instructor": "DILEEP KUMAR",
               "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
               "topic": "",
               "isFixed": false
             }
@@ -845,16 +652,44 @@
               "type": "lecture"
             },
             "P5": {
-              "code": "BTNX234",
-              "instructor": "SUSHMITHA AMARNATH",
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
               "type": "lab",
               "topic": "",
               "isFixed": false
             },
             "P6": {
+              "code": "BTNX231",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "BTNX211",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
               "code": "MATH_2P",
               "instructor": "DILEEP KUMAR",
               "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX223",
+              "instructor": "SUSHMITHA AMARNATH",
+              "type": "lecture",
               "topic": "",
               "isFixed": false
             }
@@ -877,16 +712,44 @@
               "type": "lecture"
             },
             "P4": {
-              "code": "ENG_2P",
-              "instructor": "FEBI MARIAM JOHN",
-              "type": "practice",
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
               "topic": "",
               "isFixed": false
             },
             "P1": {
-              "code": "BTNX223",
-              "instructor": "SUSHMITHA AMARNATH",
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
               "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P5": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "MATH_2P",
+              "instructor": "DILEEP KUMAR",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "ENG_2P",
+              "instructor": "FEBI MARIAM JOHN",
+              "type": "practice",
               "topic": "",
               "isFixed": false
             }
@@ -900,13 +763,48 @@
               "type": "lecture"
             },
             "P5": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P8": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P6": {
+              "code": "BTNX222",
+              "instructor": "SATYA APARNA",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "MATH_2P",
+              "instructor": "DILEEP KUMAR",
+              "type": "practice",
+              "topic": "",
+              "isFixed": false
+            },
+            "P2": {
               "code": "ENG_2P",
               "instructor": "FEBI MARIAM JOHN",
               "type": "practice",
               "topic": "",
               "isFixed": false
             },
-            "P3": {
+            "P1": {
               "code": "BTNX223",
               "instructor": "SUSHMITHA AMARNATH",
               "type": "lecture",
@@ -937,13 +835,34 @@
               "type": "lecture"
             },
             "P6": {
+              "code": "BTNX232",
+              "instructor": "PALLAVI B",
+              "type": "lab",
+              "topic": "",
+              "isFixed": false
+            },
+            "P4": {
+              "code": "BTNX221",
+              "instructor": "SATYA APARNA",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P1": {
+              "code": "BTNX233",
+              "instructor": "PALLAVI B",
+              "type": "lecture",
+              "topic": "",
+              "isFixed": false
+            },
+            "P3": {
               "code": "ENG_2P",
               "instructor": "FEBI MARIAM JOHN",
               "type": "practice",
               "topic": "",
               "isFixed": false
             },
-            "P4": {
+            "P2": {
               "code": "BTNX223",
               "instructor": "SUSHMITHA AMARNATH",
               "type": "lecture",
@@ -953,228 +872,660 @@
           }
         }
       },
-      "_capacityWarnings": [],
-      "_unplaced": 0,
-      "_workloadCheck": {
-        "BTNX221": {
+      "sections": [
+        "Section-1",
+        "Section-2",
+        "Section-3"
+      ],
+      "subjects": [
+        {
+          "code": "BTNX221",
           "name": "Data Structures Using C++",
-          "expectedLec": 2,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 2,
-              "lab": 0
-            }
-          }
+          "type": "lecture",
+          "color": "#b91c1c",
+          "textColor": "#ffffff",
+          "instructor": "SATYA APARNA",
+          "labPerWeek": 0,
+          "lecPerWeek": 4
         },
-        "BTNX222": {
+        {
+          "code": "BTNX222",
           "name": "Data Structures Using C++ Laboratory",
-          "expectedLec": 0,
-          "expectedLab": 1,
-          "sections": {
-            "Section-1": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-2": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-3": {
-              "lec": 0,
-              "lab": 1
-            }
-          }
+          "type": "lab",
+          "color": "#fbbf24",
+          "textColor": "#ffffff",
+          "instructor": "SATYA APARNA",
+          "labPerWeek": 4,
+          "lecPerWeek": 0
         },
-        "BTNX231": {
+        {
+          "code": "BTNX231",
           "name": "Frontend Full Stack Development",
-          "expectedLec": 2,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 2,
-              "lab": 0
-            }
-          }
+          "type": "lecture",
+          "color": "#ffadad",
+          "textColor": "#1a1a1a",
+          "instructor": "PALLAVI B",
+          "labPerWeek": 0,
+          "lecPerWeek": 3
         },
-        "BTNX232": {
+        {
+          "code": "BTNX232",
           "name": "Frontend Full Stack Development Laboratory",
-          "expectedLec": 0,
-          "expectedLab": 1,
-          "sections": {
-            "Section-1": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-2": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-3": {
-              "lec": 0,
-              "lab": 1
-            }
-          }
+          "type": "lab",
+          "color": "#ffc6ff",
+          "textColor": "#ffffff",
+          "instructor": "PALLAVI B",
+          "labPerWeek": 3,
+          "lecPerWeek": 0
         },
-        "BTNX233": {
+        {
+          "code": "BTNX233",
           "name": "Database Systems",
-          "expectedLec": 0,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 0,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 0,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 0,
-              "lab": 0
-            }
-          }
+          "type": "lecture",
+          "color": "#48cae4",
+          "textColor": "#1a1a1a",
+          "instructor": "PALLAVI B",
+          "labPerWeek": 0,
+          "lecPerWeek": 2
         },
-        "BTNX234": {
+        {
+          "code": "BTNX234",
+          "name": "Database Systems Laboratory",
+          "type": "lab",
+          "color": "#2dd4bf",
+          "textColor": "#ffffff",
+          "instructor": "PALLAVI B",
+          "labPerWeek": 2,
+          "lecPerWeek": 0
+        },
+        {
+          "code": "BTNX223",
+          "name": "Building LLM Applications",
+          "type": "lecture",
+          "color": "#818cf8",
+          "textColor": "#ffffff",
+          "instructor": "SUSHMITHA AMARNATH",
+          "labPerWeek": 0,
+          "lecPerWeek": 3
+        },
+        {
+          "code": "BTNX212",
+          "name": "Mathematics 2",
+          "type": "lecture",
+          "color": "#d946ef",
+          "textColor": "#ffffff",
+          "instructor": "DILEEP KUMAR",
+          "labPerWeek": 0,
+          "lecPerWeek": 3
+        },
+        {
+          "code": "MATH_2P",
+          "name": "Mathematics 2",
+          "type": "practice",
+          "color": "#4338ca",
+          "textColor": "#ffffff",
+          "instructor": "DILEEP KUMAR",
+          "labPerWeek": 2,
+          "lecPerWeek": 0
+        },
+        {
+          "code": "BTNX211",
+          "name": "English Advanced",
+          "type": "lecture",
+          "color": "#f97316",
+          "textColor": "#ffffff",
+          "instructor": "FEBI MARIAM JOHN",
+          "labPerWeek": 0,
+          "lecPerWeek": 2
+        },
+        {
+          "code": "ENG_2P",
+          "name": "English Advanced",
+          "type": "practice",
+          "color": "#0369a1",
+          "textColor": "#ffffff",
+          "instructor": "FEBI MARIAM JOHN",
+          "labPerWeek": 2,
+          "lecPerWeek": 0
+        }
+      ],
+      "_unplaced": 1,
+      "startDate": "",
+      "fixedSlots": [
+        {
+          "code": "YOGA201",
+          "name": "Application of yoga in mind body management YOGA201",
+          "color": "#f8a5c2",
+          "isFixed": true,
+          "textColor": "#1a1a1a",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "code": "COIN201",
+          "name": "COIN201",
+          "color": "#748ffc",
+          "isFixed": true,
+          "textColor": "#ffffff",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "code": "MODQUIZ",
+          "name": "Module Quiz",
+          "color": "#74c0fc",
+          "isFixed": true,
+          "textColor": "#1a1a1a",
+          "instructor": ""
+        },
+        {
+          "code": "SPORTS",
+          "name": "Sports",
+          "color": "#69db7c",
+          "isFixed": true,
+          "textColor": "#1a1a1a",
+          "instructor": ""
+        },
+        {
+          "code": "LIBRARY",
+          "name": "Library",
+          "color": "#ff922b",
+          "isFixed": true,
+          "textColor": "#ffffff",
+          "instructor": ""
+        },
+        {
+          "code": "MENTOR",
+          "name": "Mentoring",
+          "color": "#ffd43b",
+          "topic": "SC 1:1\nUniversity allotted slot for interactions",
+          "isFixed": true,
+          "textColor": "#1a1a1a",
+          "instructor": ""
+        },
+        {
+          "code": "INTASSESS",
+          "name": "Internal Assessments",
+          "color": "#b197fc",
+          "isFixed": true,
+          "textColor": "#ffffff",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "code": "MIDTERM",
+          "name": "Mid Term Exams",
+          "color": "#ff8787",
+          "isFixed": true,
+          "textColor": "#ffffff",
+          "instructor": "UNIVERSITY FACULTY"
+        }
+      ],
+      "_imbalanced": [
+        {
+          "code": "BTNX234",
           "name": "Database Systems Laboratory",
           "expectedLec": 0,
-          "expectedLab": 1,
+          "expectedLab": 2,
           "sections": {
             "Section-1": {
               "lec": 0,
-              "lab": 1
+              "lab": 1,
+              "expected_lec": 0,
+              "expected_lab": 2,
+              "name": "Database Systems Laboratory"
             },
             "Section-2": {
               "lec": 0,
-              "lab": 1
+              "lab": 1,
+              "expected_lec": 0,
+              "expected_lab": 2,
+              "name": "Database Systems Laboratory"
             },
             "Section-3": {
               "lec": 0,
-              "lab": 1
-            }
-          }
-        },
-        "BTNX223": {
-          "name": "Building LLM Applications",
-          "expectedLec": 1,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 1,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 1,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 1,
-              "lab": 0
-            }
-          }
-        },
-        "BTNX212": {
-          "name": "Mathematics 2",
-          "expectedLec": 2,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 2,
-              "lab": 0
-            }
-          }
-        },
-        "MATH_2P": {
-          "name": "Mathematics 2",
-          "expectedLec": 0,
-          "expectedLab": 1,
-          "sections": {
-            "Section-1": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-2": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-3": {
-              "lec": 0,
-              "lab": 1
-            }
-          }
-        },
-        "BTNX211": {
-          "name": "English Advanced",
-          "expectedLec": 2,
-          "expectedLab": 0,
-          "sections": {
-            "Section-1": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-2": {
-              "lec": 2,
-              "lab": 0
-            },
-            "Section-3": {
-              "lec": 2,
-              "lab": 0
-            }
-          }
-        },
-        "ENG_2P": {
-          "name": "English Advanced",
-          "expectedLec": 0,
-          "expectedLab": 1,
-          "sections": {
-            "Section-1": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-2": {
-              "lec": 0,
-              "lab": 1
-            },
-            "Section-3": {
-              "lec": 0,
-              "lab": 1
+              "lab": 1,
+              "expected_lec": 0,
+              "expected_lab": 2,
+              "name": "Database Systems Laboratory"
             }
           }
         }
+      ],
+      "_workloadCheck": {
+        "ENG_2P": {
+          "name": "English Advanced",
+          "sections": {
+            "Section-1": {
+              "lab": 1,
+              "lec": 0
+            },
+            "Section-2": {
+              "lab": 1,
+              "lec": 0
+            },
+            "Section-3": {
+              "lab": 1,
+              "lec": 0
+            }
+          },
+          "expectedLab": 1,
+          "expectedLec": 0
+        },
+        "BTNX211": {
+          "name": "English Advanced",
+          "sections": {
+            "Section-1": {
+              "lab": 0,
+              "lec": 2
+            },
+            "Section-2": {
+              "lab": 0,
+              "lec": 2
+            },
+            "Section-3": {
+              "lab": 0,
+              "lec": 2
+            }
+          },
+          "expectedLab": 0,
+          "expectedLec": 2
+        },
+        "BTNX212": {
+          "name": "Mathematics 2",
+          "sections": {
+            "Section-1": {
+              "lab": 0,
+              "lec": 2
+            },
+            "Section-2": {
+              "lab": 0,
+              "lec": 2
+            },
+            "Section-3": {
+              "lab": 0,
+              "lec": 2
+            }
+          },
+          "expectedLab": 0,
+          "expectedLec": 2
+        },
+        "BTNX221": {
+          "name": "Data Structures Using C++",
+          "sections": {
+            "Section-1": {
+              "lab": 0,
+              "lec": 2
+            },
+            "Section-2": {
+              "lab": 0,
+              "lec": 2
+            },
+            "Section-3": {
+              "lab": 0,
+              "lec": 2
+            }
+          },
+          "expectedLab": 0,
+          "expectedLec": 2
+        },
+        "BTNX222": {
+          "name": "Data Structures Using C++ Laboratory",
+          "sections": {
+            "Section-1": {
+              "lab": 1,
+              "lec": 0
+            },
+            "Section-2": {
+              "lab": 1,
+              "lec": 0
+            },
+            "Section-3": {
+              "lab": 1,
+              "lec": 0
+            }
+          },
+          "expectedLab": 1,
+          "expectedLec": 0
+        },
+        "BTNX223": {
+          "name": "Building LLM Applications",
+          "sections": {
+            "Section-1": {
+              "lab": 0,
+              "lec": 1
+            },
+            "Section-2": {
+              "lab": 0,
+              "lec": 1
+            },
+            "Section-3": {
+              "lab": 0,
+              "lec": 1
+            }
+          },
+          "expectedLab": 0,
+          "expectedLec": 1
+        },
+        "BTNX231": {
+          "name": "Frontend Full Stack Development",
+          "sections": {
+            "Section-1": {
+              "lab": 0,
+              "lec": 2
+            },
+            "Section-2": {
+              "lab": 0,
+              "lec": 2
+            },
+            "Section-3": {
+              "lab": 0,
+              "lec": 2
+            }
+          },
+          "expectedLab": 0,
+          "expectedLec": 2
+        },
+        "BTNX232": {
+          "name": "Frontend Full Stack Development Laboratory",
+          "sections": {
+            "Section-1": {
+              "lab": 1,
+              "lec": 0
+            },
+            "Section-2": {
+              "lab": 1,
+              "lec": 0
+            },
+            "Section-3": {
+              "lab": 1,
+              "lec": 0
+            }
+          },
+          "expectedLab": 1,
+          "expectedLec": 0
+        },
+        "BTNX233": {
+          "name": "Database Systems",
+          "sections": {
+            "Section-1": {
+              "lab": 0,
+              "lec": 0
+            },
+            "Section-2": {
+              "lab": 0,
+              "lec": 0
+            },
+            "Section-3": {
+              "lab": 0,
+              "lec": 0
+            }
+          },
+          "expectedLab": 0,
+          "expectedLec": 0
+        },
+        "BTNX234": {
+          "name": "Database Systems Laboratory",
+          "sections": {
+            "Section-1": {
+              "lab": 1,
+              "lec": 0
+            },
+            "Section-2": {
+              "lab": 1,
+              "lec": 0
+            },
+            "Section-3": {
+              "lab": 1,
+              "lec": 0
+            }
+          },
+          "expectedLab": 1,
+          "expectedLec": 0
+        },
+        "MATH_2P": {
+          "name": "Mathematics 2",
+          "sections": {
+            "Section-1": {
+              "lab": 1,
+              "lec": 0
+            },
+            "Section-2": {
+              "lab": 1,
+              "lec": 0
+            },
+            "Section-3": {
+              "lab": 1,
+              "lec": 0
+            }
+          },
+          "expectedLab": 1,
+          "expectedLec": 0
+        }
       },
-      "_imbalanced": [],
-      "shuffle": false,
-      "_unplacedRounds": []
+      "_unplacedRounds": [
+        {
+          "code": "BTNX234",
+          "name": "Database Systems Laboratory",
+          "type": "lab"
+        }
+      ],
+      "fixedPlacements": [
+        {
+          "day": "Mon",
+          "code": "MODQUIZ",
+          "section": "Section-1",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Mon",
+          "code": "MODQUIZ",
+          "section": "Section-2",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Mon",
+          "code": "MODQUIZ",
+          "section": "Section-3",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Tue",
+          "code": "MODQUIZ",
+          "section": "Section-1",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Tue",
+          "code": "MODQUIZ",
+          "section": "Section-2",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Tue",
+          "code": "MODQUIZ",
+          "section": "Section-3",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Wed",
+          "code": "MODQUIZ",
+          "section": "Section-1",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Wed",
+          "code": "MODQUIZ",
+          "section": "Section-2",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Wed",
+          "code": "MODQUIZ",
+          "section": "Section-3",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Thu",
+          "code": "MODQUIZ",
+          "section": "Section-1",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Thu",
+          "code": "MODQUIZ",
+          "section": "Section-2",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Thu",
+          "code": "MODQUIZ",
+          "section": "Section-3",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Fri",
+          "code": "MODQUIZ",
+          "section": "Section-1",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Fri",
+          "code": "MODQUIZ",
+          "section": "Section-2",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Fri",
+          "code": "MODQUIZ",
+          "section": "Section-3",
+          "periodId": "P7",
+          "instructor": ""
+        },
+        {
+          "day": "Mon",
+          "code": "YOGA201",
+          "section": "Section-1",
+          "periodId": "P3",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "day": "Mon",
+          "code": "YOGA201",
+          "section": "Section-2",
+          "periodId": "P5",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "day": "Tue",
+          "code": "YOGA201",
+          "section": "Section-3",
+          "periodId": "P3",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "day": "Thu",
+          "code": "COIN201",
+          "section": "Section-1",
+          "periodId": "P2",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "day": "Mon",
+          "code": "COIN201",
+          "section": "Section-2",
+          "periodId": "P2",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "day": "Tue",
+          "code": "COIN201",
+          "section": "Section-3",
+          "periodId": "P2",
+          "instructor": "UNIVERSITY FACULTY"
+        },
+        {
+          "day": "Wed",
+          "code": "SPORTS",
+          "section": "Section-1",
+          "periodId": "P8",
+          "instructor": ""
+        },
+        {
+          "day": "Thu",
+          "code": "SPORTS",
+          "section": "Section-2",
+          "periodId": "P8",
+          "instructor": ""
+        },
+        {
+          "day": "Fri",
+          "code": "SPORTS",
+          "section": "Section-3",
+          "periodId": "P8",
+          "instructor": ""
+        },
+        {
+          "day": "Fri",
+          "code": "LIBRARY",
+          "section": "Section-1",
+          "periodId": "P8",
+          "instructor": ""
+        },
+        {
+          "day": "Tue",
+          "code": "LIBRARY",
+          "section": "Section-2",
+          "periodId": "P8",
+          "instructor": ""
+        },
+        {
+          "day": "Thu",
+          "code": "LIBRARY",
+          "section": "Section-3",
+          "periodId": "P8",
+          "instructor": ""
+        },
+        {
+          "day": "Mon",
+          "code": "MENTOR",
+          "section": "Section-1",
+          "periodId": "P5",
+          "instructor": ""
+        },
+        {
+          "day": "Wed",
+          "code": "MENTOR",
+          "section": "Section-2",
+          "periodId": "P5",
+          "instructor": ""
+        },
+        {
+          "day": "Fri",
+          "code": "MENTOR",
+          "section": "Section-3",
+          "periodId": "P5",
+          "instructor": ""
+        }
+      ],
+      "_capacityWarnings": []
     }
   ],
   "_editCtx": {
-    "day": "Fri",
+    "day": "Mon",
     "section": "Section-3",
-    "periodId": "P1"
+    "periodId": "P5"
   },
   "universities": [
     {

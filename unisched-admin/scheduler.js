@@ -298,41 +298,35 @@ function generateSingleSchedule(sem) {
       instrRounds[k].labs.push({ code: subj.code, name: subj.name, instructor: subj.instructor, type: (subj.type === 'practice' ? 'practice' : 'lab'), round: i });
   });
 
-  const orderedRounds = [];
+  const allLecs = [];
+  const allLabs = [];
+
   // Sort instructors by total load
   const instrs = Object.keys(instrRounds).sort((a, b) => 
     (instrRounds[b].lecs.length + instrRounds[b].labs.length) - (instrRounds[a].lecs.length + instrRounds[a].labs.length)
   );
 
   instrs.forEach(k => {
-    const { lecs, labs } = instrRounds[k];
-    
-    const codes = [...new Set([...lecs, ...labs].map(x => x.code))];
-    
-    codes.forEach(code => {
-      const subjLecs = lecs.filter(x => x.code === code);
-      const subjLabs = labs.filter(x => x.code === code);
-      
-      if (subjLecs.length > 0 && subjLecs.length === subjLabs.length) {
-        orderedRounds.push(...subjLecs);
-        orderedRounds.push(...subjLabs);
-      } else {
-        const maxLen = Math.max(subjLecs.length, subjLabs.length);
-        for (let i = 0; i < maxLen; i++) {
-          if (i < subjLecs.length) orderedRounds.push(subjLecs[i]);
-          if (i < subjLabs.length) orderedRounds.push(subjLabs[i]);
-        }
-      }
-    });
+    allLecs.push(...instrRounds[k].lecs);
+    allLabs.push(...instrRounds[k].labs);
   });
 
-  // Inject some randomness for the Hill Climbing search
-  for (let i = orderedRounds.length - 1; i > 0; i--) {
+  // Inject some randomness for the Hill Climbing search, but strictly keep lectures before labs
+  for (let i = allLecs.length - 1; i > 0; i--) {
     if (Math.random() < 0.1) {
       const j = Math.floor(Math.random() * (i + 1));
-      [orderedRounds[i], orderedRounds[j]] = [orderedRounds[j], orderedRounds[i]];
+      [allLecs[i], allLecs[j]] = [allLecs[j], allLecs[i]];
     }
   }
+
+  for (let i = allLabs.length - 1; i > 0; i--) {
+    if (Math.random() < 0.1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [allLabs[i], allLabs[j]] = [allLabs[j], allLabs[i]];
+    }
+  }
+
+  const orderedRounds = [...allLecs, ...allLabs];
 
   const unplacedRounds = [];
 
