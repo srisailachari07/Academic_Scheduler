@@ -3650,7 +3650,7 @@ function makeDefaultPlacements(sections) {
     
        ═══════════════════════════════════════ */
 
-    const API = 'http://localhost:3000'; // FORCED LOCALHOST FOR TESTING
+    const API = window.location.port === '3000' ? '' : 'https://academic-scheduler-2wxz.onrender.com';
 
     let _backendOnline = false;
 
