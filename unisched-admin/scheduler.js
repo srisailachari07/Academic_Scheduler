@@ -123,6 +123,43 @@ function canAssignWith(instr, periodId, type, tempPeriods, tempLec, tempPrac, re
   return true;
 }
 
+
+function isValidChronologicalPlacement(schedule, section, code, type, newDay, newPid) {
+  if (type === 'lecture') return true;
+
+  let lecsCount = 0;
+  let labsCount = 0;
+  
+  const allDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const targetDayIdx = allDays.indexOf(newDay);
+  const targetPidIdx = PERIOD_IDS.indexOf(newPid);
+  
+  for (let i = 0; i < allDays.length; i++) {
+    const d = allDays[i];
+    for (let j = 0; j < PERIOD_IDS.length; j++) {
+      const p = PERIOD_IDS[j];
+      
+      const isPastTarget = (i > targetDayIdx) || (i === targetDayIdx && j >= targetPidIdx);
+      
+      if (!isPastTarget) {
+         const slot = schedule[d]?.[section]?.[p];
+         if (slot && slot.code === code) {
+             if (slot.type === 'lecture') lecsCount++;
+             if (slot.type === 'lab' || slot.type === 'practice') labsCount++;
+         }
+      } else {
+         break;
+      }
+    }
+    if (i > targetDayIdx) break;
+  }
+  
+  if (lecsCount < labsCount + 1) {
+    return false;
+  }
+  return true;
+}
+
 function tryBatchOnDay(round, day, schedule, sections, subjects) {
   const n = sections.length;
   let patterns = n >= 3 ? BATCH_PATTERNS_3 : n >= 2 ? BATCH_PATTERNS_2 : PERIOD_IDS.map(p => [p]);
@@ -148,6 +185,7 @@ function tryBatchOnDay(round, day, schedule, sections, subjects) {
       if (subjects && hasMetQuota(schedule, sections[i], round.code, round.type, subjects)) { ok = false; break; }
       if (schedule[day]?.[sections[i]]?.[pids[i]]) { ok = false; break; } 
       if (!canAssignWith(round.instructor, pids[i], round.type, tmpPeriods, tmpLec, tmpPrac, false)) { ok = false; break; }
+      if (!isValidChronologicalPlacement(schedule, sections[i], round.code, round.type, day, pids[i])) { ok = false; break; }
       tmpPeriods = new Set([...tmpPeriods, pids[i]]);
       const isPrac = round.type === 'practice' || round.type === 'lab';
       if (isPrac) tmpPrac++; else tmpLec++;
@@ -334,7 +372,15 @@ function generateSingleSchedule(sem) {
     const daysSorted = [...DAYS].sort((a, b) => {
       const da = getInstrDayData(round.instructor, a, schedule, sections);
       const db = getInstrDayData(round.instructor, b, schedule, sections);
-      return (da.lecCount + da.pracCount) - (db.lecCount + db.pracCount);
+      const loadDiff = (da.lecCount + da.pracCount) - (db.lecCount + db.pracCount);
+      if (loadDiff !== 0) return loadDiff;
+      
+      // If loads are equal, heavily bias Lectures to earlier days, and Labs to later days
+      if (round.type === 'lecture') {
+        return DAYS.indexOf(a) - DAYS.indexOf(b);
+      } else {
+        return DAYS.indexOf(b) - DAYS.indexOf(a);
+      }
     });
 
     let placed = false;
